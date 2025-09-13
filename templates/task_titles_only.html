@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>All Task Titles</title>
+</head>
+<body>
+    <h1>Task Titles</h1>
+    <ul>
+        {% for task in tasks %}
+            <li>{{ task.title }}</li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'tasks:task_list' %}">← Back to Full Task List</a>
+</body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>User Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #2d2d2d;
+            color: white;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .container {
+            padding: 30px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+        .box {
+            background: white;
+            width: 45%;
+            margin: 15px;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        h2 {
+            margin-top: 0;
+            color: #333;
+        }
+        a {
+            text-decoration: none;
+            color: #007bff;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        .nav a {
+            margin-left: 15px;
+            color: #fff;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Welcome, {{ user.username }}</h1>
+    <div class="nav">
+        <a href="{% url 'logout' %}">Logout</a>
+        <a href="{% url 'profile' %}">Profile</a>
+        <a href="{% url 'wallet:wallet_home' %}">Wallet</a>
+    </div>
+</header>
+
+<div class="container">
+
+    <!-- Daily Offers -->
+    <div class="box">
+        <h2>📅 Daily Offers</h2>
+        <a href="{% url 'systemsetting:daily_offer_list' %}">My Offer Logs</a>
+    </div>
+
+    <!-- Daily Tasks -->
+    <div class="box">
+        <h2>✅ Daily Tasks</h2>
+        <a href="{% url 'tasks:task_list' %}">View All Tasks</a>
+    </div>
+
+</div>
+
+</body>
+</html>

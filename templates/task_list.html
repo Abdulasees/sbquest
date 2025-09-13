@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Task List</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+
+        .message {
+            text-align: center;
+            font-size: 18px;
+            color: #555;
+            margin: 20px 0;
+            padding: 12px 20px;
+            border-radius: 8px;
+            background-color: #e9ecef; /* light grey */
+            border: 1px solid #ced4da;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+            background-color: white;
+        }
+
+        th, td {
+            border: 1px solid #ccc;
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f0f0f0;
+        }
+
+        .start-btn, .done-label {
+            padding: 8px 16px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .start-btn {
+            background-color: #28a745;
+            color: white;
+        }
+
+        .start-btn:hover {
+            background-color: #218838;
+        }
+
+        .done-label {
+            background-color: #6c757d;
+            color: white;
+        }
+
+        .center {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Available Tasks</h1>
+
+    {% if tasks %}
+        <div class="message">You have {{ tasks|length }} available task{% if tasks|length > 1 %}s{% endif %} for this slot.</div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Reward</th>
+                    <th>Status</th>
+                    <th class="center">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for task in tasks %}
+                    <tr>
+                        <td>{{ task.title }}</td>
+                        <td>{{ task.reward_sb }}</td>
+                        <td>
+                            {% if task in attempted_tasks %}
+                                Completed
+                            {% else %}
+                                Not Attempted
+                            {% endif %}
+                        </td>
+                        <td class="center">
+                            {% if task in attempted_tasks %}
+                                <span class="done-label">Done</span>
+                            {% else %}
+                                <a href="{% url 'tasks:submit_task' task.id %}" class="start-btn">Start</a>
+                            {% endif %}
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <div class="message">No tasks available at the moment. Please check back later!</div>
+    {% endif %}
+
+</body>
+</html>

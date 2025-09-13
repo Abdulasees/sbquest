@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ task.title }} | Quiz</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #eef1f5;
+            padding: 40px;
+        }
+        .container {
+            background: #fff;
+            padding: 30px;
+            max-width: 700px;
+            margin: auto;
+            border-radius: 12px;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+            animation: fadeIn 0.5s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from {opacity: 0; transform: translateY(10px);}
+            to {opacity: 1; transform: translateY(0);}
+        }
+        h1 {
+            text-align: center;
+            color: #1a1a1a;
+            margin-bottom: 25px;
+            font-size: 26px;
+        }
+        .question-number {
+            font-size: 15px;
+            color: #555;
+            text-align: right;
+            margin-bottom: 10px;
+        }
+        .question-box {
+            background: linear-gradient(135deg, #007bff, #0056b3);
+            color: white;
+            padding: 18px;
+            font-size: 20px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            font-weight: bold;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.15);
+        }
+        .answers label {
+            display: block;
+            background: #f8f9fa;
+            padding: 12px;
+            margin-bottom: 12px;
+            border-radius: 6px;
+            font-size: 17px;
+            transition: all 0.2s ease-in-out;
+            cursor: pointer;
+            border: 1px solid #ddd;
+        }
+        .answers label:hover {
+            background: #e0f0ff;
+            border-color: #007bff;
+        }
+        input[type="radio"] {
+            margin-right: 10px;
+        }
+        .btn {
+            background-color: #28a745;
+            color: white;
+            padding: 10px 20px;
+            margin-top: 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        .btn:hover {
+            background-color: #218838;
+        }
+        .btn-secondary {
+            background-color: #6c757d;
+        }
+        .btn-secondary:hover {
+            background-color: #5a6268;
+        }
+        .nav-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 15px;
+        }
+        .back-link {
+            display: block;
+            margin-top: 30px;
+            text-align: center;
+            color: #007bff;
+            text-decoration: none;
+            clear: both;
+        }
+        .back-link:hover {
+            text-decoration: underline;
+        }
+        .error-message {
+            color: red;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+        .answer-image {
+            max-width: 150px;
+            display: block;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>{{ task.title }}</h1>
+
+    {% if quiz %}
+        <div class="question-number">
+            Question {{ question_number }} of {{ total_questions }}
+        </div>
+
+        <div class="question-box">
+            {{ question.text }}
+            {% if question.image %}
+                <img src="{{ question.image.url }}" alt="Question image" style="max-width:300px; display:block; margin-top:10px;">
+            {% endif %}
+        </div>
+
+        {% if error %}
+            <div class="error-message">{{ error }}</div>
+        {% endif %}
+
+        <form method="post">
+            {% csrf_token %}
+            <div class="answers">
+                {% for answer in answers %}
+                    <label>
+                        <input type="radio" name="answer" value="{{ answer.id }}" 
+                            {% if previous_selection == answer.id %}checked{% endif %}>
+                        {{ answer.text }}
+                        {% if answer.image %}
+                            <img src="{{ answer.image.url }}" alt="Answer image" class="answer-image">
+                        {% endif %}
+                    </label>
+                {% endfor %}
+            </div>
+
+            <div class="nav-buttons">
+                {% if question_number > 1 %}
+                    <button type="submit" name="back" class="btn btn-secondary">← Back</button>
+                {% else %}
+                    <span></span>
+                {% endif %}
+
+                {% if question_number < total_questions %}
+                    <button type="submit" name="next" class="btn">Next →</button>
+                {% else %}
+                    <button type="submit" name="finish" class="btn">Finish Quiz</button>
+                {% endif %}
+            </div>
+        </form>
+    {% else %}
+        <p style="text-align:center; color:#777;"><em>No quiz linked to this task.</em></p>
+    {% endif %}
+
+    <a href="{% url 'tasks:task_list' %}" class="back-link">← Back to Task List</a>
+</div>
+
+</body>
+</html>

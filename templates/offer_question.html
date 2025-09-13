@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ offer.title }} - Question {{ question_index|add:1 }} of {{ total_questions }}</title>
+    <style>
+        body { font-family: Arial; background-color: #f5f5f5; padding: 20px; }
+        .container { max-width: 700px; margin: auto; background: white; padding: 30px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        h1 { margin-bottom: 5px; font-size: 22px; }
+        .reward { font-size: 14px; color: #28a745; margin-bottom: 15px; font-weight: bold; }
+        h2 { margin-bottom: 15px; font-size: 18px; color: #333; }
+
+        .question-text { margin-bottom: 10px; }
+        .question-image { margin-bottom: 15px; max-width: 100%; border-radius: 6px; }
+
+        .answers label { 
+            display: block; 
+            padding: 10px; 
+            border: 1px solid #ddd; 
+            border-radius: 5px; 
+            margin-bottom: 10px; 
+            background: #fafafa; 
+            cursor: pointer; 
+            transition: 0.2s;
+        }
+        .answers input[type="radio"] { display: none; }
+        .answers input[type="radio"]:checked + .answer-content {
+            background: #d1ecf1; 
+            border-color: #17a2b8; 
+            font-weight: bold;
+        }
+        .answer-content {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .answer-content img {
+            max-width: 120px;
+            border-radius: 5px;
+        }
+
+        .navigation { display: flex; justify-content: space-between; margin-top: 20px; }
+        .navigation button { padding: 10px 20px; border: none; background-color: #3498db; color: white; border-radius: 5px; cursor: pointer; }
+        .navigation button:disabled { background-color: #ccc; cursor: not-allowed; }
+        .navigation button:hover:enabled { background-color: #2980b9; }
+    </style>
+    <script>
+        function enableNext() {
+            const nextBtn = document.getElementById("nextBtn");
+            nextBtn.disabled = false;
+        }
+    </script>
+</head>
+<body>
+<div class="container">
+    <h1>{{ offer.title }}</h1>
+    <div class="reward">Reward: {{ offer.reward_sb }} SB</div>
+
+    <h2>Question {{ question_index|add:1 }} of {{ total_questions }}</h2>
+
+    {% if question.question_text %}
+        <p class="question-text">{{ question.question_text }}</p>
+    {% endif %}
+
+    {% if question.question_image %}
+        <img class="question-image" src="{{ question.question_image.url }}" alt="Question Image">
+    {% endif %}
+
+    <form method="POST" action="{% url 'systemsetting:claim_offer' offer.id question_index %}">
+        {% csrf_token %}
+        <div class="answers">
+            {% for answer in answers %}
+                <label>
+                    <input type="radio" name="answer" value="{{ answer.id }}" onchange="enableNext()">
+                    <div class="answer-content">
+                        {% if answer.answer_text %}
+                            <span>{{ answer.answer_text }}</span>
+                        {% endif %}
+                        {% if answer.answer_image %}
+                            <img src="{{ answer.answer_image.url }}" alt="Answer Image">
+                        {% endif %}
+                    </div>
+                </label>
+            {% endfor %}
+        </div>
+
+        <div class="navigation">
+            {% if question_index > 0 %}
+                <button type="submit" name="action" value="prev">Previous</button>
+            {% else %}
+                <button type="submit" name="action" value="prev" disabled>Previous</button>
+            {% endif %}
+
+            {% if question_index < total_questions|add:-1 %}
+                <button type="submit" id="nextBtn" name="action" value="next" disabled>Next</button>
+            {% else %}
+                <button type="submit" id="nextBtn" name="action" value="finish" disabled>Finish</button>
+            {% endif %}
+        </div>
+    </form>
+</div>
+</body>
+</html>

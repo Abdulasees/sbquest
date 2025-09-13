@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Quiz Result</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            background: #f2f2f2;
+            padding: 30px;
+        }
+        .result-container {
+            background: white;
+            padding: 25px;
+            max-width: 800px;
+            margin: auto;
+            border-radius: 6px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h2 {
+            text-align: center;
+        }
+        .score {
+            font-size: 20px;
+            text-align: center;
+            margin: 15px 0;
+            font-weight: bold;
+        }
+        .reward {
+            text-align: center;
+            margin: 15px 0;
+            font-size: 18px;
+            color: #007bff;
+            font-weight: bold;
+        }
+        .question-block {
+            margin: 20px 0;
+            padding: 15px;
+            border-bottom: 1px solid #ddd;
+        }
+        .question-block img {
+            max-width: 100%;
+            margin-top: 10px;
+            border-radius: 6px;
+        }
+        .answer {
+            margin: 5px 0;
+        }
+        .correct {
+            color: green;
+            font-weight: bold;
+        }
+        .wrong {
+            color: red;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+<div class="result-container">
+    <h2>{{ quiz.title }} - Results</h2>
+    <p class="score">You scored {{ score }} out of {{ total }}</p>
+
+    {% if points_earned %}
+        <p class="reward">🎉 You earned {{ points_earned }} SB!</p>
+        <p class="reward">💰 Your total balance: {{ total_points }} SB</p>
+    {% endif %}
+
+    {% for qa in results %}
+        <div class="question-block">
+            <p><strong>Q{{ forloop.counter }}. {{ qa.question.text }}</strong></p>
+            {% if qa.question.image %}
+                <img src="{{ qa.question.image.url }}" alt="Question image">
+            {% endif %}
+
+            <div class="answer {% if qa.is_correct %}correct{% else %}wrong{% endif %}">
+                Your answer: 
+                {% if qa.selected_answer.text %}
+                    {{ qa.selected_answer.text }}
+                {% endif %}
+                {% if qa.selected_answer.image %}
+                    <img src="{{ qa.selected_answer.image.url }}" alt="Your answer image">
+                {% endif %}
+            </div>
+
+            {% if not qa.is_correct %}
+                <div class="answer correct">
+                    Correct answer: 
+                    {% if qa.correct_answer.text %}
+                        {{ qa.correct_answer.text }}
+                    {% endif %}
+                    {% if qa.correct_answer.image %}
+                        <img src="{{ qa.correct_answer.image.url }}" alt="Correct answer image">
+                    {% endif %}
+                </div>
+            {% endif %}
+        </div>
+    {% endfor %}
+</div>
+
+</body>
+</html>
