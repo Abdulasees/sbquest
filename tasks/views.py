@@ -116,7 +116,11 @@ def task_detail(request, pk):
     quiz = task.quiz
 
     if not quiz:
-        return render(request, "task_detail.html", {"task": task, "quiz": None, "questions": None})
+        return render(
+            request,
+            "task_detail.html",
+            {"task": task, "quiz": None, "questions": None}
+        )
 
     questions = list(quiz.questions.all())
     total_questions = len(questions)
@@ -126,6 +130,11 @@ def task_detail(request, pk):
     error = None
 
     if request.method == "POST":
+        # ✅ NEW: Handle Back button
+        if "back" in request.POST:
+            prev_index = max(0, q_index - 1)
+            return redirect(f"{request.path}?q={prev_index}")
+
         selected_answer_id = request.POST.get("answer")
         if selected_answer_id:
             selected_answer = current_question.answers.get(id=selected_answer_id)

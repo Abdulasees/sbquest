@@ -139,6 +139,15 @@ def claim_offer(request, offer_id, question_index=0):
     answers = current_question.answers.all()
 
     if request.method == "POST":
+        action = request.POST.get("action")
+
+        # 🔹 Handle Previous directly (no validation)
+        if action == "prev":
+            if question_index > 0:
+                return redirect("systemsetting:claim_offer", offer_id=offer.id, question_index=question_index - 1)
+            return redirect("systemsetting:claim_offer", offer_id=offer.id, question_index=0)
+
+        # 🔹 For Next/Finish, validate answer
         selected_answer_id = request.POST.get("answer")
         if selected_answer_id:
             try:
@@ -154,8 +163,8 @@ def claim_offer(request, offer_id, question_index=0):
                 messages.error(request, "❌ Wrong answer! Try again.")
                 return redirect("systemsetting:claim_offer", offer_id=offer.id, question_index=question_index)
 
-            if question_index == total_questions - 1:
-                # ✅ Complete assignment and give reward
+            # 🔹 If last question → finish
+            if action == "finish" and question_index == total_questions - 1:
                 with transaction.atomic():
                     assignment = DailyOfferAssignment.objects.select_for_update().get(id=assignment.id)
                     assignment.completed = True
@@ -175,8 +184,9 @@ def claim_offer(request, offer_id, question_index=0):
 
                 return redirect("systemsetting:daily_offer_list")
 
-            messages.success(request, "✅ Correct! Next question.")
-            return redirect("systemsetting:claim_offer", offer_id=offer.id, question_index=question_index + 1)
+            # 🔹 Otherwise go Next
+            if action == "next":
+                return redirect("systemsetting:claim_offer", offer_id=offer.id, question_index=question_index + 1)
 
     return render(request, "offer_question.html", {
         "offer": offer,

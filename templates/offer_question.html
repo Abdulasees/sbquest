@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html>
 <head>
     <title>{{ offer.title }} - Question {{ question_index|add:1 }} of {{ total_questions }}</title>
@@ -42,12 +42,92 @@
         .navigation button { padding: 10px 20px; border: none; background-color: #3498db; color: white; border-radius: 5px; cursor: pointer; }
         .navigation button:disabled { background-color: #ccc; cursor: not-allowed; }
         .navigation button:hover:enabled { background-color: #2980b9; }
+
+        /* error message style */
+        .error-box {
+            display: none;
+            color: #dc3545;
+            font-weight: bold;
+            margin-bottom: 12px;
+        }
     </style>
     <script>
+        // called by radio onchange in template
         function enableNext() {
             const nextBtn = document.getElementById("nextBtn");
-            nextBtn.disabled = false;
+            if (nextBtn) nextBtn.disabled = false;
+
+            // hide any error message when user changes selection
+            const err = document.getElementById("errorBox");
+            if (err) err.style.display = "none";
         }
+
+        document.addEventListener('DOMContentLoaded', function () {
+            const form = document.querySelector('form');
+            if (!form) return;
+
+            // track which action button was clicked (prev/next/finish)
+            let lastAction = null;
+            const actionButtons = form.querySelectorAll('button[name="action"]');
+            actionButtons.forEach(btn => {
+                btn.addEventListener('click', function (ev) {
+                    lastAction = this.value;
+                    // allow normal flow to continue; validation will run in submit handler
+                });
+            });
+
+            form.addEventListener('submit', function (ev) {
+                // Determine which action is intended
+                // fallback: if lastAction not set, check form data
+                const formData = new FormData(form);
+                let action = lastAction || formData.get('action') || 'next';
+
+                // If action is "prev", allow submit (previous should work when enabled)
+                if (action === 'prev') {
+                    // allow submit — server will handle whether previous exists or not
+                    return true;
+                }
+
+                // For next / finish, validate selection and correctness
+                const selected = form.querySelector('input[name="answer"]:checked');
+                const errorBox = document.getElementById('errorBox');
+
+                if (!selected) {
+                    ev.preventDefault();
+                    if (errorBox) {
+                        errorBox.innerText = "Please select an answer before continuing.";
+                        errorBox.style.display = "block";
+                        errorBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    } else {
+                        alert("Please select an answer before continuing.");
+                    }
+                    return false;
+                }
+
+                // dataset.correct may be "True"/"False" depending on Django rendering; normalize check
+                function isCorrectRadio(radio) {
+                    const v = (radio.dataset.correct || '').toString().trim();
+                    return v === 'True' || v === 'true' || v === '1' || v === 'yes' || v === 'on';
+                }
+
+                if (!isCorrectRadio(selected)) {
+                    ev.preventDefault();
+                    if (errorBox) {
+                        errorBox.innerText = "Incorrect! Please select the correct answer to continue.";
+                        errorBox.style.display = "block";
+                        errorBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    } else {
+                        alert("Incorrect! Please select the correct answer to continue.");
+                    }
+                    return false;
+                }
+
+                // selected is correct — allow submit to proceed
+                // (no need to hide error here, but hide if present)
+                if (errorBox) errorBox.style.display = "none";
+                return true;
+            });
+        });
     </script>
 </head>
 <body>
@@ -67,10 +147,15 @@
 
     <form method="POST" action="{% url 'systemsetting:claim_offer' offer.id question_index %}">
         {% csrf_token %}
+
+        <!-- Error box shown above all answers -->
+        <div id="errorBox" class="error-box">Incorrect! Please select the correct answer to continue.</div>
+
         <div class="answers">
             {% for answer in answers %}
                 <label>
-                    <input type="radio" name="answer" value="{{ answer.id }}" onchange="enableNext()">
+                    <!-- added data-correct so JS can check correctness -->
+                    <input type="radio" name="answer" value="{{ answer.id }}" data-correct="{{ answer.is_correct }}" onchange="enableNext()">
                     <div class="answer-content">
                         {% if answer.answer_text %}
                             <span>{{ answer.answer_text }}</span>

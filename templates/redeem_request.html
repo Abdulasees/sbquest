@@ -2,14 +2,14 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Redeem SB</title>
+    <title>Redeem SB Points</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             padding: 30px;
             background-color: #f7f7f7;
         }
-        h2 {
+        h2, h3 {
             color: #333;
         }
         .balance-box, .form-box, .history-box {
@@ -50,10 +50,14 @@
         .pending { background-color: #ffc107; }
         .approved { background-color: #28a745; }
         .rejected { background-color: #dc3545; }
-        .sb-info {
+        .info {
             font-size: 16px;
             margin-bottom: 15px;
             color: #2196F3;
+        }
+        .error {
+            color: red;
+            font-weight: bold;
         }
     </style>
 </head>
@@ -62,18 +66,26 @@
     <h2>Redeem SB Balance</h2>
 
     <div class="balance-box">
-        <p><strong>Your Current Balance:</strong> {{ total_balance }} SB</p>
-        <p class="sb-info">Equivalent Money: {{ total_money }} units</p>
+        <p><strong>Your Current Balance:</strong> {{ total_sb }} SB Points</p>
+        <p class="info">Equivalent Money: ₹ {{ total_money|floatformat:2 }}</p>
+        <p class="info">Minimum Redeemable Amount: ₹ {{ MIN_REDEEM_AMOUNT }}</p>
     </div>
 
     <div class="form-box">
         <h3>Submit a Redeem Request</h3>
+
+        {% if error %}
+            <p class="error">{{ error }}</p>
+        {% endif %}
+
         <form method="post">
             {% csrf_token %}
             <label for="amount">Amount to Redeem (Money Units):</label>
-            <input type="number" name="amount" id="amount" required min="1" max="{{ total_money }}" step="0.01">
-
-            <p class="sb-info">SB points required will be calculated automatically.</p>
+            <input type="number" name="amount" id="amount" required
+                   min="{{ MIN_REDEEM_AMOUNT }}"
+                   max="{{ total_money|floatformat:2 }}"
+                   step="0.01"
+                   placeholder="Enter amount to redeem">
 
             <label for="upi_id">Your UPI ID:</label>
             <input type="text" name="upi_id" id="upi_id" required placeholder="example@upi">
@@ -99,12 +111,10 @@
                 {% for tx in transactions %}
                     {% if tx.transaction_type == 'redeem_request' %}
                     <tr>
-                        <td>{{ tx.amount|floatformat:2|abs }}</td>
-                        <td>{{ (tx.amount|abs) / 0.1 }}</td>
+                        <td>{{ tx.display_money|floatformat:2 }}</td>
+                        <td>{{ tx.sb_deducted }}</td>
                         <td>{{ tx.upi_id }}</td>
-                        <td>
-                            <span class="status {{ tx.status }}">{{ tx.status|capfirst }}</span>
-                        </td>
+                        <td><span class="status {{ tx.status }}">{{ tx.status|capfirst }}</span></td>
                         <td>{{ tx.timestamp|date:"Y-m-d H:i" }}</td>
                     </tr>
                     {% endif %}
