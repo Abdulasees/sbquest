@@ -1,21 +1,25 @@
 from pathlib import Path
 import os
 
-# Build paths inside the project like this: BASE_DIR / 'subdir'.
+# ---------------------------
+# Base Directory
+# ---------------------------
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-g748z&onbb5p0+o9ncs-ku_os_ozbk^pon65uioexu@!9mwf)o'
+# ---------------------------
+# Security Settings
+# ---------------------------
+# Use environment variable for SECRET_KEY in production
+SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'django-insecure-dev-key')  # Dev fallback
 
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False  # Must be False in production
 
-ALLOWED_HOSTS = ['sbquest.in', 'www.sbquest.in', 'abdulazeez.pythonanywhere.com']
+# Restrict hosts to your domain only
+ALLOWED_HOSTS = ['sbquest.in', 'www.sbquest.in']
 
-
-# 
-
-# Application definition
+# ---------------------------
+# Application Definition
+# ---------------------------
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -47,10 +51,13 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'sbquest.urls'
 
+# ---------------------------
+# Templates
+# ---------------------------
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'templates')],  # You can place your HTML templates here
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -65,7 +72,9 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'sbquest.wsgi.application'
 
-# Database
+# ---------------------------
+# Database (production-ready)
+# ---------------------------
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
@@ -73,10 +82,10 @@ DATABASES = {
     }
 }
 
-# Custom User model
-AUTH_USER_MODEL = 'users.User'
 
-# Password validation
+# ---------------------------
+# Password Validation
+# ---------------------------
 AUTH_PASSWORD_VALIDATORS = [
     {'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator'},
     {'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator'},
@@ -84,29 +93,67 @@ AUTH_PASSWORD_VALIDATORS = [
     {'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator'},
 ]
 
+# ---------------------------
 # Internationalization
+# ---------------------------
 LANGUAGE_CODE = 'en-us'
 TIME_ZONE = 'Asia/Kolkata'
 USE_I18N = True
 USE_TZ = True
 
-# Static files (CSS, JavaScript, Images)
+# ---------------------------
+# Static & Media Files
+# ---------------------------
 STATIC_URL = '/static/'
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static'),  # You must ensure this directory exists
-]
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')  # For collectstatic in production
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
-# Media files (user uploads like images)
 MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')  # You must ensure this directory exists
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
-# Default primary key field type
-DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
-# Authentication settings
+# ---------------------------
+# Authentication
+# ---------------------------
+AUTH_USER_MODEL = 'users.User'
 LOGIN_URL = '/users/login/'
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
 
+# ---------------------------
+# Security Enhancements
+# ---------------------------
+SECURE_SSL_REDIRECT = True
+SESSION_COOKIE_SECURE = True
+CSRF_COOKIE_SECURE = True
+SECURE_HSTS_SECONDS = 31536000
+SECURE_HSTS_INCLUDE_SUBDOMAINS = True
+SECURE_HSTS_PRELOAD = True
+X_FRAME_OPTIONS = 'DENY'
+SECURE_BROWSER_XSS_FILTER = True
+SECURE_CONTENT_TYPE_NOSNIFF = True
+
+# ---------------------------
+# Data Upload
+# ---------------------------
 DATA_UPLOAD_MAX_NUMBER_FIELDS = 5000
+
+# ---------------------------
+# Logging
+# ---------------------------
+LOGGING = {
+    'version': 1,
+    'handlers': {
+        'file': {
+            'level': 'WARNING',
+            'class': 'logging.FileHandler',
+            'filename': os.path.join(BASE_DIR, 'django_warnings.log'),
+        },
+    },
+    'loggers': {
+        'django': {
+            'handlers': ['file'],
+            'level': 'WARNING',
+            'propagate': True,
+        },
+    },
+}
