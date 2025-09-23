@@ -10,7 +10,9 @@ SECRET_KEY = 'django-insecure-g748z&onbb5p0+o9ncs-ku_os_ozbk^pon65uioexu@!9mwf)o
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['abdulazeez.pythonanywhere.com']
+ALLOWED_HOSTS = ['sbquest.in', 'www.sbquest.in', 'abdulazeez.pythonanywhere.com']
+
+
 # 
 
 # Application definition
