@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Contact Us - SB Quest</title>
+    <style>
+        body { font-family: Arial, sans-serif; background: #f4f4f4; margin: 0; padding: 0; }
+        header, footer { background: #2d2d2d; color: white; padding: 20px; text-align: center; }
+        main { padding: 30px; max-width: 600px; margin: auto; background: white; border-radius: 8px; }
+        input, textarea { width: 100%; padding: 10px; margin-top: 10px; border-radius: 5px; border: 1px solid #ccc; }
+        button { padding: 10px 20px; margin-top: 15px; background: #007bff; color: white; border: none; cursor: pointer; border-radius: 5px; }
+        h1 { color: #333; }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Contact SB Quest</h1>
+</header>
+
+<main>
+    <h2>Get in Touch</h2>
+    <form method="post">
+        {% csrf_token %}
+        <input type="text" name="name" placeholder="Your Name" required>
+        <input type="email" name="email" placeholder="Your Email" required>
+        <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+        <button type="submit">Send Message</button>
+    </form>
+</main>
+
+<footer>
+    &copy; 2025 SB Quest
+</footer>
+
+</body>
+</html>
