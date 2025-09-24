@@ -5,6 +5,7 @@ from systemsetting.models import DailyOffer
 from wallet.models import WalletTransaction
 from django.db.models import Sum
 
+
 @login_required
 def home_view(request):
     user = request.user
@@ -43,3 +44,32 @@ def home_view(request):
         'total_sb': total_sb,
         'recent_transactions': recent_transactions
     })
+
+
+# ---------------------------
+# Static/Public Pages (for AdSense and SEO)
+# ---------------------------
+
+def about_view(request):
+    return render(request, 'about.html')
+
+def contact_view(request):
+    return render(request, 'contact.html')
+
+def privacy_policy_view(request):
+    return render(request, 'privacy_policy.html')
+
+def terms_conditions_view(request):
+    return render(request, 'terms_conditions.html')
+
+def faq_view(request):
+    return render(request, 'faq.html')
+
+def how_it_works_view(request):
+    return render(request, 'how_it_works.html')
+
+def community_guidelines_view(request):
+    return render(request, 'community_guidelines.html')
+
+def rewards_policy_view(request):
+    return render(request, 'rewards_policy.html')

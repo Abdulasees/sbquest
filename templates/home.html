@@ -1,7 +1,11 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>User Dashboard</title>
+    <meta charset="UTF-8">
+    <title>User Dashboard - SBQuest</title>
+    <meta name="description" content="Dashboard for SBQuest users. View daily tasks, offers, and manage your rewards.">
+    <meta name="keywords" content="SBQuest, rewards, daily tasks, daily offers, points, dashboard">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -16,6 +20,20 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            flex-wrap: wrap;
+        }
+        header h1 {
+            font-size: 1.5em;
+            margin: 0;
+        }
+        .nav a {
+            margin-left: 15px;
+            color: #fff;
+            cursor: pointer;
+            text-decoration: none;
+        }
+        .nav a:hover {
+            text-decoration: underline;
         }
         .container {
             padding: 30px;
@@ -26,6 +44,7 @@
         .box {
             background: white;
             width: 45%;
+            min-width: 280px;
             margin: 15px;
             padding: 20px;
             border-radius: 8px;
@@ -42,10 +61,16 @@
         a:hover {
             text-decoration: underline;
         }
-        .nav a {
-            margin-left: 15px;
-            color: #fff;
-            cursor: pointer;
+        ul {
+            padding-left: 20px;
+        }
+        ul li {
+            margin: 5px 0;
+        }
+        ul li:hover {
+            background: #f0f0f0;
+            border-radius: 5px;
+            padding: 3px;
         }
     </style>
 </head>
@@ -54,9 +79,12 @@
 <header>
     <h1>Welcome, {{ user.username }}</h1>
     <div class="nav">
-        <a href="{% url 'logout' %}">Logout</a>
+        <a href="{% url 'home_view' %}">Home</a>
         <a href="{% url 'profile' %}">Profile</a>
         <a href="{% url 'wallet:wallet_home' %}">Wallet</a>
+        <a href="{% url 'logout' %}">Logout</a>
+        <a href="{% url 'about' %}">About</a>
+        <a href="{% url 'contact' %}">Contact</a>
     </div>
 </header>
 
@@ -65,14 +93,48 @@
     <!-- Daily Offers -->
     <div class="box">
         <h2>📅 Daily Offers</h2>
+        {% if offers %}
+            <ul>
+                {% for offer in offers %}
+                    <li>{{ offer.title }}</li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>No daily offers available today.</p>
+        {% endif %}
         <a href="{% url 'systemsetting:daily_offer_list' %}">My Offer Logs</a>
     </div>
 
     <!-- Daily Tasks -->
     <div class="box">
         <h2>✅ Daily Tasks</h2>
+        {% if tasks %}
+            <ul>
+                {% for task in tasks %}
+                    <li>{{ task.title }}</li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>No daily tasks available today.</p>
+        {% endif %}
         <a href="{% url 'tasks:task_list' %}">View All Tasks</a>
     </div>
+
+ <!-- Quick Links Section -->
+<div class="box" style="background-color: #2d2d2d; width: 100%; color: white; padding: 20px; border-radius: 8px;">
+    <ul style="list-style-type: none; padding-left: 0; display: flex; flex-wrap: wrap; gap: 15px; margin: 0;">
+        <li><a href="{% url 'about' %}" style="color: #ffffff; text-decoration: none; font-weight: 500;">About Us</a></li>
+        <li><a href="{% url 'contact' %}" style="color: #ffffff; text-decoration: none; font-weight: 500;">Contact</a></li>
+        <li><a href="{% url 'privacy_policy' %}" style="color: #ffffff; text-decoration: none; font-weight: 500;">Privacy Policy</a></li>
+        <li><a href="{% url 'terms_conditions' %}" style="color: #ffffff; text-decoration: none; font-weight: 500;">Terms & Conditions</a></li>
+        <li><a href="{% url 'faq' %}" style="color: #ffffff; text-decoration: none; font-weight: 500;">FAQ</a></li>
+        <li><a href="{% url 'how_it_works' %}" style="color: #ffffff; text-decoration: none; font-weight: 500;">How It Works</a></li>
+        <li><a href="{% url 'community_guidelines' %}" style="color: #ffffff; text-decoration: none; font-weight: 500;">Community Guidelines</a></li>
+        <li><a href="{% url 'rewards_policy' %}" style="color: #ffffff; text-decoration: none; font-weight: 500;">Rewards Policy</a></li>
+    </ul>
+</div>
+
+
 
 </div>
 

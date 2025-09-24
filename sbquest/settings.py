@@ -10,12 +10,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # Security Settings
 # ---------------------------
 # Use environment variable for SECRET_KEY in production
-SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'django-insecure-dev-key')  # Dev fallback
+SECRET_KEY = os.environ['DJANGO_SECRET_KEY']  # Must be set on PythonAnywhere
 
 DEBUG = False  # Must be False in production
 
-# Restrict hosts to your domain only
-ALLOWED_HOSTS = ['sbquest.in', 'www.sbquest.in']
+# Only allow your domain(s)
+ALLOWED_HOSTS = ['sbquest.in', 'www.sbquest.in', 'yourusername.pythonanywhere.com']
 
 # ---------------------------
 # Application Definition
@@ -77,11 +77,10 @@ WSGI_APPLICATION = 'sbquest.wsgi.application'
 # ---------------------------
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.sqlite3',  # Use PostgreSQL for heavy production
+        'NAME': BASE_DIR / 'db' / 'db.sqlite3',  # Store outside repo for security
     }
 }
-
 
 # ---------------------------
 # Password Validation
