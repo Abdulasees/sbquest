@@ -1,0 +1,14 @@
+[
+  {
+    "id": 1,
+    "title": "Complete tutorial",
+    "points": 10,
+    "description": "Finish the Python tutorial."
+  },
+  {
+    "id": 2,
+    "title": "Upload report",
+    "points": 15,
+    "description": "Submit your weekly report."
+  }
+]
