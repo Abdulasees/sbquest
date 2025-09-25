@@ -15,7 +15,7 @@ def contact_form_view(request):
         if name and email and subject and message:
             ContactMessage.objects.create(name=name, email=email, subject=subject, message=message)
             messages.success(request, "Message sent successfully!")
-            return redirect('contact')
+            return redirect('contact_form')
         else:
             messages.error(request, "All fields are required.")
 
