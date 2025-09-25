@@ -16,13 +16,16 @@ class ContactMessageAdmin(admin.ModelAdmin):
             obj.replied_at = timezone.now()
             super().save_model(request, obj, form, change)
 
-            # Send email to user
-            send_mail(
-                subject=f"Reply to your message: {obj.subject}",
-                message=obj.reply,
-                from_email=settings.DEFAULT_FROM_EMAIL,
-                recipient_list=[obj.email],
-                fail_silently=False,
-            )
+            # Try sending email, but don’t crash if it fails
+            try:
+                send_mail(
+                    subject=f"Reply to your message: {obj.subject}",
+                    message=obj.reply,
+                    from_email=settings.DEFAULT_FROM_EMAIL,
+                    recipient_list=[obj.email],
+                    fail_silently=True,  # prevents 500 errors
+                )
+            except Exception as e:
+                print("Email sending failed:", e)
         else:
             super().save_model(request, obj, form, change)
