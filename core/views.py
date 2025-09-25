@@ -53,8 +53,8 @@ def home_view(request):
 def about_view(request):
     return render(request, 'about.html')
 
-def contact_view(request):
-    return render(request, 'contact.html')
+# def contact_view(request):
+#     return render(request, 'contact.html')
 
 def privacy_policy_view(request):
     return render(request, 'privacy_policy.html')
