@@ -1,29 +1,7 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Rewards Policy - SB Quest</title>
-    <style>
-        body { font-family: Arial, sans-serif; background: #f4f4f4; margin: 0; padding: 0; }
-        header, footer { background: #2d2d2d; color: white; padding: 20px; text-align: center; }
-        main { padding: 30px; max-width: 800px; margin: auto; background: white; border-radius: 8px; }
-        h1, h2 { color: #333; }
-        p, ul { line-height: 1.6; }
-        ul { margin-left: 20px; }
-    </style>
-</head>
-<body>
+{% extends 'base_public.html' %}
 
-<header>
-    <h1>Rewards Policy</h1>
-</header>
+{% block content %}
+<h1>Rewards Policy</h1>
 
-<main>
-    <p>SB Quest rewards users with SB points for completing tasks and offers. All points are subject to verification. Misuse, fraud, or violation of guidelines may result in forfeiture of rewards.</p>
-</main>
-
-<footer>
-    &copy; 2025 SB Quest
-</footer>
-
-</body>
-</html>
+<p>SB Quest rewards users with SB points for completing tasks and offers. All points are subject to verification. Misuse, fraud, or violation of guidelines may result in forfeiture of rewards.</p>
+{% endblock %}

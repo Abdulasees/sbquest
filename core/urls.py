@@ -3,7 +3,9 @@ from . import views
 
 urlpatterns = [
     # Dashboard / home (login required)
-    path('', views.home_view, name='home_view'),
+    path('', views.public_home_view, name='public_home'), 
+    
+    path('dashboard/', views.home_view, name='home_view'),
 
     # Public pages for SEO & AdSense
     path('about/', views.about_view, name='about'),

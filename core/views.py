@@ -48,7 +48,12 @@ def home_view(request):
 
 # ---------------------------
 # Static/Public Pages (for AdSense and SEO)
+
 # ---------------------------
+
+def public_home_view(request):
+    # Public landing page for logged-out users
+    return render(request, 'home_public.html')
 
 def about_view(request):
     return render(request, 'about.html')

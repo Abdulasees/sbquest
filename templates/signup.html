@@ -1,38 +1,8 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Sign Up</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background: #eef;
-            padding: 50px;
-        }
-        .form-box {
-            max-width: 400px;
-            margin: auto;
-            background: #fff;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-        }
-        h2 {
-            text-align: center;
-            margin-bottom: 20px;
-        }
-        input, button {
-            width: 100%;
-            padding: 10px;
-            margin-top: 10px;
-        }
-        .login-link {
-            text-align: center;
-            margin-top: 15px;
-        }
-    </style>
-</head>
-<body>
+{% extends 'base_public.html' %}
 
+{% block title %}Sign Up{% endblock %}
+
+{% block content %}
 <div class="form-box">
     <h2>Create Account</h2>
     <form method="post" action="">
@@ -45,5 +15,41 @@
     </div>
 </div>
 
-</body>
-</html>
+<style>
+.form-box {
+    max-width: 400px;
+    margin: 50px auto;
+    background: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+input, button {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    box-sizing: border-box;
+}
+button {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+button:hover {
+    background-color: #218838;
+}
+.login-link {
+    text-align: center;
+    margin-top: 15px;
+}
+body {
+    background: #eef;
+}
+</style>
+{% endblock %}

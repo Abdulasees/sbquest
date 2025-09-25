@@ -1,36 +1,14 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>FAQ - SB Quest</title>
-    <style>
-        body { font-family: Arial, sans-serif; background: #f4f4f4; margin: 0; padding: 0; }
-        header, footer { background: #2d2d2d; color: white; padding: 20px; text-align: center; }
-        main { padding: 30px; max-width: 800px; margin: auto; background: white; border-radius: 8px; }
-        h1, h2 { color: #333; }
-        p { line-height: 1.6; }
-        ul { margin-left: 20px; }
-    </style>
-</head>
-<body>
+{% extends 'base_public.html' %}
 
-<header>
-    <h1>Frequently Asked Questions</h1>
-</header>
+{% block content %}
+<h1>Frequently Asked Questions</h1>
 
-<main>
-    <h2>How do I earn rewards?</h2>
-    <p>Complete daily tasks and offers listed in your dashboard to earn SB points.</p>
+<h2>How do I earn rewards?</h2>
+<p>Complete daily tasks and offers listed in your dashboard to earn SB points.</p>
 
-    <h2>How can I redeem my SB points?</h2>
-    <p>Go to your Wallet section, select the redeem option, and follow the instructions.</p>
+<h2>How can I redeem my SB points?</h2>
+<p>Go to your Wallet section, select the redeem option, and follow the instructions.</p>
 
-    <h2>Is my personal data safe?</h2>
-    <p>Yes. We follow strict privacy policies to protect your data.</p>
-</main>
-
-<footer>
-    &copy; 2025 SB Quest
-</footer>
-
-</body>
-</html>
+<h2>Is my personal data safe?</h2>
+<p>Yes. We follow strict privacy policies to protect your data.</p>
+{% endblock %}

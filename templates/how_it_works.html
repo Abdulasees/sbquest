@@ -1,31 +1,10 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>How It Works - SB Quest</title>
-    <style>
-        body { font-family: Arial, sans-serif; background: #f4f4f4; margin: 0; padding: 0; }
-        header, footer { background: #2d2d2d; color: white; padding: 20px; text-align: center; }
-        main { padding: 30px; max-width: 800px; margin: auto; background: white; border-radius: 8px; }
-        h1, h2 { color: #333; }
-        p { line-height: 1.6; }
-    </style>
-</head>
-<body>
+{% extends 'base_public.html' %}
 
-<header>
-    <h1>How SB Quest Works</h1>
-</header>
+{% block content %}
+<h1>How SB Quest Works</h1>
 
-<main>
-    <p>1. Sign up and log in to your account.</p>
-    <p>2. Check your dashboard for daily offers and tasks.</p>
-    <p>3. Complete tasks to earn SB points.</p>
-    <p>4. Redeem SB points for rewards through your Wallet.</p>
-</main>
-
-<footer>
-    &copy; 2025 SB Quest
-</footer>
-
-</body>
-</html>
+<p>1. Sign up and log in to your account.</p>
+<p>2. Check your dashboard for daily offers and tasks.</p>
+<p>3. Complete tasks to earn SB points.</p>
+<p>4. Redeem SB points for rewards through your Wallet.</p>
+{% endblock %}

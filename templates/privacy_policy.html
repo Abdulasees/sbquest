@@ -1,28 +1,7 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Privacy Policy - SB Quest</title>
-    <style>
-        body { font-family: Arial, sans-serif; background: #f4f4f4; margin: 0; padding: 0; }
-        header, footer { background: #2d2d2d; color: white; padding: 20px; text-align: center; }
-        main { padding: 30px; max-width: 800px; margin: auto; background: white; border-radius: 8px; }
-        h1, h2 { color: #333; }
-        p { line-height: 1.6; }
-    </style>
-</head>
-<body>
+{% extends 'base_public.html' %}
 
-<header>
-    <h1>Privacy Policy</h1>
-</header>
+{% block content %}
+<h1>Privacy Policy</h1>
 
-<main>
-    <p>SB Quest respects your privacy. We collect and use personal information solely to provide our services and improve user experience. We do not share your data with third parties without consent.</p>
-</main>
-
-<footer>
-    &copy; 2025 SB Quest
-</footer>
-
-</body>
-</html>
+<p>SB Quest respects your privacy. We collect and use personal information solely to provide our services and improve user experience. We do not share your data with third parties without consent.</p>
+{% endblock %}
