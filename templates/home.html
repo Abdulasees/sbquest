@@ -84,7 +84,6 @@
         <a href="{% url 'wallet:wallet_home' %}">Wallet</a>
         <a href="{% url 'logout' %}">Logout</a>
         <a href="{% url 'about' %}">About</a>
-        <a href="{% url 'contact' %}">Contact</a>
     </div>
 </header>
 
@@ -94,11 +93,11 @@
     <div class="box">
         <h2>📅 Daily Offers</h2>
         {% if offers %}
-            <ul>
+            <!-- <ul>
                 {% for offer in offers %}
                     <li>{{ offer.title }}</li>
                 {% endfor %}
-            </ul>
+            </ul> -->
         {% else %}
             <p>No daily offers available today.</p>
         {% endif %}
@@ -109,11 +108,11 @@
     <div class="box">
         <h2>✅ Daily Tasks</h2>
         {% if tasks %}
-            <ul>
+            <!-- <ul>
                 {% for task in tasks %}
                     <li>{{ task.title }}</li>
                 {% endfor %}
-            </ul>
+            </ul> -->
         {% else %}
             <p>No daily tasks available today.</p>
         {% endif %}
@@ -123,7 +122,6 @@
  <!-- Quick Links Section -->
 <div class="box" style="background-color: #2d2d2d; width: 100%; color: white; padding: 20px; border-radius: 8px;">
     <ul style="list-style-type: none; padding-left: 0; display: flex; flex-wrap: wrap; gap: 15px; margin: 0;">
-        <li><a href="{% url 'about' %}" style="color: #ffffff; text-decoration: none; font-weight: 500;">About Us</a></li>
         <li><a href="{% url 'contact' %}" style="color: #ffffff; text-decoration: none; font-weight: 500;">Contact</a></li>
         <li><a href="{% url 'privacy_policy' %}" style="color: #ffffff; text-decoration: none; font-weight: 500;">Privacy Policy</a></li>
         <li><a href="{% url 'terms_conditions' %}" style="color: #ffffff; text-decoration: none; font-weight: 500;">Terms & Conditions</a></li>

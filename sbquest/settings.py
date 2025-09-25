@@ -81,9 +81,10 @@ WSGI_APPLICATION = 'sbquest.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db' / 'db.sqlite3',  # keep db outside repo folder
+        'NAME': BASE_DIR / 'db.sqlite3',  # directly in project folder
     }
 }
+
 
 # ---------------------------
 # Password Validation
