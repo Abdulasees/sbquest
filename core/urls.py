@@ -5,7 +5,7 @@ urlpatterns = [
     # Dashboard / home (login required)
     path('', views.public_home_view, name='public_home'), 
     
-    path('dashboard/', views.home_view, name='home_view'),
+    path('dashboard/', views.home_view, name='home'),
 
     # Public pages for SEO & AdSense
     path('about/', views.about_view, name='about'),
