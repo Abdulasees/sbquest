@@ -11,7 +11,6 @@ urlpatterns = [
     path('quiz/', include('quiz.urls')),
     path('wallet/', include('wallet.urls')),
     path('offers/', include('systemsetting.urls')),
-    # path('logs/', include('dailyofferlog.urls')),
     path('contact/', include('contactmessage.urls')),
     
 ]
