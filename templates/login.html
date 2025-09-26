@@ -1,30 +1,98 @@
-{% extends 'base_public.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Login - SB Quest</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+body {
+    font-family: Arial, sans-serif;
+    background: #eef;
+    margin: 0;
+    padding: 0;
+}
+.container {
+    padding: 40px;
+    max-width: 400px;
+    margin: 50px auto;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.1);
+}
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+input, button {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    box-sizing: border-box;
+}
+button {
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #007bff;
+    color: #fff;
+}
+button:hover {
+    background-color: #0056b3;
+}
+.error-message {
+    color: red;
+    text-align: center;
+    margin-bottom: 10px;
+}
+.signup-link {
+    text-align: center;
+    margin-top: 15px;
+}
+header {
+    background: #2d2d2d;
+    color: #fff;
+    padding: 15px 30px;
+    text-align: center;
+    font-size: 1.5em;
+    font-weight: bold;
+}
+header a {
+    color: #fff;
+    text-decoration: none;
+    margin-left: 15px;
+    font-weight: normal;
+}
+header a:hover {
+    text-decoration: underline;
+}
+</style>
+</head>
+<body>
 
-{% block title %}Login - SB Quest{% endblock %}
+<header>
+    SB Quest - <a href="{% url 'users:signup' %}">Sign Up</a>
+</header>
 
-{% block content %}
-<div class="container" style="padding:40px; max-width:400px; margin:auto; background:#fff; border-radius:10px; box-shadow:0 0 15px rgba(0,0,0,0.1);">
-    <h2 style="text-align:center; margin-bottom:20px;">User Login</h2>
+<div class="container">
+    <h2>User Login</h2>
 
     {% if messages %}
         {% for message in messages %}
-            <div class="error-message" style="color:red; text-align:center; margin-bottom:10px;">{{ message }}</div>
+            <div class="error-message">{{ message }}</div>
         {% endfor %}
     {% endif %}
 
     <form method="post" action="">
         {% csrf_token %}
-        <!-- Hidden next input to redirect user to intended page -->
         <input type="hidden" name="next" value="{{ request.GET.next }}">
-
         {{ form.as_p }}
-
-        <button type="submit" style="width:100%; padding:10px; margin-top:10px; border:none; border-radius:5px; background:#007bff; color:#fff; cursor:pointer;">Login</button>
+        <button type="submit">Login</button>
     </form>
 
-    <div class="signup-link" style="text-align:center; margin-top:15px;">
+    <div class="signup-link">
         Don’t have an account? <a href="{% url 'users:signup' %}">Sign up</a>
-
     </div>
 </div>
-{% endblock %}
+
+</body>
+</html>
