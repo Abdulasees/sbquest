@@ -53,7 +53,7 @@ def home_view(request):
 
 def public_home_view(request):
     # Public landing page for logged-out users
-    return render(request, 'home_public.html')
+    return render(request, 'base_public.html')
 
 def about_view(request):
     return render(request, 'about.html')
