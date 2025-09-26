@@ -1,134 +1,104 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>SBQuest - Public Page</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin:0; padding:0;
-            background:#f4f4f4; color:#333;
-        }
+<meta charset="UTF-8">
+<title>SBQuest – Public Page</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+    body { font-family: Arial, sans-serif; margin:0; padding:0; background:#f4f4f4; color:#333; }
+    header { background:#2d2d2d; color:#fff; padding:15px 30px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; box-shadow:0 2px 5px rgba(0,0,0,0.2); position:sticky; top:0; z-index:1000; }
+    header h1 { font-size:1.8em; margin:0; font-weight:600; }
+    header .nav { display:flex; flex-wrap:wrap; gap:15px; }
+    header .nav a { color:#fff; text-decoration:none; font-weight:500; padding:6px 10px; border-radius:5px; transition: background 0.3s, color 0.3s; }
+    header .nav a:hover { background:#fff; color:#2d2d2d; }
 
-        header {
-            background:#2d2d2d; color:#fff;
-            padding:15px 30px;
-            display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap;
-            box-shadow:0 2px 5px rgba(0,0,0,0.2);
-            position:sticky; top:0; z-index:1000;
-        }
+    main { padding:30px; max-width:1000px; margin:auto; display:flex; flex-direction:column; gap:20px; }
 
-        header h1 { font-size:1.8em; margin:0; font-weight:600; }
+    .box { background:#fff; padding:25px; border-radius:10px; box-shadow:0 4px 12px rgba(0,0,0,0.1); transition: transform 0.3s, box-shadow 0.3s; }
+    .box:hover { transform: translateY(-5px); box-shadow:0 8px 20px rgba(0,0,0,0.15); }
+    h2 { margin-top:0; color:#2d2d2d; display:flex; align-items:center; font-size:1.5em; }
+    h2 span.icon { margin-right:10px; font-size:1.3em; }
 
-        header .nav { display:flex; flex-wrap:wrap; gap:15px; }
+    ol, ul { padding-left:20px; }
+    p { line-height:1.6; }
 
-        header .nav a {
-            color:#fff; text-decoration:none; font-weight:500;
-            padding:6px 10px; border-radius:5px;
-            transition: background 0.3s, color 0.3s;
-        }
+    footer { background:#2d2d2d; color:#fff; text-align:center; padding:15px; margin-top:30px; }
 
-        header .nav a:hover { background:#fff; color:#2d2d2d; }
-
-        main { padding:30px; max-width:900px; margin:auto; display:flex; flex-direction:column; gap:30px; }
-
-        .box { background:#fff; padding:20px; border-radius:10px; box-shadow:0 0 10px rgba(0,0,0,0.1); }
-
-        h2 { margin-top:0; color:#333; }
-
-        footer { background:#2d2d2d; color:#fff; text-align:center; padding:15px; margin-top:30px; }
-
-        @media(max-width:768px) {
-            header { flex-direction:column; align-items:flex-start; }
-            header .nav { width:100%; justify-content:space-between; margin-top:10px; }
-            header .nav a { padding:8px 12px; }
-        }
-    </style>
+    @media(max-width:768px){ header { flex-direction:column; align-items:flex-start; } header .nav { width:100%; justify-content:space-between; margin-top:10px; } header .nav a { padding:8px 12px; } }
+</style>
 </head>
 <body>
 
 <header>
     <h1>SBQuest</h1>
     <div class="nav">
-        <a href="#">Login</a>
-        <a href="#">Sign Up</a>
+        <a href="{% url 'login' %}">Login</a>
+        <a href="{% url 'signup' %}">Sign Up</a>
     </div>
 </header>
 
 <main>
 
-    <!-- Hero Section -->
-    <div class="box" style="background:#007bff; color:white; text-align:center;">
-        <h1>Welcome to SBQuest – Complete Tasks, Earn Rewards</h1>
-        <p>SBQuest is a platform where completing online tasks turns into real rewards. It is designed to be simple, secure, and fun. Users can browse tasks, track progress, earn points, and redeem rewards easily.</p>
-        <p>Join SBQuest today to start your rewarding journey and experience an online platform that values your time and effort.</p>
-    </div>
+<!-- About Us -->
+<div class="box">
+    <h2><span class="icon">ℹ️</span>About Us</h2>
+    <p>SBQuest was created to help users complete small tasks online while earning rewards for their effort. Our platform addresses the problem of low engagement and lack of incentive in online task management. By combining task tracking with a reliable rewards system, users are motivated to complete more tasks and earn tangible benefits.</p>
+    <p>Users can trust SBQuest because we prioritize transparency, security, and fairness. Personal information is handled responsibly, and our rewards system is clearly defined. Our mission is to create a platform that empowers users to achieve small wins every day, while our vision is to be the most user-friendly and rewarding task management platform available online.</p>
+    <p>Whether you want to earn rewards from completing simple online tasks or participate in a community that values effort, SBQuest is designed to make the experience seamless and enjoyable.</p>
+</div>
 
-    <!-- About Us -->
-    <div class="box">
-        <h2>About Us</h2>
-        <p>SBQuest was created by a team of passionate developers and entrepreneurs who recognized the need for a platform that rewards users for their time and effort online. Many people spend countless hours performing micro-tasks or engaging with digital content without any tangible benefits. SBQuest solves this problem by providing a structured system where users can complete simple, reliable tasks and earn points redeemable for rewards.</p>
-        <p>Our platform ensures transparency, security, and fairness in every transaction. We have implemented strict verification methods to ensure that users earn points legitimately while preventing fraud and abuse. This builds trust among our community and ensures that everyone gets rewarded appropriately for their effort.</p>
-        <p>We believe that earning rewards should be easy and enjoyable. SBQuest is designed with a clean, user-friendly interface that is accessible on both desktop and mobile devices. Our task categories are diverse, catering to a wide range of interests and abilities, ensuring that every user can find tasks that suit them.</p>
-        <p>Our mission is to empower individuals by transforming time spent online into a rewarding experience. Our vision is a world where completing tasks online is recognized and compensated fairly, creating a win-win scenario for both users and businesses. SBQuest is committed to providing high-quality customer support, listening to user feedback, and continuously improving the platform to meet the evolving needs of our community.</p>
-        <p>We also value data privacy and user security. Personal information is handled with the utmost care, and we adhere to strict privacy standards. Users can trust that their data is secure while interacting with our platform. By joining SBQuest, users become part of a growing community that values efficiency, fairness, and reward-driven engagement.</p>
-    </div>
+<!-- FAQ -->
+<div class="box">
+    <h2><span class="icon">❓</span>FAQ</h2>
+    <p><strong>1. What is SBQuest?</strong> SBQuest is an online platform where users can complete tasks to earn points and rewards. It combines task management with a gamified rewards system to encourage engagement.</p>
+    <p><strong>2. How do I complete a task?</strong> Tasks are listed on your dashboard. Click on a task to view instructions and submit proof of completion as required.</p>
+    <p><strong>3. How do I earn rewards?</strong> Each completed task grants points based on its difficulty. Accumulated points can be redeemed for rewards in the wallet section.</p>
+    <p><strong>4. Is SBQuest free to use?</strong> Yes, creating an account and completing tasks is completely free. You only pay if a task or reward involves third-party services.</p>
+    <p><strong>5. Can I use it on mobile?</strong> Absolutely. SBQuest is mobile-friendly and works on all modern browsers and devices.</p>
+    <p><strong>6. How do I reset my password?</strong> On the login page, click “Forgot Password” and follow the instructions. An email will be sent to reset your password securely.</p>
+    <p><strong>7. Are there daily limits for tasks?</strong> Some tasks may have daily completion limits. The limit is displayed on each task.</p>
+    <p><strong>8. How do I redeem my rewards?</strong> Points are redeemed through the Wallet page. Follow the instructions to convert points into cash or other reward options.</p>
+    <p><strong>9. Can I participate internationally?</strong> Yes, SBQuest is available to users worldwide, although some rewards may vary by region.</p>
+    <p><strong>10. Is my data safe?</strong> Yes, all user data is encrypted and handled according to our Privacy Policy.</p>
+</div>
 
-    <!-- FAQ -->
-    <div class="box">
-        <h2>Frequently Asked Questions (FAQ)</h2>
-        <p><strong>1. What is SBQuest?</strong> SBQuest is a platform where users complete tasks online and earn points that can be redeemed for rewards. It is free and accessible to everyone.</p>
-        <p><strong>2. How do I complete a task?</strong> Browse the task list, click on a task, follow the instructions, and submit proof if required. Points are awarded automatically or after review.</p>
-        <p><strong>3. How do I earn rewards?</strong> Each completed task earns points. Accumulate points in your account and redeem them for rewards available on the platform.</p>
-        <p><strong>4. Is SBQuest free to use?</strong> Yes, signing up and using SBQuest is completely free. There are no hidden fees or subscription costs.</p>
-        <p><strong>5. Can I use it on mobile?</strong> Absolutely. SBQuest is mobile-friendly and works seamlessly on smartphones and tablets.</p>
-        <p><strong>6. How do I reset my password?</strong> On the login page, click “Forgot Password” and follow the instructions to securely reset your password.</p>
-        <p><strong>7. How long does it take to receive points?</strong> Points are usually credited immediately or within 24 hours, depending on the task type and verification process.</p>
-        <p><strong>8. Can I complete multiple tasks at once?</strong> Yes, you can work on multiple tasks simultaneously as long as you follow the instructions for each one correctly.</p>
-        <p><strong>9. Are there any limits on earning points?</strong> Certain tasks may have daily or total limits. Always check task descriptions for details.</p>
-        <p><strong>10. How do I redeem my points?</strong> Visit the rewards section in your account, choose a reward, and follow the redemption instructions provided.</p>
-        <p><strong>11. Is my data safe on SBQuest?</strong> Yes, we take user privacy seriously and ensure that personal data is protected according to our privacy policy.</p>
-        <p><strong>12. Can I invite friends?</strong> Some tasks or referral programs allow you to invite friends to earn bonus points. Check the referral section for details.</p>
-        <p><strong>13. What if a task is not credited?</strong> Contact our support team with task details. We will review and resolve any discrepancies promptly.</p>
-        <p><strong>14. How often are new tasks added?</strong> New tasks are added daily to ensure users always have opportunities to earn points.</p>
-        <p><strong>15. Who can use SBQuest?</strong> Anyone over 13 years old can create an account and participate in tasks while following our terms and conditions.</p>
-    </div>
+<!-- How It Works -->
+<div class="box">
+    <h2><span class="icon">⚙️</span>How It Works</h2>
+    <ol>
+        <li>Sign up and create your account.</li>
+        <li>Browse available tasks on the dashboard.</li>
+        <li>Complete tasks and track your progress.</li>
+        <li>Earn points/rewards for each completed task.</li>
+        <li>Redeem rewards or use points directly in your account.</li>
+    </ol>
+</div>
 
-    <!-- How It Works -->
-    <div class="box">
-        <h2>How It Works</h2>
-        <ol>
-            <li>Sign up and create your account.</li>
-            <li>Browse available tasks on the dashboard.</li>
-            <li>Complete tasks and track your progress.</li>
-            <li>Earn points/rewards for each completed task.</li>
-            <li>Redeem rewards or use points directly in your account.</li>
-        </ol>
-    </div>
+<!-- Privacy Policy -->
+<div class="box">
+    <h2><span class="icon">🔒</span>Privacy Policy</h2>
+    <p>SBQuest collects only the minimal personal information required to manage accounts and reward points, including your name, email, and account activity. This information is used solely to operate and improve the platform. Cookies are used to enhance your experience and track user preferences. Third-party advertising, including Google AdSense, may be displayed, which could use cookies to serve relevant ads.</p>
+    <p>All collected data is stored securely. We do not sell or share personal information with third parties except as required for payment processing or legal compliance. Users have the right to request access or deletion of their personal data. By using SBQuest, you consent to our data practices as described.</p>
+</div>
 
-    <!-- Privacy Policy -->
-    <div class="box">
-        <h2>Privacy Policy</h2>
-        <p>We collect minimal personal information to manage accounts and track rewards. Cookies may be used to improve your experience. Third-party ads, including Google AdSense, may appear. Your data is handled securely and never sold to third parties.</p>
-    </div>
+<!-- Terms of Service -->
+<div class="box">
+    <h2><span class="icon">📜</span>Terms of Service</h2>
+    <p>Users must be at least 13 years old. Accounts are personal and non-transferable. Prohibited activities include fraud, misuse, spamming, or attempting to manipulate the reward system. Violations may result in account suspension or termination.</p>
+    <p>By using SBQuest, you agree to follow all rules and guidelines outlined on the platform. SBQuest reserves the right to update these terms at any time. Continued use of the platform constitutes acceptance of the revised terms.</p>
+</div>
 
-    <!-- Terms of Service -->
-    <div class="box">
-        <h2>Terms of Service</h2>
-        <p>Users must be at least 13 years old. Accounts are personal and non-transferable. Prohibited activities include fraud, misuse, or spamming. Violations may result in suspension or account termination. By using SBQuest, you agree to these rules.</p>
-    </div>
-
-    <!-- Rewards Policy -->
-    <div class="box">
-        <h2>Rewards Policy</h2>
-        <p>Points are awarded for completing tasks. Some tasks have daily limits. Redeeming points is simple and secure. Abuse of the system may lead to point revocation. Always follow the platform guidelines when earning or redeeming rewards.</p>
-    </div>
+<!-- Rewards Policy -->
+<div class="box">
+    <h2><span class="icon">🏆</span>Rewards Policy</h2>
+    <p>Points are awarded for completing tasks according to their specified value. Some tasks have daily or weekly limits. Points can be redeemed securely through the Wallet page for cash, gift cards, or other rewards. Abuse of the system, including cheating or creating multiple accounts, may result in point revocation.</p>
+    <p>Users are encouraged to follow all instructions carefully. SBQuest reserves the right to adjust the points system or rewards structure as needed to maintain fairness and sustainability.</p>
+</div>
 
 </main>
 
 <footer>
-    &copy; 2025 SBQuest. All rights reserved.
+    &copy; {{ current_year }} SBQuest. All rights reserved.
 </footer>
 
 </body>
