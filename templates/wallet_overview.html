@@ -1,14 +1,64 @@
-{% extends 'base_public.html' %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Wallet Overview</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f8f8f8;
+            padding: 30px;
+        }
+        .wallet-box {
+            background: white;
+            padding: 20px;
+            max-width: 400px;
+            margin: auto;
+            text-align: center;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        .amount {
+            font-size: 2em;
+            color: #4CAF50;
+            margin: 20px 0;
+        }
+        .money {
+            font-size: 1.2em;
+            color: #2196F3;
+            margin-bottom: 10px;
+        }
+        .min-redeem {
+            font-size: 1em;
+            color: #FF5722;
+            margin-bottom: 20px;
+        }
+        .redeem-btn {
+            background: #FF5722;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            text-decoration: none;
+            display: inline-block;
+        }
+        .redeem-btn:hover {
+            background: #E64A19;
+        }
+    </style>
+</head>
+<body>
 
-{% block title %}Wallet Overview{% endblock %}
-
-{% block content %}
-<div class="container" style="padding:30px; max-width:400px; margin:auto; background:#fff; border-radius:8px; box-shadow:0 2px 8px rgba(0,0,0,0.1); text-align:center;">
+<div class="wallet-box">
     <h2>Wallet Balance</h2>
-    <div class="amount" style="font-size:2em; color:#4CAF50; margin:20px 0;">{{ total_sb }} SB Points</div>
-    <div class="money" style="font-size:1.2em; color:#2196F3; margin-bottom:10px;">Equivalent Money: ₹ {{ total_money }}</div>
-    <div class="min-redeem" style="font-size:1em; color:#FF5722; margin-bottom:20px;">Minimum Redeemable Amount: ₹ {{ MIN_REDEEM_AMOUNT }}</div>
+    <div class="amount">{{ total_sb }} SB Points</div>
+    <div class="money">Equivalent Money: ₹ {{ total_money }}</div>
+    <div class="min-redeem">Minimum Redeemable Amount: ₹ {{ MIN_REDEEM_AMOUNT }}</div>
 
-    <a href="{% url 'wallet:redeem' %}" class="redeem-btn" style="background:#FF5722; color:#fff; padding:10px 20px; border-radius:5px; text-decoration:none; display:inline-block;">Redeem SB Points</a>
+    <!-- Send user to redeem page -->
+    <a href="{% url 'wallet:redeem' %}" class="redeem-btn">Redeem SB Points</a>
 </div>
-{% endblock %}
+
+</body>
+</html>

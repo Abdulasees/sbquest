@@ -1,52 +1,67 @@
-{% extends 'home.html' %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>SB Balance</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            background: white;
+            max-width: 700px;
+            margin: auto;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #333;
+        }
+        .balance {
+            font-size: 22px;
+            font-weight: bold;
+            color: #4CAF50;
+            margin-bottom: 10px;
+        }
+        .money {
+            font-size: 18px;
+            color: #2196F3;
+            margin-bottom: 20px;
+        }
+        .redeem-btn {
+            background: #FF5722;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+        .redeem-btn:hover {
+            background: #E64A19;
+        }
+        ul {
+            padding-left: 20px;
+        }
+        li {
+            margin-bottom: 8px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Your SB Balance</h1>
+        <div class="balance">{{ total_balance }} SB points</div>
+        <div class="money">Equivalent Money: {{ total_money }} units</div>
 
-{% block title %}SB Balance{% endblock %}
-
-{% block content %}
-<div class="container">
-    <h1>Your SB Balance</h1>
-    <div class="balance">{{ total_balance }} SB points</div>
-    <div class="money">Equivalent Money: {{ total_money }} units</div>
-
-    <form method="post" action="{% url 'wallet:redeem' %}">
-        {% csrf_token %}
-        <button type="submit" class="redeem-btn">Redeem SB Points</button>
-    </form>
-</div>
-
-<style>
-.container {
-    background: white;
-    max-width: 700px;
-    margin: auto;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-}
-h1 { color: #333; }
-.balance {
-    font-size: 22px;
-    font-weight: bold;
-    color: #4CAF50;
-    margin-bottom: 10px;
-}
-.money {
-    font-size: 18px;
-    color: #2196F3;
-    margin-bottom: 20px;
-}
-.redeem-btn {
-    background: #FF5722;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-    margin-bottom: 20px;
-}
-.redeem-btn:hover {
-    background: #E64A19;
-}
-</style>
-{% endblock %}
+        <form method="post" action="{% url 'wallet:redeem' %}">
+            {% csrf_token %}
+            <button type="submit" class="redeem-btn">Redeem SB Points</button>
+        </form>
+    </div>
+</body>
+</html>

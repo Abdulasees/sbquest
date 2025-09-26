@@ -1,6 +1,136 @@
-{% extends 'home.html' %}
+<!DOCTYPE html> 
+<html>
+<head>
+    <title>{{ offer.title }} - Question {{ question_index|add:1 }} of {{ total_questions }}</title>
+    <style>
+        body { font-family: Arial; background-color: #f5f5f5; padding: 20px; }
+        .container { max-width: 700px; margin: auto; background: white; padding: 30px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        h1 { margin-bottom: 5px; font-size: 22px; }
+        .reward { font-size: 14px; color: #28a745; margin-bottom: 15px; font-weight: bold; }
+        h2 { margin-bottom: 15px; font-size: 18px; color: #333; }
 
-{% block content %}
+        .question-text { margin-bottom: 10px; }
+        .question-image { margin-bottom: 15px; max-width: 100%; border-radius: 6px; }
+
+        .answers label { 
+            display: block; 
+            padding: 10px; 
+            border: 1px solid #ddd; 
+            border-radius: 5px; 
+            margin-bottom: 10px; 
+            background: #fafafa; 
+            cursor: pointer; 
+            transition: 0.2s;
+        }
+        .answers input[type="radio"] { display: none; }
+        .answers input[type="radio"]:checked + .answer-content {
+            background: #d1ecf1; 
+            border-color: #17a2b8; 
+            font-weight: bold;
+        }
+        .answer-content {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .answer-content img {
+            max-width: 120px;
+            border-radius: 5px;
+        }
+
+        .navigation { display: flex; justify-content: space-between; margin-top: 20px; }
+        .navigation button { padding: 10px 20px; border: none; background-color: #3498db; color: white; border-radius: 5px; cursor: pointer; }
+        .navigation button:disabled { background-color: #ccc; cursor: not-allowed; }
+        .navigation button:hover:enabled { background-color: #2980b9; }
+
+        /* error message style */
+        .error-box {
+            display: none;
+            color: #dc3545;
+            font-weight: bold;
+            margin-bottom: 12px;
+        }
+    </style>
+    <script>
+        // called by radio onchange in template
+        function enableNext() {
+            const nextBtn = document.getElementById("nextBtn");
+            if (nextBtn) nextBtn.disabled = false;
+
+            // hide any error message when user changes selection
+            const err = document.getElementById("errorBox");
+            if (err) err.style.display = "none";
+        }
+
+        document.addEventListener('DOMContentLoaded', function () {
+            const form = document.querySelector('form');
+            if (!form) return;
+
+            // track which action button was clicked (prev/next/finish)
+            let lastAction = null;
+            const actionButtons = form.querySelectorAll('button[name="action"]');
+            actionButtons.forEach(btn => {
+                btn.addEventListener('click', function (ev) {
+                    lastAction = this.value;
+                    // allow normal flow to continue; validation will run in submit handler
+                });
+            });
+
+            form.addEventListener('submit', function (ev) {
+                // Determine which action is intended
+                // fallback: if lastAction not set, check form data
+                const formData = new FormData(form);
+                let action = lastAction || formData.get('action') || 'next';
+
+                // If action is "prev", allow submit (previous should work when enabled)
+                if (action === 'prev') {
+                    // allow submit — server will handle whether previous exists or not
+                    return true;
+                }
+
+                // For next / finish, validate selection and correctness
+                const selected = form.querySelector('input[name="answer"]:checked');
+                const errorBox = document.getElementById('errorBox');
+
+                if (!selected) {
+                    ev.preventDefault();
+                    if (errorBox) {
+                        errorBox.innerText = "Please select an answer before continuing.";
+                        errorBox.style.display = "block";
+                        errorBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    } else {
+                        alert("Please select an answer before continuing.");
+                    }
+                    return false;
+                }
+
+                // dataset.correct may be "True"/"False" depending on Django rendering; normalize check
+                function isCorrectRadio(radio) {
+                    const v = (radio.dataset.correct || '').toString().trim();
+                    return v === 'True' || v === 'true' || v === '1' || v === 'yes' || v === 'on';
+                }
+
+                if (!isCorrectRadio(selected)) {
+                    ev.preventDefault();
+                    if (errorBox) {
+                        errorBox.innerText = "Incorrect! Please select the correct answer to continue.";
+                        errorBox.style.display = "block";
+                        errorBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    } else {
+                        alert("Incorrect! Please select the correct answer to continue.");
+                    }
+                    return false;
+                }
+
+                // selected is correct — allow submit to proceed
+                // (no need to hide error here, but hide if present)
+                if (errorBox) errorBox.style.display = "none";
+                return true;
+            });
+        });
+    </script>
+</head>
+<body>
 <div class="container">
     <h1>{{ offer.title }}</h1>
     <div class="reward">Reward: {{ offer.reward_sb }} SB</div>
@@ -17,15 +147,22 @@
 
     <form method="POST" action="{% url 'systemsetting:claim_offer' offer.id question_index %}">
         {% csrf_token %}
+
+        <!-- Error box shown above all answers -->
         <div id="errorBox" class="error-box">Incorrect! Please select the correct answer to continue.</div>
 
         <div class="answers">
             {% for answer in answers %}
                 <label>
+                    <!-- added data-correct so JS can check correctness -->
                     <input type="radio" name="answer" value="{{ answer.id }}" data-correct="{{ answer.is_correct }}" onchange="enableNext()">
                     <div class="answer-content">
-                        {% if answer.answer_text %}<span>{{ answer.answer_text }}</span>{% endif %}
-                        {% if answer.answer_image %}<img src="{{ answer.answer_image.url }}" alt="Answer Image">{% endif %}
+                        {% if answer.answer_text %}
+                            <span>{{ answer.answer_text }}</span>
+                        {% endif %}
+                        {% if answer.answer_image %}
+                            <img src="{{ answer.answer_image.url }}" alt="Answer Image">
+                        {% endif %}
                     </div>
                 </label>
             {% endfor %}
@@ -46,66 +183,5 @@
         </div>
     </form>
 </div>
-
-<style>
-.container { max-width: 700px; margin: auto; background: white; padding: 30px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
-h1 { margin-bottom: 5px; font-size: 22px; }
-.reward { font-size: 14px; color: #28a745; margin-bottom: 15px; font-weight: bold; }
-h2 { margin-bottom: 15px; font-size: 18px; color: #333; }
-.question-text { margin-bottom: 10px; }
-.question-image { margin-bottom: 15px; max-width: 100%; border-radius: 6px; }
-.answers label { display: block; padding: 10px; border: 1px solid #ddd; border-radius: 5px; margin-bottom: 10px; background: #fafafa; cursor: pointer; transition: 0.2s; }
-.answers input[type="radio"] { display: none; }
-.answers input[type="radio"]:checked + .answer-content { background: #d1ecf1; border-color: #17a2b8; font-weight: bold; }
-.answer-content { display: flex; align-items: center; gap: 10px; }
-.answer-content img { max-width: 120px; border-radius: 5px; }
-.navigation { display: flex; justify-content: space-between; margin-top: 20px; }
-.navigation button { padding: 10px 20px; border: none; background-color: #3498db; color: white; border-radius: 5px; cursor: pointer; }
-.navigation button:disabled { background-color: #ccc; cursor: not-allowed; }
-.navigation button:hover:enabled { background-color: #2980b9; }
-.error-box { display: none; color: #dc3545; font-weight: bold; margin-bottom: 12px; }
-</style>
-
-<script>
-function enableNext() {
-    const nextBtn = document.getElementById("nextBtn");
-    if (nextBtn) nextBtn.disabled = false;
-    const err = document.getElementById("errorBox");
-    if (err) err.style.display = "none";
-}
-
-document.addEventListener('DOMContentLoaded', function () {
-    const form = document.querySelector('form');
-    if (!form) return;
-
-    let lastAction = null;
-    const actionButtons = form.querySelectorAll('button[name="action"]');
-    actionButtons.forEach(btn => btn.addEventListener('click', function () { lastAction = this.value; }));
-
-    form.addEventListener('submit', function (ev) {
-        const selected = form.querySelector('input[name="answer"]:checked');
-        const errorBox = document.getElementById('errorBox');
-
-        if (!selected && lastAction !== 'prev') {
-            ev.preventDefault();
-            if (errorBox) { errorBox.innerText = "Please select an answer before continuing."; errorBox.style.display = "block"; errorBox.scrollIntoView({ behavior: 'smooth', block: 'center' }); }
-            return false;
-        }
-
-        function isCorrectRadio(radio) {
-            const v = (radio.dataset.correct || '').toString().trim();
-            return v === 'True' || v === 'true' || v === '1' || v === 'yes' || v === 'on';
-        }
-
-        if (selected && !isCorrectRadio(selected)) {
-            ev.preventDefault();
-            if (errorBox) { errorBox.innerText = "Incorrect! Please select the correct answer to continue."; errorBox.style.display = "block"; errorBox.scrollIntoView({ behavior: 'smooth', block: 'center' }); }
-            return false;
-        }
-
-        if (errorBox) errorBox.style.display = "none";
-        return true;
-    });
-});
-</script>
-{% endblock %}
+</body>
+</html>
