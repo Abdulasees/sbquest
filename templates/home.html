@@ -2,138 +2,26 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>SBQuest - Dashboard</title>
+    <title>User Dashboard - SBQuest</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
-        /* Base Styles */
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background: #f4f4f4;
-            color: #333;
-        }
-
-        /* Header */
-        header {
-            background-color: #2d2d2d;
-            color: #fff;
-            padding: 15px 30px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-
-        header h1 {
-            font-size: 1.8em;
-            margin: 0;
-            font-weight: 600;
-        }
-
-        header .nav {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 15px;
-        }
-
-        header .nav a {
-            color: #ffffff;
-            text-decoration: none;
-            font-weight: 500;
-            padding: 6px 10px;
-            border-radius: 5px;
-            transition: background 0.3s, color 0.3s;
-        }
-
-        header .nav a:hover {
-            background-color: #ffffff;
-            color: #2d2d2d;
-        }
-
-        /* Main Content */
-        main {
-            padding: 30px;
-            max-width: 900px;
-            margin: auto;
-        }
-
-        .box {
-            background-color: #fff;
-            padding: 20px;
-            margin-bottom: 20px;
-            border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        }
-
-        .box h2 {
-            margin-top: 0;
-        }
-
-        .box ul {
-            padding-left: 20px;
-        }
-
-        .quick-links {
-            background-color: #2d2d2d;
-            color: white;
-            padding: 20px;
-            border-radius: 8px;
-        }
-
-        .quick-links ul {
-            list-style-type: none;
-            padding-left: 0;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 15px;
-            margin: 0;
-        }
-
-        .quick-links ul li a {
-            color: #ffffff;
-            text-decoration: none;
-            font-weight: 500;
-        }
-
-        .quick-links ul li a:hover {
-            text-decoration: underline;
-        }
-
-        /* Footer */
-        footer {
-            background-color: #2d2d2d;
-            color: #fff;
-            text-align: center;
-            padding: 15px;
-            margin-top: 30px;
-        }
-
-        /* Mobile Responsiveness */
-        @media (max-width: 768px) {
-            header {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-
-            header .nav {
-                width: 100%;
-                justify-content: space-between;
-                margin-top: 10px;
-            }
-
-            header .nav a {
-                padding: 8px 12px;
-            }
-
-            .quick-links ul {
-                flex-direction: column;
-            }
-        }
+        body { font-family: Arial, sans-serif; background: #f4f4f4; margin:0; padding:0; }
+        header { background-color:#2d2d2d; color:white; padding:20px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; }
+        header h1 { margin:0; font-size:1.5em; }
+        .nav a { margin-left:15px; color:#fff; text-decoration:none; }
+        .nav a:hover { text-decoration:underline; }
+        .container { padding:30px; display:flex; flex-wrap:wrap; justify-content:space-around; }
+        .box { background:white; width:45%; min-width:280px; margin:15px; padding:20px; border-radius:8px; box-shadow:0 0 10px rgba(0,0,0,0.1); }
+        h2 { margin-top:0; color:#333; }
+        a { text-decoration:none; color:#007bff; }
+        a:hover { text-decoration:underline; }
+        ul { padding-left:20px; }
+        ul li { margin:5px 0; }
+        ul li:hover { background:#f0f0f0; border-radius:5px; padding:3px; }
+        .quick-links { background-color:#2d2d2d; color:white; width:100%; padding:20px; border-radius:8px; }
+        .quick-links ul { list-style:none; padding-left:0; display:flex; flex-wrap:wrap; gap:15px; margin:0; }
+        .quick-links ul li a { color:white; text-decoration:none; font-weight:500; }
+        .quick-links ul li a:hover { text-decoration:underline; }
     </style>
 </head>
 <body>
@@ -141,50 +29,59 @@
 <header>
     <h1>SBQuest</h1>
     <div class="nav">
-        <a href="{% url 'home' %}">Dashboard</a>
-        <a href="{% url 'tasks:task_list' %}">Tasks</a>
-        <a href="{% url 'systemsetting:daily_offer_list' %}">My Offers</a>
-        <a href="{% url 'wallet:wallet_home' %}">Wallet</a>
-
-        <a href="{% url 'logout' %}">Logout</a>
+        {% if user.is_authenticated %}
+            <a href="{% url 'home' %}">Dashboard</a>
+            <a href="{% url 'wallet:wallet_home' %}">Wallet</a>
+            <a href="{% url 'logout' %}">Logout</a>
+        {% else %}
+            <a href="{% url 'login' %}">Login</a>
+            <a href="{% url 'signup' %}">Sign Up</a>
+        {% endif %}
         <a href="{% url 'about' %}">About</a>
     </div>
 </header>
 
-<main>
-    <!-- Daily Offers -->
+<div class="container">
+
     <div class="box">
         <h2>📅 Daily Offers</h2>
-        {% if offers %}
-            <ul>
-                {% for offer in offers %}
-                {% endfor %}
-            </ul>
+        {% if user.is_authenticated %}
+            {% if offers %}
+                <ul>
+                    {% for offer in offers %}
+                        <li>{{ offer.title }}</li>
+                    {% endfor %}
+                </ul>
+            {% else %}
+                <p>No daily offers available today.</p>
+            {% endif %}
+            <a href="{% url 'systemsetting:daily_offer_list' %}">My Offer Logs</a>
         {% else %}
-            <p>No daily offers available today.</p>
+            <p>Please <a href="{% url 'login' %}">login</a> to view offers.</p>
         {% endif %}
-        <a href="{% url 'systemsetting:daily_offer_list' %}">My Offer Logs</a>
     </div>
 
-    <!-- Daily Tasks -->
     <div class="box">
         <h2>✅ Daily Tasks</h2>
-        {% if tasks %}
-            <ul>
-                {% for task in tasks %}
-                 
-                {% endfor %}
-            </ul>
+        {% if user.is_authenticated %}
+            {% if tasks %}
+                <ul>
+                    {% for task in tasks %}
+                        <li>{{ task.title }}</li>
+                    {% endfor %}
+                </ul>
+            {% else %}
+                <p>No daily tasks available today.</p>
+            {% endif %}
+            <a href="{% url 'tasks:task_list' %}">View All Tasks</a>
         {% else %}
-            <p>No daily tasks available today.</p>
+            <p>Please <a href="{% url 'login' %}">login</a> to view tasks.</p>
         {% endif %}
-        <a href="{% url 'tasks:task_list' %}">View All Tasks</a>
     </div>
 
-    <!-- Quick Links -->
     <div class="quick-links">
         <ul>
-            <li><a href="{% url 'contact_form_view' %}">Contact</a></li>
+            <li><a href="{% url 'contact' %}">Contact</a></li>
             <li><a href="{% url 'privacy_policy' %}">Privacy Policy</a></li>
             <li><a href="{% url 'terms_conditions' %}">Terms & Conditions</a></li>
             <li><a href="{% url 'faq' %}">FAQ</a></li>
@@ -193,11 +90,8 @@
             <li><a href="{% url 'rewards_policy' %}">Rewards Policy</a></li>
         </ul>
     </div>
-</main>
 
-<footer>
-    &copy; {{ current_year }} SBQuest. All rights reserved.
-</footer>
+</div>
 
 </body>
 </html>
