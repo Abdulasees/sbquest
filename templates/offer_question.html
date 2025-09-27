@@ -3,54 +3,136 @@
 <head>
     <title>{{ offer.title }} - Question {{ question_index|add:1 }} of {{ total_questions }}</title>
     <style>
-        body { font-family: Arial; background-color: #f5f5f5; padding: 20px; }
-        .container { max-width: 700px; margin: auto; background: white; padding: 30px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
-        h1 { margin-bottom: 5px; font-size: 22px; }
-        .reward { font-size: 14px; color: #28a745; margin-bottom: 15px; font-weight: bold; }
-        h2 { margin-bottom: 15px; font-size: 18px; color: #333; }
-
-        .question-text { margin-bottom: 10px; }
-        .question-image { margin-bottom: 15px; max-width: 100%; border-radius: 6px; }
-
-        .answers label { 
-            display: block; 
-            padding: 10px; 
-            border: 1px solid #ddd; 
-            border-radius: 5px; 
-            margin-bottom: 10px; 
-            background: #fafafa; 
-            cursor: pointer; 
-            transition: 0.2s;
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f5f5f5;
+        padding: 20px;
+        margin: 0;
+    }
+    .container {
+        max-width: 750px;
+        margin: auto;
+        background: #fff;
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    h1 {
+        margin-bottom: 5px;
+        font-size: 24px;
+        color: #2c3e50;
+        text-align: center;
+    }
+    .reward {
+        font-size: 15px;
+        color: #28a745;
+        margin-bottom: 20px;
+        font-weight: bold;
+        text-align: center;
+    }
+    h2 {
+        margin-bottom: 15px;
+        font-size: 18px;
+        color: #333;
+    }
+    .question-text {
+        margin-bottom: 12px;
+        font-size: 16px;
+        font-weight: bold;
+    }
+    .question-image {
+        margin-bottom: 20px;
+        max-width: 100%;
+        border-radius: 6px;
+        display: block;
+    }
+    .answers label {
+        display: block;
+        padding: 12px;
+        border: 1px solid #ddd;
+        border-radius: 6px;
+        margin-bottom: 12px;
+        background: #fafafa;
+        cursor: pointer;
+        transition: all 0.2s ease;
+    }
+    .answers label:hover {
+        background: #f0f8ff;
+        border-color: #17a2b8;
+    }
+    .answers input[type="radio"] {
+        display: none;
+    }
+    .answers input[type="radio"]:checked + .answer-content {
+        background: #d1ecf1;
+        border-color: #17a2b8;
+        font-weight: bold;
+    }
+    .answer-content {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+    }
+    .answer-content img {
+        max-width: 100px;
+        border-radius: 5px;
+        flex-shrink: 0;
+    }
+    .navigation {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 25px;
+    }
+    .navigation button {
+        padding: 12px 22px;
+        border: none;
+        background-color: #3498db;
+        color: white;
+        border-radius: 6px;
+        cursor: pointer;
+        font-size: 15px;
+        font-weight: bold;
+        transition: background 0.3s ease;
+    }
+    .navigation button:disabled {
+        background-color: #ccc;
+        cursor: not-allowed;
+    }
+    .navigation button:hover:enabled {
+        background-color: #2980b9;
+    }
+    .error-box {
+        display: none;
+        color: #dc3545;
+        font-weight: bold;
+        margin-bottom: 15px;
+        font-size: 14px;
+    }
+    /* Mobile responsive */
+    @media (max-width: 600px) {
+        .container {
+            padding: 20px;
         }
-        .answers input[type="radio"] { display: none; }
-        .answers input[type="radio"]:checked + .answer-content {
-            background: #d1ecf1; 
-            border-color: #17a2b8; 
-            font-weight: bold;
+        h1 {
+            font-size: 20px;
         }
         .answer-content {
-            display: flex;
-            align-items: center;
-            gap: 10px;
+            flex-direction: column;
+            align-items: flex-start;
         }
         .answer-content img {
-            max-width: 120px;
-            border-radius: 5px;
+            max-width: 100%;
         }
-
-        .navigation { display: flex; justify-content: space-between; margin-top: 20px; }
-        .navigation button { padding: 10px 20px; border: none; background-color: #3498db; color: white; border-radius: 5px; cursor: pointer; }
-        .navigation button:disabled { background-color: #ccc; cursor: not-allowed; }
-        .navigation button:hover:enabled { background-color: #2980b9; }
-
-        /* error message style */
-        .error-box {
-            display: none;
-            color: #dc3545;
-            font-weight: bold;
-            margin-bottom: 12px;
+        .navigation {
+            flex-direction: column;
+            gap: 12px;
         }
+        .navigation button {
+            width: 100%;
+        }
+    }
     </style>
+
     <script>
         // called by radio onchange in template
         function enableNext() {

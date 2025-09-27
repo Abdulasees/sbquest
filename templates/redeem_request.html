@@ -4,62 +4,105 @@
     <meta charset="UTF-8">
     <title>Redeem SB Points</title>
     <style>
+    body {
+        font-family: Arial, sans-serif;
+        padding: 30px;
+        background-color: #f7f7f7;
+        margin: 0;
+        color: #333;
+    }
+
+    h2, h3 {
+        color: #333;
+        margin-top: 0;
+    }
+
+    .balance-box, .form-box, .history-box {
+        background-color: #fff;
+        padding: 25px;
+        margin-top: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .balance-box:hover, .form-box:hover, .history-box:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+    }
+
+    label {
+        display: block;
+        margin: 10px 0 5px;
+        color: #555;
+        font-weight: 500;
+    }
+
+    input[type="text"], input[type="number"] {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 15px;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+        box-sizing: border-box;
+    }
+
+    button {
+        background-color: #28a745;
+        color: white;
+        padding: 12px 25px;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+        font-size: 16px;
+        transition: background 0.3s;
+    }
+
+    button:hover {
+        background-color: #218838;
+    }
+
+    .status {
+        padding: 6px 12px;
+        border-radius: 4px;
+        font-weight: bold;
+        color: white;
+        display: inline-block;
+    }
+
+    .pending { background-color: #ffc107; }
+    .approved { background-color: #28a745; }
+    .rejected { background-color: #dc3545; }
+
+    .info {
+        font-size: 16px;
+        margin-bottom: 15px;
+        color: #2196F3;
+    }
+
+    .error {
+        color: red;
+        font-weight: bold;
+        margin-top: 5px;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
         body {
-            font-family: Arial, sans-serif;
-            padding: 30px;
-            background-color: #f7f7f7;
+            padding: 15px;
         }
-        h2, h3 {
-            color: #333;
-        }
+
         .balance-box, .form-box, .history-box {
-            background-color: #fff;
             padding: 20px;
-            margin-top: 20px;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }
-        label {
-            display: block;
-            margin: 10px 0 5px;
-            color: #555;
-        }
-        input[type="text"], input[type="number"] {
-            width: 100%;
-            padding: 8px;
-            margin-bottom: 15px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-        }
+
         button {
-            background-color: #28a745;
-            color: white;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 6px;
-            cursor: pointer;
+            width: 100%;
+            padding: 12px;
         }
-        button:hover {
-            background-color: #218838;
-        }
-        .status {
-            padding: 5px 10px;
-            border-radius: 4px;
-            color: white;
-        }
-        .pending { background-color: #ffc107; }
-        .approved { background-color: #28a745; }
-        .rejected { background-color: #dc3545; }
-        .info {
-            font-size: 16px;
-            margin-bottom: 15px;
-            color: #2196F3;
-        }
-        .error {
-            color: red;
-            font-weight: bold;
-        }
+    }
     </style>
+
 </head>
 <body>
 
