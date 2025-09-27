@@ -1,17 +1,56 @@
-{% extends 'base_public.html' %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Terms & Conditions - SB Quest</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f6f8;
+            margin: 0;
+            padding: 20px;
+            color: #333;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+            background: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #2c3e50;
+        }
+        p {
+            font-size: 16px;
+            line-height: 1.6;
+            margin: 10px 0;
+        }
+        a {
+            display: inline-block;
+            margin-top: 30px;
+            color: #007bff;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Terms & Conditions</h1>
 
-{% block title %}Terms & Conditions - SB Quest{% endblock %}
+        <p>By using SB Quest, you agree to comply with all applicable laws and regulations. Users must not engage in fraudulent activities or abuse the platform. Rewards are subject to verification and approval.</p>
 
-{% block content %}
-<div class="container" style="padding:30px; max-width:800px; margin:auto; background:#fff; border-radius:8px; box-shadow:0 6px 20px rgba(0,0,0,0.1);">
-    <h1 style="text-align:center; margin-bottom:20px;">Terms & Conditions</h1>
+        <p>Please read all terms carefully before participating. Continued use of the site indicates acceptance of these terms.</p>
 
-    <p>By using SB Quest, you agree to comply with all applicable laws and regulations. Users must not engage in fraudulent activities or abuse the platform. Rewards are subject to verification and approval.</p>
-
-    <p>Please read all terms carefully before participating. Continued use of the site indicates acceptance of these terms.</p>
-
-    <div style="text-align:center; margin-top:30px;">
-        <a href="{% url 'home' %}" style="color:#007bff; text-decoration:none;">← Back to Home</a>
+        <div style="text-align:center;">
+            <a href="/">← Back to Home</a>
+        </div>
     </div>
-</div>
-{% endblock %}
+</body>
+</html>

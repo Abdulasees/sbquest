@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Delete Account</title>
+    <style>
+        body { font-family: Arial, sans-serif; background:#f4f6f8; margin:0; padding:20px; }
+        .container { max-width: 500px; margin:auto; background:#fff; padding:30px; border-radius:10px; box-shadow:0 0 10px rgba(0,0,0,0.1); text-align:center; }
+        h2 { color:#c0392b; }
+        p { font-size:16px; color:#555; }
+        .warning { font-weight: bold; color: #e74c3c; margin-top: 15px; }
+        button { padding:10px 20px; margin-top:20px; background:#c0392b; color:#fff; border:none; border-radius:5px; cursor:pointer; }
+        button:hover { background:#e74c3c; }
+        a { display:inline-block; margin-top:15px; color:#0066cc; text-decoration:none; }
+        a:hover { text-decoration:underline; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Delete Your Account</h2>
+        <p>Are you sure you want to delete your account? This action <strong>cannot</strong> be undone.</p>
+        <p class="warning">All your personal information, wallet transactions (including UPI), and tasks/offers history will be permanently deleted.</p>
+
+        <form method="post">
+            {% csrf_token %}
+            <button type="submit">Yes, Delete My Account</button>
+        </form>
+
+        <a href="{% url 'users:profile' %}">Cancel and Go Back</a>
+    </div>
+</body>
+</html>

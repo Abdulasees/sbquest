@@ -54,7 +54,10 @@
             <p><strong>Last Login:</strong> {{ user.last_login }}</p>
         </div>
 
-        <a href="{% url 'logout' %}" class="button">Logout</a>
+        <a href="{% url 'users:logout' %}" class="button">Logout</a>
+        <a href="{% url 'users:delete_account' %}" class="button" style="background:#c0392b;">Delete Account</a>
+
+
         <a href="/" class="button">Go to Home</a>
     </div>
 </body>
