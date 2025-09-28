@@ -5,136 +5,25 @@
 <title>SBQuest – Public Page</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <style>
-    /* Base Styles */
-    body { 
-        font-family: Arial, sans-serif; 
-        margin:0; 
-        padding:0; 
-        background:#f4f4f4; 
-        color:#333; 
-    }
-
-    header { 
-        background:#2d2d2d; 
-        color:#fff; 
-        padding:15px 30px; 
-        display:flex; 
-        justify-content:space-between; 
-        align-items:center; 
-        flex-wrap:wrap; 
-        box-shadow:0 2px 5px rgba(0,0,0,0.2); 
-        position:sticky; 
-        top:0; 
-        z-index:1000; 
-    }
-
-    header h1 { 
-        font-size:1.8em; 
-        margin:0; 
-        font-weight:600; 
-    }
-
-    header .nav { 
-        display:flex; 
-        flex-wrap:wrap; 
-        gap:15px; 
-    }
-
-    header .nav a { 
-        color:#fff; 
-        text-decoration:none; 
-        font-weight:500; 
-        padding:6px 10px; 
-        border-radius:5px; 
-        transition: background 0.3s, color 0.3s; 
-    }
-
-    header .nav a:hover { 
-        background:#fff; 
-        color:#2d2d2d; 
-    }
-
-    main { 
-        padding:30px; 
-        max-width:1000px; 
-        margin:auto; 
-        display:flex; 
-        flex-direction:column; 
-        gap:20px; 
-    }
-
-    .box { 
-        background:#fff; 
-        padding:25px; 
-        border-radius:10px; 
-        box-shadow:0 4px 12px rgba(0,0,0,0.1); 
-        transition: transform 0.3s, box-shadow 0.3s; 
-    }
-
-    .box:hover { 
-        transform: translateY(-5px); 
-        box-shadow:0 8px 20px rgba(0,0,0,0.15); 
-    }
-
-    h2 { 
-        margin-top:0; 
-        color:#2d2d2d; 
-        display:flex; 
-        align-items:center; 
-        font-size:1.5em; 
-    }
-
-    h2 span.icon { 
-        margin-right:10px; 
-        font-size:1.3em; 
-    }
-
-    ol, ul { 
-        padding-left:20px; 
-    }
-
-    p { 
-        line-height:1.6; 
-    }
-
-    footer { 
-        background:#2d2d2d; 
-        color:#fff; 
-        text-align:center; 
-        padding:15px; 
-        margin-top:30px; 
-    }
-
-    /* Tablet & Small Laptop */
-    @media(max-width:1024px){
-        main { padding:20px; }
-        header h1 { font-size:1.6em; }
-        header .nav a { padding:5px 8px; }
-    }
-
-    /* Mobile */
-    @media(max-width:768px){ 
-        header { flex-direction:column; align-items:flex-start; } 
-        header .nav { width:100%; justify-content:space-between; margin-top:10px; } 
-        header .nav a { padding:8px 12px; } 
-        main { padding:20px; } 
-        h1 { font-size:1.5em; } 
-        h2 { font-size:1.3em; } 
-    }
-
-    /* Very Small Mobile */
-    @media(max-width:480px){
-        h1 { font-size:1.3em; }
-        h2 { font-size:1.1em; }
-        p { font-size:14px; }
-        .box { width:100%; box-sizing:border-box; padding:20px; }
-        header .nav a { padding:6px 8px; font-size:13px; }
-        main { padding:15px; }
-    }
+    body { font-family: Arial, sans-serif; margin:0; padding:0; background:#f4f4f4; color:#333; }
+    header { background:#2d2d2d; color:#fff; padding:15px 30px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; box-shadow:0 2px 5px rgba(0,0,0,0.2); position:sticky; top:0; z-index:1000; }
+    header h1 { font-size:1.8em; margin:0; font-weight:600; }
+    header .nav { display:flex; flex-wrap:wrap; gap:15px; }
+    header .nav a { color:#fff; text-decoration:none; font-weight:500; padding:6px 10px; border-radius:5px; transition: background 0.3s, color 0.3s; }
+    header .nav a:hover { background:#fff; color:#2d2d2d; }
+    main { padding:30px; max-width:1000px; margin:auto; display:flex; flex-direction:column; gap:20px; }
+    .box { background:#fff; padding:25px; border-radius:10px; box-shadow:0 4px 12px rgba(0,0,0,0.1); transition: transform 0.3s, box-shadow 0.3s; }
+    .box:hover { transform: translateY(-5px); box-shadow:0 8px 20px rgba(0,0,0,0.15); }
+    h2 { margin-top:0; color:#2d2d2d; display:flex; align-items:center; font-size:1.5em; }
+    h2 span.icon { margin-right:10px; font-size:1.3em; }
+    ol, ul { padding-left:20px; }
+    p { line-height:1.6; }
+    footer { background:#2d2d2d; color:#fff; text-align:center; padding:15px; margin-top:30px; }
+    @media(max-width:1024px){ main { padding:20px; } header h1 { font-size:1.6em; } header .nav a { padding:5px 8px; } }
+    @media(max-width:768px){ header { flex-direction:column; align-items:flex-start; } header .nav { width:100%; justify-content:space-between; margin-top:10px; } header .nav a { padding:8px 12px; } main { padding:20px; } h1 { font-size:1.5em; } h2 { font-size:1.3em; } }
+    @media(max-width:480px){ h1 { font-size:1.3em; } h2 { font-size:1.1em; } p { font-size:14px; } .box { width:100%; box-sizing:border-box; padding:20px; } header .nav a { padding:6px 8px; font-size:13px; } main { padding:15px; } }
 </style>
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9745567567370540"
-     crossorigin="anonymous"></script>
-
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9745567567370540" crossorigin="anonymous"></script>
 </head>
 <body>
 
@@ -152,49 +41,14 @@
 <div class="box">
     <h2><span class="icon">ℹ️</span>About Us</h2>
     <p>SBQuest was created with a mission to help Indian users engage in productive online learning while earning meaningful rewards. In today’s fast-paced digital world, many platforms fail to motivate users to practice regularly or provide consistent incentives. SBQuest addresses this gap by combining task completion, educational challenges, and a transparent rewards system into a single gamified experience designed to make learning fun, interactive, and rewarding.</p>
-    
     <p>Our platform is suitable for students preparing for competitive exams, professionals seeking to enhance their skills, or anyone who wants to improve general knowledge and cognitive abilities. SBQuest offers a wide range of tasks and quizzes covering subjects such as general knowledge, history, geography, mathematics, science, language skills, current affairs, and practical life skills. Every task is carefully curated to ensure that users not only earn points but also acquire valuable knowledge that can be applied in academics or daily life.</p>
-    
     <p>To encourage daily engagement, SBQuest incorporates gamification elements such as points, badges, and leaderboards. Users can track their progress, view completed tasks, and understand how points are awarded. This transparent system fosters trust, builds confidence, and motivates users to complete tasks consistently. Daily challenges provide bonus points and recognition, helping users develop a disciplined routine that reinforces knowledge and builds long-term learning habits.</p>
-    
     <p>Security and fairness are central to the SBQuest philosophy. All personal information is encrypted and handled responsibly, ensuring users’ privacy is never compromised. Points earned can be redeemed securely through UPI, giving users tangible rewards for their effort. Every transaction and point calculation is transparent, making the platform reliable and user-friendly.</p>
-    
     <p>The educational value of SBQuest extends beyond mere points and rewards. Each quiz and task is designed to teach or reinforce concepts effectively. For example, geography tasks help users memorize world capitals, Indian states, and important landmarks. History challenges cover major events such as India’s freedom struggle, cultural milestones, and notable personalities. Science and mathematics tasks strengthen analytical and problem-solving skills. Language quizzes enhance vocabulary, grammar, and comprehension. This multi-dimensional approach ensures that learning is comprehensive, practical, and enjoyable.</p>
-    
     <p>Community engagement is another key feature of SBQuest. Users can participate in public quizzes, challenges, and leaderboards, which foster a collaborative and competitive learning environment. Our community guidelines ensure a safe, respectful, and supportive space for all participants. By interacting with peers, sharing strategies, and discussing solutions, users not only learn faster but also develop teamwork and communication skills.</p>
-    
     <p>SBQuest is committed to making education accessible, rewarding, and interactive. Our platform provides an inclusive environment where learners of all ages can improve their knowledge, sharpen their skills, and earn rewards for consistent effort. Whether a user wants to explore new subjects, prepare for exams, or simply challenge themselves with daily quizzes, SBQuest offers an intuitive interface and engaging content to meet these needs.</p>
-    
     <p>Our mission is to empower Indian users to build confidence, knowledge, and lifelong learning habits. Our vision is to become the most trusted platform for micro-learning and task-based rewards, helping users grow personally and professionally. By integrating gamification, high-quality educational content, and secure rewards, SBQuest transforms online learning into a motivating, enjoyable, and rewarding experience. Join us to make learning a daily habit, earn tangible benefits, and connect with a community that values knowledge, effort, and growth.</p>
 </div>
-
-
-
-<!-- FAQ -->
-<div class="box">
-    <h2><span class="icon">❓</span>FAQ</h2>
-
-    <p><strong>1. What is SBQuest?</strong> SBQuest is an Indian online platform where users can complete tasks and offers to earn points and rewards. It combines task management with a gamified rewards system to encourage engagement specifically for Indian users.</p>
-
-    <p><strong>2. How do I complete a task or offer?</strong> Tasks and offers are listed on your dashboard. Click <strong>My Offer Logs</strong> to view available offers, or <strong>View All Tasks</strong> to see available tasks. For each task or offer, simply answer the required questions to complete it and earn points. No additional proof or submission is needed.</p>
-
-    <p><strong>3. How do I earn rewards?</strong> Each completed task or offer grants points based on its difficulty or value. Accumulated points can be redeemed for rewards in the Wallet section.</p>
-
-    <p><strong>4. Is SBQuest free to use?</strong> Yes, creating an account and completing tasks/offers is completely free. You only pay if a task, offer, or reward involves third-party services.</p>
-
-    <p><strong>5. Can I use it on mobile?</strong> Absolutely. SBQuest is mobile-friendly and works on all modern browsers and devices.</p>
-
-    <p><strong>6. How do I reset my password?</strong> On the login page, click “Forgot Password” and follow the steps. An email will be sent to reset your password securely.</p>
-
-    <p><strong>7. Are there daily limits for tasks and offers?</strong> Some tasks or offers may have daily completion limits. The limit is displayed on each task or offer.</p>
-
-    <p><strong>8. How do I redeem my rewards?</strong> Points are redeemed through the Wallet page. You can convert your points into cash and withdraw directly to your **UPI**.</p>
-
-    <p><strong>9. Are the tasks and offers only for Indian users?</strong> Yes, SBQuest is designed especially for Indian users. All tasks, offers, and rewards are focused on India.</p>
-
-    <p><strong>10. Is my data safe?</strong> Yes, all user data is encrypted and handled according to our Privacy Policy. Security and trust are our top priorities.</p>
-</div>
-
 
 <!-- How It Works -->
 <div class="box">
@@ -204,44 +58,33 @@
         <li>Browse available tasks and offers on your dashboard.</li>
         <li>Complete tasks or answer questions for offers to earn points.</li>
         <li>Track your progress as you complete tasks and offers.</li>
-        <li>Redeem points for rewards and withdraw directly to your <strong>UPI</strong>.</li>
+        <li>Redeem points for rewards and withdraw securely via UPI.</li>
+        <li>Engage daily to earn badges and climb leaderboards.</li>
+        <li>Participate in public sample quizzes to improve knowledge.</li>
+        <li>Click “Take Full Quiz” to attempt real 15-question quizzes after login.</li>
     </ol>
 </div>
 
+<!-- Sample Quizzes -->
 <div class="box">
-    <h2><span class="icon">📝</span>Sample Quiz</h2>
-    <p><strong>Q1:</strong> What is the capital of India?<br><strong>Answer:</strong> New Delhi. Explanation: New Delhi has been India’s capital since 1931.</p>
+    <h2><span class="icon">📝</span>Sample Quiz 1</h2>
+    <p><strong>Q1:</strong> What is the capital of India?<br><strong>Answer:</strong> New Delhi. Explanation: New Delhi has been the capital since 1931.</p>
     <p><strong>Q2:</strong> Who was the first Prime Minister of India?<br><strong>Answer:</strong> Jawaharlal Nehru. Explanation: Nehru served from 1947 to 1964.</p>
     <p><strong>Q3:</strong> What is H2O commonly known as?<br><strong>Answer:</strong> Water. Explanation: H2O is the chemical formula of water.</p>
     <p><strong>Q4:</strong> How many continents are there?<br><strong>Answer:</strong> Seven. Explanation: Asia, Africa, North America, South America, Antarctica, Europe, and Australia.</p>
     <p><strong>Q5:</strong> Who wrote the Indian national anthem?<br><strong>Answer:</strong> Rabindranath Tagore. Explanation: He wrote “Jana Gana Mana” in 1911.</p>
+    <a href="{% url 'users:login' %}" style="display:inline-block; margin-top:10px; padding:8px 12px; background:#2d2d2d; color:#fff; text-decoration:none; border-radius:5px;">Take Full Quiz (15 Questions)</a>
 </div>
-
-
-<!-- Privacy Policy -->
-
-
-<!-- Terms of Service -->
-
-
-<!-- Rewards Policy -->
-<div class="box">
-    
-    <p>Points are awarded for completing tasks or answering questions for offers according to their specified value. We provide daily tasks and daily offers for users to earn points. Points can be redeemed securely through the Wallet page for real money transferred directly to your UPI.</p>
-    <p>Users are encouraged to follow all instructions carefully. SBQuest reserves the right to adjust the points system or rewards structure as needed to maintain fairness and sustainability.</p>
-</div>
-
-
-
-
 
 </main>
 
 <footer>
-    &copy; {{ current_year }} SBQuest. All rights reserved.<br>
-    <a href="{% url 'privacy_policy' %}">Privacy Policy</a> | 
-    <a href="{% url 'terms_conditions' %}">Terms & Conditions</a> | 
-    <a href="{% url 'community_guidelines' %}">Community Guidelines</a>
+    <p>
+        <a href="{% url 'privacy_policy' %}" style="color:#fff; text-decoration:underline;">Privacy Policy</a> |
+        <a href="{% url 'terms_conditions' %}" style="color:#fff; text-decoration:underline;">Terms & Conditions</a> |
+        <a href="{% url 'community_guidelines' %}" style="color:#fff; text-decoration:underline;">Community Guidelines</a>
+    </p>
+    &copy; {{ current_year }} SBQuest. All rights reserved.
 </footer>
 
 </body>
