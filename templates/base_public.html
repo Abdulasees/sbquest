@@ -151,10 +151,23 @@
 <!-- About Us -->
 <div class="box">
     <h2><span class="icon">ℹ️</span>About Us</h2>
-    <p>SBQuest was created to help users complete small tasks online while earning rewards for their effort. Our platform addresses the problem of low engagement and lack of incentive in online task management. By combining task tracking with a reliable rewards system, users are motivated to complete more tasks and earn tangible benefits.</p>
-    <p>Users can trust SBQuest because we prioritize transparency, security, and fairness. Personal information is handled responsibly, and our rewards system is clearly defined. Our mission is to create a platform that empowers users to achieve small wins every day, while our vision is to be the most user-friendly and rewarding task management platform available online.</p>
-    <p>Whether you want to earn rewards from completing simple online tasks or participate in a community that values effort, SBQuest is designed to make the experience seamless.</p>
+    <p>SBQuest was created with a mission to help Indian users engage in productive online learning while earning meaningful rewards. In today’s fast-paced digital world, many platforms fail to motivate users to practice regularly or provide consistent incentives. SBQuest addresses this gap by combining task completion, educational challenges, and a transparent rewards system into a single gamified experience designed to make learning fun, interactive, and rewarding.</p>
+    
+    <p>Our platform is suitable for students preparing for competitive exams, professionals seeking to enhance their skills, or anyone who wants to improve general knowledge and cognitive abilities. SBQuest offers a wide range of tasks and quizzes covering subjects such as general knowledge, history, geography, mathematics, science, language skills, current affairs, and practical life skills. Every task is carefully curated to ensure that users not only earn points but also acquire valuable knowledge that can be applied in academics or daily life.</p>
+    
+    <p>To encourage daily engagement, SBQuest incorporates gamification elements such as points, badges, and leaderboards. Users can track their progress, view completed tasks, and understand how points are awarded. This transparent system fosters trust, builds confidence, and motivates users to complete tasks consistently. Daily challenges provide bonus points and recognition, helping users develop a disciplined routine that reinforces knowledge and builds long-term learning habits.</p>
+    
+    <p>Security and fairness are central to the SBQuest philosophy. All personal information is encrypted and handled responsibly, ensuring users’ privacy is never compromised. Points earned can be redeemed securely through UPI, giving users tangible rewards for their effort. Every transaction and point calculation is transparent, making the platform reliable and user-friendly.</p>
+    
+    <p>The educational value of SBQuest extends beyond mere points and rewards. Each quiz and task is designed to teach or reinforce concepts effectively. For example, geography tasks help users memorize world capitals, Indian states, and important landmarks. History challenges cover major events such as India’s freedom struggle, cultural milestones, and notable personalities. Science and mathematics tasks strengthen analytical and problem-solving skills. Language quizzes enhance vocabulary, grammar, and comprehension. This multi-dimensional approach ensures that learning is comprehensive, practical, and enjoyable.</p>
+    
+    <p>Community engagement is another key feature of SBQuest. Users can participate in public quizzes, challenges, and leaderboards, which foster a collaborative and competitive learning environment. Our community guidelines ensure a safe, respectful, and supportive space for all participants. By interacting with peers, sharing strategies, and discussing solutions, users not only learn faster but also develop teamwork and communication skills.</p>
+    
+    <p>SBQuest is committed to making education accessible, rewarding, and interactive. Our platform provides an inclusive environment where learners of all ages can improve their knowledge, sharpen their skills, and earn rewards for consistent effort. Whether a user wants to explore new subjects, prepare for exams, or simply challenge themselves with daily quizzes, SBQuest offers an intuitive interface and engaging content to meet these needs.</p>
+    
+    <p>Our mission is to empower Indian users to build confidence, knowledge, and lifelong learning habits. Our vision is to become the most trusted platform for micro-learning and task-based rewards, helping users grow personally and professionally. By integrating gamification, high-quality educational content, and secure rewards, SBQuest transforms online learning into a motivating, enjoyable, and rewarding experience. Join us to make learning a daily habit, earn tangible benefits, and connect with a community that values knowledge, effort, and growth.</p>
 </div>
+
 
 
 <!-- FAQ -->
@@ -195,20 +208,21 @@
     </ol>
 </div>
 
+<div class="box">
+    <h2><span class="icon">📝</span>Sample Quiz</h2>
+    <p><strong>Q1:</strong> What is the capital of India?<br><strong>Answer:</strong> New Delhi. Explanation: New Delhi has been India’s capital since 1931.</p>
+    <p><strong>Q2:</strong> Who was the first Prime Minister of India?<br><strong>Answer:</strong> Jawaharlal Nehru. Explanation: Nehru served from 1947 to 1964.</p>
+    <p><strong>Q3:</strong> What is H2O commonly known as?<br><strong>Answer:</strong> Water. Explanation: H2O is the chemical formula of water.</p>
+    <p><strong>Q4:</strong> How many continents are there?<br><strong>Answer:</strong> Seven. Explanation: Asia, Africa, North America, South America, Antarctica, Europe, and Australia.</p>
+    <p><strong>Q5:</strong> Who wrote the Indian national anthem?<br><strong>Answer:</strong> Rabindranath Tagore. Explanation: He wrote “Jana Gana Mana” in 1911.</p>
+</div>
+
 
 <!-- Privacy Policy -->
-<div class="box">
-    <h2><span class="icon">🔒</span>Privacy Policy</h2>
-    <p>SBQuest collects only the minimal personal information required to manage accounts and reward points, including your name, email, and account activity. This information is used solely to operate and improve the platform. Cookies are used to enhance your experience and track user preferences. Third-party advertising, including Google AdSense, may be displayed, which could use cookies to serve relevant ads.</p>
-    <p>All collected data is stored securely. We do not sell or share personal information with third parties except as required for payment processing or legal compliance. Users have the right to request access or deletion of their personal data. By using SBQuest, you consent to our data practices as described.</p>
-</div>
+
 
 <!-- Terms of Service -->
-<div class="box">
-    <h2><span class="icon">📜</span>Terms & Conditions</h2>
-    <p>Users must be at least 13 years old. Accounts are personal and non-transferable. Prohibited activities include fraud, misuse, spamming, or attempting to manipulate the reward system. Violations may result in account suspension or termination.</p>
-    <p>By using SBQuest, you agree to follow all rules and guidelines outlined on the platform. SBQuest reserves the right to update these terms at any time. Continued use of the platform constitutes acceptance of the revised terms.</p>
-</div>
+
 
 <!-- Rewards Policy -->
 <div class="box">
@@ -217,20 +231,17 @@
     <p>Users are encouraged to follow all instructions carefully. SBQuest reserves the right to adjust the points system or rewards structure as needed to maintain fairness and sustainability.</p>
 </div>
 
-<div class="box"> 
-     <h2><span class="icon"></span>Community Guidelines</h2>
-     
-     <p>Be respectful to all users.</p>
-     <p>No spamming or fraudulent activities.</p>
-     <p>Follow all platform rules and policies.</p>
-</div>
+
 
 
 
 </main>
 
 <footer>
-    &copy; {{ current_year }} SBQuest. All rights reserved.
+    &copy; {{ current_year }} SBQuest. All rights reserved.<br>
+    <a href="{% url 'privacy_policy' %}">Privacy Policy</a> | 
+    <a href="{% url 'terms_conditions' %}">Terms & Conditions</a> | 
+    <a href="{% url 'community_guidelines' %}">Community Guidelines</a>
 </footer>
 
 </body>
