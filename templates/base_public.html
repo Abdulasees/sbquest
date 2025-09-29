@@ -65,8 +65,7 @@
 <!-- How It Works -->
 <div class="box">
     <h2><span class="icon">⚙️</span>How It Works</h2>
-    <p>SBQuest is designed to make completing tasks, offers, and quizzes straightforward and rewarding. Once you register and log in, your personalized dashboard becomes the central hub for all activities. The dashboard includes sections like <strong>Daily Offers</strong>, <strong>My Offer Logs</strong>, <strong>Daily Tasks</strong>, <strong>View All Tasks</strong>, and your <strong>Wallet</strong>, allowing you to navigate your learning and rewards experience efficiently.</p>
-
+    <p>SBQuest is designed to make completing tasks, offers, and quizzes straightforward and rewarding. Once you register and log in, your personalized dashboard becomes the central hub for all activities. The dashboard includes sections like <strong>Daily Offers</strong>, <strong>My Offer Logs</strong>, <strong><a href="{% url 'users:login' %}">Daily Tasks</a></strong>, <strong>View All Tasks</strong>, and your <strong>Wallet</strong>, allowing you to navigate your learning and rewards experience efficiently.</p>
     <p>In the <strong>Daily Offers</strong> section, you can see all available offers for the day. Each offer contains clear instructions about the task or quiz you need to complete. Users can click on any offer to attempt it immediately. After completing an offer, the points you earn are automatically added to your Wallet, where your balance updates in real-time. The <strong>My Offer Logs</strong> section tracks all offers you have already attempted, including completed tasks and earned SB points. This helps you monitor your progress and see which offers you have successfully finished.</p>
 
     <p>The <strong>Daily Tasks</strong> section displays quizzes and other activities that reset every day. These tasks are designed to be short and engaging, allowing users to earn SB points consistently. Each task shows the number of points available for completion, and you can attempt it at any time during the day. If you prefer to browse all available options, the <strong>View All Tasks</strong> section provides a complete list of tasks and quizzes that are currently active on the platform. Users can select any task from this list to start earning points immediately.</p>
@@ -81,6 +80,82 @@
 
     <p>In summary, SBQuest provides a clear and honest workflow for earning rewards: log in → check your dashboard → complete tasks or offers → earn points → track points in Wallet → redeem via UPI. By keeping all features within the dashboard and focusing on real-time updates and transparency, users can confidently engage with the platform, while Google AdSense sees sufficient text-rich content describing your platform’s functionality.</p>
 </div>
+<div class="box">
+  <h2><span class="icon">✨</span> Welcome to SBQuest – Learn, Play, and Earn</h2>
+
+  <p>SBQuest is your all-in-one platform for daily learning, exciting quizzes, and smart rewards. 
+  Every day, you get access to engaging tasks and knowledge-based challenges designed to sharpen your mind 
+  while helping you earn SB Points. These points can later be redeemed for real benefits, making SBQuest both 
+  an educational journey and a rewarding experience.</p>
+
+  <h3>📌 What is SBQuest?</h3>
+  <p>SBQuest is built for learners, students, and knowledge seekers who enjoy testing their skills in short, 
+  fun quiz sessions. Whether it’s general knowledge, history, science, current affairs, or logical reasoning, 
+  SBQuest provides carefully designed quizzes and tasks. The best part – as you participate, you earn SB Points, 
+  which can be stored in your digital wallet and redeemed later through simple and secure payouts.</p>
+
+  <h3>🕒 Daily Task Slots</h3>
+  <p>To keep your experience structured and exciting, SBQuest divides your day into two main slots:</p>
+  <ul>
+    <li><strong>Morning Slot:</strong> 12:00 AM – 11:59 AM</li>
+    <li><strong>Afternoon Slot:</strong> 12:00 PM – 11:59 PM</li>
+  </ul>
+  <p>Each user is assigned <strong>two tasks per slot</strong>. This ensures that everyone has fresh opportunities 
+  to participate twice in the morning and twice in the afternoon. After completing your tasks, new sets of 
+  quizzes will appear in the next slot, keeping the cycle continuous and fair.</p>
+
+  <h3>🎯 How SB Points Work</h3>
+  <p>Whenever you complete a task or quiz successfully, you earn SB Points. These points are recorded in your 
+  personal SB Wallet inside the platform. The more you participate, the more points you collect. Here’s why 
+  users love the SB Point system:</p>
+  <ul>
+    <li>💡 Transparent tracking through your Wallet</li>
+    <li>📈 Fair conversion rate from SB to real money</li>
+    <li>🔒 Secure storage and payout system</li>
+    <li>🎁 Rewards that reflect your consistent learning efforts</li>
+  </ul>
+
+  <h3>💳 Redeem and Earn</h3>
+  <p>Once you’ve collected enough SB Points, you can easily request a redemption. SBQuest uses a 
+  <strong>UPI-based payout system</strong>, making the process simple for everyone in India. Just enter your UPI ID, 
+  place a redeem request, and track its status – Pending, Approved, or Rejected – in real time.</p>
+
+  <h3>🚀 Why Choose SBQuest?</h3>
+  <ul>
+    <li><strong>Engaging Content:</strong> Quizzes are based on real topics you care about – history, geography, 
+    science, and more.</li>
+    <li><strong>Daily Consistency:</strong> Two slots per day keep your routine balanced.</li>
+    <li><strong>Fair Rewards:</strong> Every correct attempt adds to your SB Wallet.</li>
+    <li><strong>Easy Redemption:</strong> No hidden steps, instant transparency.</li>
+    <li><strong>Community-Driven:</strong> SBQuest is built to grow with learners like you.</li>
+  </ul>
+
+  <h3>🌟 How It Works in 3 Steps</h3>
+  <ol>
+    <li><strong>Sign Up:</strong> Create your free SBQuest account.</li>
+    <li><strong>Attempt Quizzes:</strong> Take part in your morning and afternoon tasks.</li>
+    <li><strong>Earn & Redeem:</strong> Collect SB Points and redeem them through your Wallet.</li>
+  </ol>
+
+  <h3>🔍 Example Topics You’ll See</h3>
+  <p>SBQuest covers a wide variety of subjects to keep your curiosity alive:</p>
+  <ul>
+    <li>🌍 World capitals, countries, and geography</li>
+    <li>📚 Indian history and independence movement</li>
+    <li>🧪 Basic science</li>
+  </ul>
+
+  <p>Every quiz comes with clear answers and explanations so you don’t just know the result – you actually 
+  understand the concept behind it. This makes SBQuest a unique blend of fun learning and rewarding engagement.</p>
+
+  <h3>🚪 Get Started Today</h3>
+  <p>Join SBQuest now and make learning a part of your daily life. With quizzes, tasks, SB Points, and 
+  real rewards, your journey will be both educational and exciting.</p>
+
+  <p>👇 Try our <strong>Sample Quiz</strong> below to test your knowledge. When you’re ready, continue to the 
+<a href="{% url 'users:login' %}">Full Quiz Experience</a> where your answers will start earning SB Points in your wallet.</p>
+
+
 
 
 <!-- Sample Quizzes -->
@@ -105,6 +180,7 @@
         <li>Bahrain</li>
         <li>Luxembourg</li>
     </ul>
+    <p><strong>Answer & Explanation:</strong> Vatican City is the smallest country in the world by land area, covering only about 0.49 square kilometers. It is an independent city-state enclaved within Rome, Italy.</p>
 
     <p><strong>Q2:</strong> Who wrote the Indian national anthem?</p>
     <ul>
@@ -124,6 +200,7 @@
         <li>Dr. A.P.J. Abdul Kalam</li>
         <li>Chittaranjan Das</li>
     </ul>
+    <p><strong>Answer & Explanation:</strong> Rabindranath Tagore wrote the Indian national anthem “Jana Gana Mana” in 1911. It was adopted as the national anthem of India in 1950.</p>
 
     <p><strong>Q3:</strong> In which Indian city is the Taj Mahal located?</p>
     <ul>
@@ -143,7 +220,7 @@
         <li>Goa</li>
         <li>Chandigarh</li>
     </ul>
-
+    <p><strong>Answer & Explanation:</strong> The Taj Mahal is located in Agra, Uttar Pradesh. It was built by Mughal Emperor Shah Jahan in memory of his wife Mumtaz Mahal and is a UNESCO World Heritage Site.</p>
 
     <p><strong>Q4:</strong> Which planet is known as the Red Planet?</p>
     <ul>
@@ -163,6 +240,7 @@
         <li>Io</li>
         <li>Europa</li>
     </ul>
+    <p><strong>Answer & Explanation:</strong> Mars is known as the Red Planet due to its reddish appearance caused by iron oxide (rust) on its surface.</p>
 
     <p><strong>Q5:</strong> Who was the first Prime Minister of India?</p>
     <ul>
@@ -182,6 +260,7 @@
         <li>Rajiv Gandhi</li>
         <li>H. D. Deve Gowda</li>
     </ul>
+    <p><strong>Answer & Explanation:</strong> Jawaharlal Nehru was the first Prime Minister of India, serving from 1947 to 1964 after India gained independence from British rule.</p>
 
     <p><strong>Q6:</strong> Which Indian state is known as the "Land of Five Rivers"?</p>
     <ul>
@@ -201,6 +280,7 @@
         <li>West Bengal</li>
         <li>Assam</li>
     </ul>
+    <p><strong>Answer & Explanation:</strong> Punjab is called the "Land of Five Rivers" because it is traversed by five major rivers: Sutlej, Beas, Ravi, Chenab, and Jhelum.</p>
 
     <p><strong>Q7:</strong> What is the largest ocean on Earth?</p>
     <ul>
@@ -220,6 +300,7 @@
         <li>Black Sea</li>
         <li>Arabian Sea</li>
     </ul>
+    <p><strong>Answer & Explanation:</strong> The Pacific Ocean is the largest ocean on Earth, covering more than 63 million square miles and containing more than half of the world’s ocean water.</p>
 
     <p><strong>Q8:</strong> Which animal is known as the "Ship of the Desert"?</p>
     <ul>
@@ -239,6 +320,7 @@
         <li>Hippopotamus</li>
         <li>Rhinoceros</li>
     </ul>
+    <p><strong>Answer & Explanation:</strong> The camel is known as the "Ship of the Desert" because it can travel long distances in desert conditions without water, carrying loads efficiently.</p>
 
     <p><strong>Q9:</strong> What gas do humans need to breathe to survive?</p>
     <ul>
@@ -258,6 +340,7 @@
         <li>Nitrous Oxide</li>
         <li>Fluorine</li>
     </ul>
+    <p><strong>Answer & Explanation:</strong> Humans need oxygen to breathe. Oxygen is essential for cellular respiration, which provides energy for the body.</p>
 
     <p><strong>Q10:</strong> Who invented the light bulb?</p>
     <ul>
@@ -277,12 +360,21 @@
         <li>Charles Steinmetz</li>
         <li>Edwin Houston</li>
     </ul>
+    <p><strong>Answer & Explanation:</strong> Thomas Edison is credited with inventing the practical and long-lasting electric light bulb in 1879, although other inventors created earlier versions.</p>
 
     <a href="{% url 'users:login' %}" 
        style="display:inline-block; margin-top:15px; padding:10px 15px; background:#2d2d2d; color:#fff; text-decoration:none; border-radius:5px; font-weight:500;">
        Take Full Quiz (15 Questions)
     </a>
 </div>
+</div> <!-- end of Sample Quiz box -->
+
+<p style="text-align:center; margin:20px 0; font-weight:500; color:#2d2d2d;">
+  These are just examples of the types of quizzes available on SBQuest. 
+  Sign up today to access full daily tasks, earn SB points, and redeem them for rewards!
+</p>
+
+
 
 
 </main>
