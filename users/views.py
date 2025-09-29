@@ -60,7 +60,7 @@ def delete_account_view(request):
         user.delete()
 
         messages.success(request, "Your account and all personal data, including wallet transactions, have been deleted successfully.")
-        return redirect('users:signup')  # Redirect to signup/login page
+        return redirect('public_home')  # Redirect to signup/login page
 
     return render(request, 'delete_account.html')
 
