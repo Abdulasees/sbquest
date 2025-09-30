@@ -87,43 +87,21 @@
         color: red;
     }
 
-    /* Tablet */
     @media (max-width: 1024px) {
-        main {
-            padding: 25px;
-            margin: 20px;
-        }
+        main { padding: 25px; margin: 20px; }
     }
 
-    /* Mobile */
     @media (max-width: 768px) {
-        main {
-            padding: 20px;
-            margin: 15px;
-        }
-
-        input, textarea, button {
-            font-size: 0.95em;
-        }
+        main { padding: 20px; margin: 15px; }
+        input, textarea, button { font-size: 0.95em; }
     }
 
-    /* Very Small Mobile */
     @media (max-width: 480px) {
-        main {
-            padding: 15px;
-            margin: 10px;
-        }
-
-        header h1 {
-            font-size: 1.5em;
-        }
-
-        input, textarea, button {
-            font-size: 0.9em;
-        }
+        main { padding: 15px; margin: 10px; }
+        header h1 { font-size: 1.5em; }
+        input, textarea, button { font-size: 0.9em; }
     }
     </style>
-
 </head>
 <body>
 
@@ -142,32 +120,36 @@
 
     <form method="post">
         {% csrf_token %}
-        <input type="text" name="name" placeholder="Your Name" required>
-        <input type="email" name="email" placeholder="Your Email" required>
+        <input type="text" name="name" placeholder="Your Name" 
+               value="{% if request.user.is_authenticated %}{{ request.user.get_full_name }}{% endif %}" required>
+        <input type="email" name="email" placeholder="Your Email" 
+               value="{% if request.user.is_authenticated %}{{ request.user.email }}{% endif %}" required>
         <input type="text" name="subject" placeholder="Subject" required>
         <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
         <button type="submit">Send Message</button>
     </form>
 
-    <h2>Your Previous Messages</h2>
-    {% if contact_messages %}
-        {% for msg in contact_messages %}
-            <div class="message-box">
-                <strong>Subject:</strong> {{ msg.subject }} <br>
-                <strong>Message:</strong> {{ msg.message }} <br>
-                <strong>Sent:</strong> {{ msg.created_at|date:"d M Y H:i" }} <br>
-                {% if msg.reply %}
-                    <div class="reply">
-                        <strong>Admin Reply:</strong> {{ msg.reply }} <br>
-                        <strong>Replied At:</strong> {{ msg.replied_at|date:"d M Y H:i" }}
-                    </div>
-                {% else %}
-                    <em>No reply yet.</em>
-                {% endif %}
-            </div>
-        {% endfor %}
-    {% else %}
-        <p>You haven’t sent any messages yet.</p>
+    {% if request.user.is_authenticated %}
+        <h2>Your Previous Messages</h2>
+        {% if contact_messages %}
+            {% for msg in contact_messages %}
+                <div class="message-box">
+                    <strong>Subject:</strong> {{ msg.subject }} <br>
+                    <strong>Message:</strong> {{ msg.message }} <br>
+                    <strong>Sent:</strong> {{ msg.created_at|date:"d M Y H:i" }} <br>
+                    {% if msg.reply %}
+                        <div class="reply">
+                            <strong>Admin Reply:</strong> {{ msg.reply }} <br>
+                            <strong>Replied At:</strong> {{ msg.replied_at|date:"d M Y H:i" }}
+                        </div>
+                    {% else %}
+                        <em>No reply yet.</em>
+                    {% endif %}
+                </div>
+            {% endfor %}
+        {% else %}
+            <p>You haven’t sent any messages yet.</p>
+        {% endif %}
     {% endif %}
 </main>
 
