@@ -5,16 +5,20 @@ from django.contrib import messages
 def contact_form_view(request):
     contact_messages = None
 
-    # Only fetch previous messages after user has submitted at least one
-    if request.method == 'POST' and request.user.is_authenticated:
-        contact_messages = ContactMessage.objects.filter(email=request.user.email).order_by('-created_at')
+    if request.user.is_authenticated:
+        # Fetch all previous messages for logged-in user
+        contact_messages = ContactMessage.objects.filter(
+            email=request.user.email
+        ).order_by('-created_at')
 
+    if request.method == 'POST':
         name = request.POST.get('name')
         email = request.POST.get('email')
         subject = request.POST.get('subject')
         message_text = request.POST.get('message')
 
         if name and email and subject and message_text:
+            # Save the message
             ContactMessage.objects.create(
                 name=name,
                 email=email,
