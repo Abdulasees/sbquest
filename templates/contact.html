@@ -120,10 +120,9 @@
 
     <form method="post">
         {% csrf_token %}
-        <input type="text" name="name" placeholder="Your Name" 
-               value="{% if request.user.is_authenticated %}{{ request.user.get_full_name }}{% endif %}" required>
-        <input type="email" name="email" placeholder="Your Email" 
-               value="{% if request.user.is_authenticated %}{{ request.user.email }}{% endif %}" required>
+        <!-- No default values, fields are blank -->
+        <input type="text" name="name" placeholder="Your Name" required>
+        <input type="email" name="email" placeholder="Your Email" required>
         <input type="text" name="subject" placeholder="Subject" required>
         <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
         <button type="submit">Send Message</button>
