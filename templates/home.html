@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -136,37 +136,29 @@
 
 <div class="container">
 
-    <!-- Daily Offers -->
+    
     <div class="box">
         <h2>📅 Daily Offers</h2>
         {% if offers %}
-            <!-- <ul>
-                {% for offer in offers %}
-                    <li>{{ offer.title }}</li>
-                {% endfor %}
-            </ul> -->
+            
         {% else %}
             <p>No daily offers available today.</p>
         {% endif %}
         <a href="{% url 'systemsetting:daily_offer_list' %}">My Offer Logs</a>
     </div>
 
-    <!-- Daily Tasks -->
+    
     <div class="box">
         <h2>✅ Daily Tasks</h2>
         {% if tasks %}
-            <!-- <ul>
-                {% for task in tasks %}
-                    <li>{{ task.title }}</li>
-                {% endfor %}
-            </ul> -->
+            
         {% else %}
             <p>No daily tasks available today.</p>
         {% endif %}
         <a href="{% url 'tasks:task_list' %}">View All Tasks</a>
     </div>
 
- <!-- Quick Links Section -->
+ 
 <div class="box" style="background-color: #2d2d2d; width: 100%; color: white; padding: 20px; border-radius: 8px;">
     <ul style="list-style-type: none; padding-left: 0; display: flex; flex-wrap: wrap; gap: 15px; margin: 0;">
         <li><a href="{% url 'contact_form_view' %}" style="color: #ffffff; text-decoration: none; font-weight: 500;">Contact</a></li>
@@ -184,4 +176,4 @@
 </div>
 
 </body>
-</html>
+</html> -->

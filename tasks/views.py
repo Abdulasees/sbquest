@@ -75,7 +75,6 @@ def assign_tasks(user, slot_start, slot_end):
 # TASK LIST VIEW
 # -------------------------------
 @never_cache
-@login_required
 def task_list(request):
     user = request.user
     slot_start, slot_end = get_slot_times()
@@ -110,7 +109,6 @@ def task_list(request):
 # -------------------------------
 # TASK DETAIL / QUIZ VIEW
 # -------------------------------
-@login_required
 def task_detail(request, pk):
     task = get_object_or_404(Task, pk=pk)
     quiz = task.quiz
@@ -198,7 +196,6 @@ def task_detail(request, pk):
 # SUBMIT TASK VIEW (NON-QUIZ)
 # -------------------------------
 @never_cache
-@login_required
 def submit_task(request, task_id):
     task = get_object_or_404(Task, id=task_id)
     slot_start, slot_end = get_slot_times()
@@ -269,7 +266,6 @@ def submit_task(request, task_id):
 # -------------------------------
 # TASK TITLES ONLY (Optional)
 # -------------------------------
-@login_required
 def task_titles_only(request):
     tasks = Task.objects.filter(active=True)
     return render(request, "task_titles_only.html", {"tasks": tasks})

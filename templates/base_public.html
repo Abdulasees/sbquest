@@ -1,409 +1,195 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>SBQuest – Public Page</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<style>
-    body { font-family: Arial, sans-serif; margin:0; padding:0; background:#f4f4f4; color:#333; }
-    header { background:#2d2d2d; color:#fff; padding:15px 30px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; box-shadow:0 2px 5px rgba(0,0,0,0.2); position:sticky; top:0; z-index:1000; }
-    header h1 { font-size:1.8em; margin:0; font-weight:600; }
-    header .nav { display:flex; flex-wrap:wrap; gap:15px; }
-    header .nav a { color:#fff; text-decoration:none; font-weight:500; padding:6px 10px; border-radius:5px; transition: background 0.3s, color 0.3s; }
-    header .nav a:hover { background:#fff; color:#2d2d2d; }
-    main { padding:30px; max-width:1000px; margin:auto; display:flex; flex-direction:column; gap:20px; }
-    .box { background:#fff; padding:25px; border-radius:10px; box-shadow:0 4px 12px rgba(0,0,0,0.1); transition: transform 0.3s, box-shadow 0.3s; }
-    .box:hover { transform: translateY(-5px); box-shadow:0 8px 20px rgba(0,0,0,0.15); }
-    h2 { margin-top:0; color:#2d2d2d; display:flex; align-items:center; font-size:1.5em; }
-    h2 span.icon { margin-right:10px; font-size:1.3em; }
-    ol, ul { padding-left:20px; }
-    p { line-height:1.6; }
-    footer { background:#2d2d2d; color:#fff; text-align:center; padding:15px; margin-top:30px; }
-    @media(max-width:1024px){ main { padding:20px; } header h1 { font-size:1.6em; } header .nav a { padding:5px 8px; } }
-    @media(max-width:768px){ header { flex-direction:column; align-items:flex-start; } header .nav { width:100%; justify-content:space-between; margin-top:10px; } header .nav a { padding:8px 12px; } main { padding:20px; } h1 { font-size:1.5em; } h2 { font-size:1.3em; } }
-    @media(max-width:480px){ h1 { font-size:1.3em; } h2 { font-size:1.1em; } p { font-size:14px; } .box { width:100%; box-sizing:border-box; padding:20px; } header .nav a { padding:6px 8px; font-size:13px; } main { padding:15px; } }
-</style>
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9745567567370540" crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <title>SBQuest - Dashboard</title>
+    <meta name="description" content="Dashboard for SBQuest users. View daily tasks, offers, and manage your rewards.">
+    <meta name="keywords" content="SBQuest, rewards, daily tasks, daily offers, points, dashboard">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #2d2d2d;
+            color: white;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        header h1 {
+            font-size: 1.5em;
+            margin: 0;
+        }
+
+        .nav {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .nav a {
+            font-weight: 500;
+            text-decoration: none;
+            transition: color 0.3s, text-decoration 0.3s;
+        }
+
+        .nav a:hover {
+            color: #00c6ff;
+            text-decoration: underline;
+        }
+
+        .container {
+            padding: 30px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+
+        .box {
+            background: white;
+            width: 45%;
+            min-width: 280px;
+            margin: 15px;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+        }
+
+        h2 {
+            margin-top: 0;
+            color: #2c3e50;
+            font-size: 1.3em;
+            border-bottom: 2px solid #f0f0f0;
+            padding-bottom: 8px;
+        }
+
+        ul {
+            padding-left: 20px;
+            list-style: disc;
+        }
+
+        ul li {
+            margin: 8px 0;
+            font-size: 15px;
+            line-height: 1.4;
+        }
+
+        ul li:hover {
+            background: #f9f9f9;
+            border-radius: 5px;
+            padding: 5px;
+            transition: background 0.3s;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #2d2d2d;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+            border-top: 2px solid #1a1a1a;
+        }
+
+        .footer-links {
+            margin-bottom: 8px;
+            font-size: 15px;
+        }
+
+        .copyright {
+            font-size: 14px;
+            color: #ccc;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+                align-items: center;
+                padding: 20px;
+            }
+            .box {
+                width: 100%;
+                margin: 10px 0;
+            }
+            .nav {
+                justify-content: center;
+            }
+        }
+    </style>
 </head>
 <body>
 
 <header>
-    <h1>SBQuest</h1>
+    <h1>Welcome, {{ user.username }}</h1>
     <div class="nav">
-        <a href="/users/login/">Login</a>
-        <a href="/users/signup/">Sign Up</a>
-        <a href="/contact/">Contact Us</a>
+        <a href="/" style="color:#fff;">Home</a>
+        <a href="/offers/" style="color:#fff;">Daily Offers</a>
+        <a href="/tasks/" style="color:#fff;">Daily Tasks</a>
+        <a href="/wallet/" style="color:#fff;">Wallet</a>
+        <a href="/about/" style="color:#fff;">About</a>
     </div>
 </header>
 
-<main>
+<div class="container">
+    <!-- Daily Offers -->
+    <div class="box" id="daily-offers">
+        <h2>📅 Daily Offers</h2>
+        {% if offers %}
+            <ul>
+                {% for offer in offers %}
+                    <li>{{ offer.title }}</li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>No daily offers available today.</p>
+        {% endif %}
+        <a href="/offers/" style="color:#007bff; text-decoration:underline;">View All Offers</a>
+    </div>
 
-<!-- About Us -->
-<div class="box">
-  <h2><span class="icon">ℹ️</span> About Us</h2>
-  <p>SBQuest is a unique online platform designed to help Indian users practice daily learning in a structured and motivating way. Unlike many websites that offer only entertainment or unorganized quizzes, SBQuest focuses on combining educational value with a consistent daily routine. Every registered user receives a fixed number of tasks per day, divided into two slots—morning and afternoon. This ensures that learning becomes a habit, not something random or optional. By repeating this cycle daily, users steadily build knowledge while earning reward points that can later be redeemed.</p>
-
-  <p>Currently, each user is assigned <strong>two tasks in the morning slot</strong> and <strong>two tasks in the afternoon slot</strong>. Each task contains a quiz that is carefully structured for engagement. Quizzes are made up of a set of questions, and each question provides multiple answer choices. In our current design, a question can have up to fifteen possible options. This makes the experience richer than a typical four-option multiple-choice quiz. The user must select the correct answer before moving forward to the next question, creating a balance between fun and challenge.</p>
-
-  <p>At SBQuest, points are called <strong>SB points</strong>. When users complete their daily tasks and answer questions correctly, these points are credited to their account. The points are not just symbolic; they have real value. Users can view their balance in the wallet section of their profile. The wallet interface is simple and transparent—it shows the SB earned, pending redemptions, and approved withdrawals. This helps users track their progress clearly without confusion.</p>
-
-  <p>One of the most useful features of SBQuest is the <strong>redeem request system</strong>. Once users collect enough SB points, they can place a request to convert those points into money. Redemption happens through UPI, which is fast, familiar, and widely used across India. Each request has a status, such as pending, approved, or rejected, so users always know where their money stands. This flow builds trust, because the system is transparent and easy to follow.</p>
-
-  <p>SBQuest also focuses on accountability and fairness. The platform ensures that tasks are distributed in a fair round-robin method so all users get equal opportunities. Every task resets daily, meaning that each new day brings a fresh set of challenges. This avoids repetition and keeps users motivated to log in regularly. The slot-based logic—morning versus afternoon—not only makes the experience predictable but also prevents users from finishing all tasks at once and then losing interest.</p>
-
-  <p>Educational content is at the core of SBQuest. Questions cover a broad variety of topics such as general knowledge, Indian history, geography, science, mathematics, world capitals, and cultural facts. For example, users may encounter a question about the smallest country in the world, the capital of a European nation, or a key figure from India’s freedom struggle. These topics are not random—they are carefully selected to ensure that while answering, users learn something meaningful. Many questions are supported with answer images to make the experience more interactive and visually engaging.</p>
-
-  <p>The simplicity of our design is also important. Users do not need technical knowledge or complicated steps to participate. Logging in, accessing daily tasks, answering questions, and checking wallet balance can all be done smoothly on both mobile and desktop devices. This accessibility makes SBQuest friendly to students, professionals, and casual learners alike. Whether someone has five minutes during a commute or a dedicated study hour, they can make use of the platform conveniently.</p>
-
-  <p>Our mission is straightforward: <strong>to make daily learning rewarding and accessible</strong>. By completing two small sets of tasks in a day, users strengthen their memory, improve their awareness, and gain confidence in their knowledge. The reward system is not meant to replace learning but to encourage consistency. Even if the prize is small, the habit of showing up daily to complete educational tasks is what brings real value in the long term.</p>
-
-  <p>SBQuest is not just another quiz website. It is a structured platform that connects learning with discipline and rewards. Our vision is to grow steadily, adding more question banks, better variety of quizzes, and eventually advanced features like leaderboards and community challenges. But even in its current form, SBQuest already serves its purpose: it motivates users to learn something new every day and ensures their effort is recognized with points that carry real-world value.</p>
-
-  <p>We invite learners of all backgrounds to join SBQuest. Whether you are a student preparing for exams, a professional keeping your mind active, or simply someone curious about the world, our platform offers a simple and engaging way to stay consistent. With slot-based daily tasks, multiple-choice quizzes, wallet tracking, and UPI redemption, SBQuest proves that learning can be both educational and rewarding.</p>
+    <!-- Daily Tasks -->
+    <div class="box" id="daily-tasks">
+        <h2>✅ Daily Tasks</h2>
+        {% if tasks %}
+            <ul>
+                {% for task in tasks %}
+                    <li>{{ task.title }}</li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>No daily tasks available today.</p>
+        {% endif %}
+        <a href="/tasks/" style="color:#007bff; text-decoration:underline;">View All Tasks</a>
+    </div>
 </div>
 
-
-<!-- How It Works -->
-<div class="box">
-    <h2><span class="icon">⚙️</span>How It Works</h2>
-    <p>SBQuest is designed to make completing tasks, offers, and quizzes straightforward and rewarding. Once you register and log in, your personalized dashboard becomes the central hub for all activities. The dashboard includes sections like <strong>Daily Offers</strong>, <strong>My Offer Logs</strong>, <strong><a href="/users/login/">Daily Tasks and Offers</a></strong>, <strong>View All Tasks</strong>, and your <strong>Wallet</strong>, allowing you to navigate your learning and rewards experience efficiently.</p>
-    <p>In the <strong>Daily Offers</strong> section, you can see all available offers for the day. Each offer contains clear instructions about the task or quiz you need to complete. Users can click on any offer to attempt it immediately. After completing an offer, the points you earn are automatically added to your Wallet, where your balance updates in real-time. The <strong>My Offer Logs</strong> section tracks all offers you have already attempted, including completed tasks and earned SB points. This helps you monitor your progress and see which offers you have successfully finished.</p>
-
-    <p>The <strong>Daily Tasks</strong> section displays quizzes and other activities that reset every day. These tasks are designed to be short and engaging, allowing users to earn SB points consistently. Each task shows the number of points available for completion, and you can attempt it at any time during the day. If you prefer to browse all available options, the <strong>View All Tasks</strong> section provides a complete list of tasks and quizzes that are currently active on the platform. Users can select any task from this list to start earning points immediately.</p>
-
-    <p>Each quiz or task is simple to follow. Upon clicking a quiz, the platform displays questions in a clear format. While explanations for answers may not be available for all quizzes, users earn SB points for every correctly completed activity. After finishing a quiz, your points are credited automatically to your Wallet. The Wallet not only shows your current SB balance but also maintains a history of all redemptions, allowing you to track your progress and ensure accurate rewards distribution.</p>
-
-    <p>The reward system is straightforward. Points accumulated in your Wallet can be redeemed securely through UPI, giving users tangible benefits for completing tasks and quizzes. This system is transparent, with all point calculations and redemptions visible in your dashboard. By engaging daily with tasks, quizzes, and offers, users can steadily increase their balance, climb the leaderboard, and earn recognition for consistent activity.</p>
-
-    <p>SBQuest also encourages daily engagement by making it easy to see what’s new each day. The platform updates tasks and offers regularly, providing multiple slots for users to participate. Whether completing a Daily Offer, attempting a Daily Task, or exploring the full list in View All Tasks, users have numerous opportunities to earn SB points, maintain a daily routine, and improve their knowledge over time.</p>
-
-    <p>Participation is entirely online and mobile-friendly. Users can access the dashboard from any modern browser or device without needing phone verification or additional registration steps. Once logged in, all features — including Daily Offers, My Offer Logs, Daily Tasks, View All Tasks, and Wallet — are fully functional and accessible, making it simple to navigate and participate in quizzes and task-based learning activities.</p>
-
-    <p>In summary, SBQuest provides a clear and honest workflow for earning rewards: log in → check your dashboard → complete tasks or offers → earn points → track points in Wallet → redeem via UPI. By keeping all features within the dashboard and focusing on real-time updates and transparency, users can confidently engage with the platform, while Google AdSense sees sufficient text-rich content describing your platform’s functionality.</p>
-</div>
-<div class="box">
-  <h2><span class="icon">✨</span> Welcome to SBQuest – Learn, Play, and Earn</h2>
-
-  <p>SBQuest is your all-in-one platform for daily learning, exciting quizzes, and smart rewards. 
-  Every day, you get access to engaging tasks and knowledge-based challenges designed to sharpen your mind 
-  while helping you earn SB Points. These points can later be redeemed for real benefits, making SBQuest both 
-  an educational journey and a rewarding experience.</p>
-
-  <h3>📌 What is SBQuest?</h3>
-  <p>SBQuest is built for learners, students, and knowledge seekers who enjoy testing their skills in short, 
-  fun quiz sessions. Whether it’s general knowledge, history, science, current affairs, or logical reasoning, 
-  SBQuest provides carefully designed quizzes and tasks. The best part – as you participate, you earn SB Points, 
-  which can be stored in your digital wallet and redeemed later through simple and secure payouts.</p>
-
-  <h3>🕒 Daily Task Slots</h3>
-  <p>To keep your experience structured and exciting, SBQuest divides your day into two main slots:</p>
-  <ul>
-    <li><strong>Morning Slot:</strong> 12:00 AM – 11:59 AM</li>
-    <li><strong>Afternoon Slot:</strong> 12:00 PM – 11:59 PM</li>
-  </ul>
-  <p>Each user is assigned <strong> tasks and offers per slot</strong>. This ensures that everyone has fresh opportunities 
-  to participate twice in the morning and twice in the afternoon. After completing your tasks and offers, new sets of 
-  quizzes will appear in the next slot, keeping the cycle continuous and fair.</p>
-  <h4>Demo: Daily Offer View</h4>
-<img src="/media/Screenshot_29-9-2025_101159_www.sbquest.in.jpeg" 
-     alt="Demo daily offer showing tasks, points, and instructions" 
-     width="600">
-
-<h4>Demo: Daily Task View</h4>
-<img src="/media/Screenshot_29-9-2025_113448_www.sbquest.in.jpeg" 
-     alt="Demo daily task showing quiz questions and answer options" 
-     width="600">
-
-  <h3>🎯 How SB Points Work</h3>
-  <p>Whenever you complete a task or offer successfully, you earn SB Points. These points are recorded in your 
-  personal SB Wallet inside the platform. The more you participate, the more points you collect. Here’s why 
-  users love the SB Point system:</p>
-  <ul>
-    <li>💡 Transparent tracking through your Wallet</li>
-    <li>📈 Fair conversion rate from SB to real money</li>
-    <li>🔒 Secure storage and payout system</li>
-    <li>🎁 Rewards that reflect your consistent learning efforts</li>
-  </ul>
-
-  <h3>💳 Redeem and Earn</h3>
-  <p>Once you’ve collected enough SB Points, you can easily request a redemption. SBQuest uses a 
-  <strong>UPI-based payout system</strong>, making the process simple for everyone in India. Just enter your UPI ID, 
-  place a redeem request, and track its status – Pending, Approved, or Rejected – in real time.</p>
-
-<!-- Demo Wallet Screenshot -->
-  <h4>Wallet Preview (Demo)</h4>
-  <p>This is a demo view of the wallet showing SB points, minimum redeem amount, and equivalent money. Actual values may differ for real users.</p>
-  <img src="/media/Screenshot_29-9-2025_101441_www.sbquest.in.jpeg" 
-       alt="Demo wallet showing SB points, minimum redeem amount, and UPI redemption options" 
-       width="600">
-
-
-  <h3>🚀 Why Choose SBQuest?</h3>
-  <ul>
-    <li><strong>Engaging Content:</strong> Quizzes are based on real topics you care about – history, geography, 
-    science, and more.</li>
-    <li><strong>Daily Consistency:</strong> Two slots per day keep your routine balanced.</li>
-    <li><strong>Fair Rewards:</strong> Every correct attempt adds to your SB Wallet.</li>
-    <li><strong>Easy Redemption:</strong> No hidden steps, instant transparency.</li>
-    <li><strong>Community-Driven:</strong> SBQuest is built to grow with learners like you.</li>
-  </ul>
-
-  <h3>🌟 How It Works in 3 Steps</h3>
-  <ol>
-    <li><strong>Sign Up:</strong> Create your free SBQuest account.</li>
-    <li><strong>Attempt Quizzes:</strong> Take part in your morning and afternoon tasks.</li>
-    <li><strong>Earn & Redeem:</strong> Collect SB Points and redeem them through your Wallet.</li>
-  </ol>
-
-  <h3>🔍 Example Topics You’ll See</h3>
-  <p>SBQuest covers a wide variety of subjects to keep your curiosity alive:</p>
-  <ul>
-    <li>🌍 World capitals, countries, and geography</li>
-    <li>📚 Indian history and independence movement</li>
-    <li>🧪 Basic science</li>
-  </ul>
-
-  <p>Every quiz comes with clear answers and explanations so you don’t just know the result – you actually 
-  understand the concept behind it. This makes SBQuest a unique blend of fun learning and rewarding engagement.</p>
-
-  <h3>🚪 Get Started Today</h3>
-  <p>Join SBQuest now and make learning a part of your daily life. With quizzes, tasks, SB Points, and 
-  real rewards, your journey will be both educational and exciting.</p>
-
-  <p>👇 Try our <strong>Sample Quiz</strong> below to test your knowledge. When you’re ready, continue to the 
-<a href="/users/login/">Full Quiz Experience</a> where your answers will start earning SB Points in your wallet.</p>
-
-
-
-
-<!-- Sample Quizzes -->
-<div class="box">
-    <h2><span class="icon">📝</span>Sample Quiz 1</h2>
-
-    <p><strong>Q1:</strong> Which is the smallest country in the world by land area?</p>
-    <ul>
-        <li>Monaco</li>
-        <li>Nauru</li>
-        <li>Tuvalu</li>
-        <li>San Marino</li>
-        <li>Liechtenstein</li>
-        <li>Vatican City</li>
-        <li>Marshall Islands</li>
-        <li>Saint Kitts and Nevis</li>
-        <li>Maldives</li>
-        <li>Malta</li>
-        <li>Andorra</li>
-        <li>Seychelles</li>
-        <li>Palau</li>
-        <li>Bahrain</li>
-        <li>Luxembourg</li>
-    </ul>
-    <p><strong>Answer & Explanation:</strong> Vatican City is the smallest country in the world by land area, covering only about 0.49 square kilometers. It is an independent city-state enclaved within Rome, Italy.</p>
-
-    <p><strong>Q2:</strong> Who wrote the Indian national anthem?</p>
-    <ul>
-        <li>Bankim Chandra Chatterjee</li>
-        <li>Rabindranath Tagore</li>
-        <li>Subramania Bharati</li>
-        <li>Sarojini Naidu</li>
-        <li>Kavi Pradeep</li>
-        <li>Swami Vivekananda</li>
-        <li>Jawaharlal Nehru</li>
-        <li>Indira Gandhi</li>
-        <li>Raja Ram Mohan Roy</li>
-        <li>Mahatma Gandhi</li>
-        <li>Vikram Sarabhai</li>
-        <li>Bhagat Singh</li>
-        <li>C. Rajagopalachari</li>
-        <li>Dr. A.P.J. Abdul Kalam</li>
-        <li>Chittaranjan Das</li>
-    </ul>
-    <p><strong>Answer & Explanation:</strong> Rabindranath Tagore wrote the Indian national anthem “Jana Gana Mana” in 1911. It was adopted as the national anthem of India in 1950.</p>
-
-    <p><strong>Q3:</strong> In which Indian city is the Taj Mahal located?</p>
-    <ul>
-        <li>Mumbai</li>
-        <li>Delhi</li>
-        <li>Kolkata</li>
-        <li>Chennai</li>
-        <li>Bengaluru</li>
-        <li>Agra</li>
-        <li>Jaipur</li>
-        <li>Lucknow</li>
-        <li>Varanasi</li>
-        <li>Hyderabad</li>
-        <li>Pune</li>
-        <li>Patna</li>
-        <li>Amritsar</li>
-        <li>Goa</li>
-        <li>Chandigarh</li>
-    </ul>
-    <p><strong>Answer & Explanation:</strong> The Taj Mahal is located in Agra, Uttar Pradesh. It was built by Mughal Emperor Shah Jahan in memory of his wife Mumtaz Mahal and is a UNESCO World Heritage Site.</p>
-
-    <p><strong>Q4:</strong> Which planet is known as the Red Planet?</p>
-    <ul>
-        <li>Venus</li>
-        <li>Mars</li>
-        <li>Jupiter</li>
-        <li>Mercury</li>
-        <li>Saturn</li>
-        <li>Earth</li>
-        <li>Neptune</li>
-        <li>Uranus</li>
-        <li>Pluto</li>
-        <li>Ceres</li>
-        <li>Haumea</li>
-        <li>Makemake</li>
-        <li>Eris</li>
-        <li>Io</li>
-        <li>Europa</li>
-    </ul>
-    <p><strong>Answer & Explanation:</strong> Mars is known as the Red Planet due to its reddish appearance caused by iron oxide (rust) on its surface.</p>
-
-    <p><strong>Q5:</strong> Who was the first Prime Minister of India?</p>
-    <ul>
-        <li>Jawaharlal Nehru</li>
-        <li>Indira Gandhi</li>
-        <li>Rajendra Prasad</li>
-        <li>V. P. Singh</li>
-        <li>Lal Bahadur Shastri</li>
-        <li>Moraji Desai</li>
-        <li>Charan Singh</li>
-        <li>Chandra Shekhar</li>
-        <li>P. V. Narasimha Rao</li>
-        <li>Atal Bihari Vajpayee</li>
-        <li>Manmohan Singh</li>
-        <li>Narendra Modi</li>
-        <li>Gulzarilal Nanda</li>
-        <li>Rajiv Gandhi</li>
-        <li>H. D. Deve Gowda</li>
-    </ul>
-    <p><strong>Answer & Explanation:</strong> Jawaharlal Nehru was the first Prime Minister of India, serving from 1947 to 1964 after India gained independence from British rule.</p>
-
-    <p><strong>Q6:</strong> Which Indian state is known as the "Land of Five Rivers"?</p>
-    <ul>
-        <li>Punjab</li>
-        <li>Haryana</li>
-        <li>Rajasthan</li>
-        <li>Uttar Pradesh</li>
-        <li>Maharashtra</li>
-        <li>Karnataka</li>
-        <li>Tamil Nadu</li>
-        <li>Kerala</li>
-        <li>Bihar</li>
-        <li>Gujarat</li>
-        <li>Madhya Pradesh</li>
-        <li>Odisha</li>
-        <li>Chhattisgarh</li>
-        <li>West Bengal</li>
-        <li>Assam</li>
-    </ul>
-    <p><strong>Answer & Explanation:</strong> Punjab is called the "Land of Five Rivers" because it is traversed by five major rivers: Sutlej, Beas, Ravi, Chenab, and Jhelum.</p>
-
-    <p><strong>Q7:</strong> What is the largest ocean on Earth?</p>
-    <ul>
-        <li>Atlantic Ocean</li>
-        <li>Indian Ocean</li>
-        <li>Pacific Ocean</li>
-        <li>Arctic Ocean</li>
-        <li>Southern Ocean</li>
-        <li>Coral Sea</li>
-        <li>Bering Sea</li>
-        <li>Sea of Japan</li>
-        <li>Gulf of Mexico</li>
-        <li>Caribbean Sea</li>
-        <li>North Sea</li>
-        <li>Baltic Sea</li>
-        <li>Red Sea</li>
-        <li>Black Sea</li>
-        <li>Arabian Sea</li>
-    </ul>
-    <p><strong>Answer & Explanation:</strong> The Pacific Ocean is the largest ocean on Earth, covering more than 63 million square miles and containing more than half of the world’s ocean water.</p>
-
-    <p><strong>Q8:</strong> Which animal is known as the "Ship of the Desert"?</p>
-    <ul>
-        <li>Camel</li>
-        <li>Horse</li>
-        <li>Donkey</li>
-        <li>Elephant</li>
-        <li>Buffalo</li>
-        <li>Llama</li>
-        <li>Alpaca</li>
-        <li>Zebra</li>
-        <li>Giraffe</li>
-        <li>Kangaroo</li>
-        <li>Ox</li>
-        <li>Yak</li>
-        <li>Reindeer</li>
-        <li>Hippopotamus</li>
-        <li>Rhinoceros</li>
-    </ul>
-    <p><strong>Answer & Explanation:</strong> The camel is known as the "Ship of the Desert" because it can travel long distances in desert conditions without water, carrying loads efficiently.</p>
-
-    <p><strong>Q9:</strong> What gas do humans need to breathe to survive?</p>
-    <ul>
-        <li>Carbon Dioxide</li>
-        <li>Oxygen</li>
-        <li>Nitrogen</li>
-        <li>Hydrogen</li>
-        <li>Helium</li>
-        <li>Methane</li>
-        <li>Argon</li>
-        <li>Neon</li>
-        <li>Krypton</li>
-        <li>Xenon</li>
-        <li>Radon</li>
-        <li>Carbon Monoxide</li>
-        <li>Ozone</li>
-        <li>Nitrous Oxide</li>
-        <li>Fluorine</li>
-    </ul>
-    <p><strong>Answer & Explanation:</strong> Humans need oxygen to breathe. Oxygen is essential for cellular respiration, which provides energy for the body.</p>
-
-    <p><strong>Q10:</strong> Who invented the light bulb?</p>
-    <ul>
-        <li>Thomas Edison</li>
-        <li>Alexander Graham Bell</li>
-        <li>Nikola Tesla</li>
-        <li>James Watt</li>
-        <li>Benjamin Franklin</li>
-        <li>Michael Faraday</li>
-        <li>George Westinghouse</li>
-        <li>Joseph Swan</li>
-        <li>Heinrich Göbel</li>
-        <li>Hiram Maxim</li>
-        <li>Alessandro Volta</li>
-        <li>James Clerk Maxwell</li>
-        <li>Samuel Morse</li>
-        <li>Charles Steinmetz</li>
-        <li>Edwin Houston</li>
-    </ul>
-    <p><strong>Answer & Explanation:</strong> Thomas Edison is credited with inventing the practical and long-lasting electric light bulb in 1879, although other inventors created earlier versions.</p>
-
-    <a href="/users/signup/" 
-       style="display:inline-block; margin-top:15px; padding:10px 15px; background:#2d2d2d; color:#fff; text-decoration:none; border-radius:5px; font-weight:500;">
-       Take Full Quiz (15 Questions)
-    </a>
-</div>
-</div> <!-- end of Sample Quiz box -->
-
-<p style="text-align:center; margin:20px 0; font-weight:500; color:#2d2d2d;">
-  These are just examples of the types of quizzes available on SBQuest. 
-  Sign up today to access full daily tasks, earn SB points, and redeem them for rewards!
-</p>
-
-
-
-
-</main>
-
+<!-- Footer -->
 <footer>
-    <p>
+    <div class="footer-links">
         <a href="/privacy-policy/" style="color:#fff; text-decoration:underline;">Privacy Policy</a> |
         <a href="/terms-conditions/" style="color:#fff; text-decoration:underline;">Terms & Conditions</a> |
-        <a href="/community-guidelines/" style="color:#fff; text-decoration:underline;">Community Guidelines</a>
-    </p>
-    &copy; {{ current_year }} SBQuest. All rights reserved.
+        <a href="/community-guidelines/" style="color:#fff; text-decoration:underline;">Community Guidelines</a> |
+        <a href="/faq/" style="color:#fff; text-decoration:underline;">FAQ</a> |
+        <a href="/how-it-works/" style="color:#fff; text-decoration:underline;">How It Works</a> |
+        <a href="/rewards-policy/" style="color:#fff; text-decoration:underline;">Rewards Policy</a> |
+        <a href="/contact/" style="color:#fff; text-decoration:underline;">Contact</a>
+    </div>
+    <div class="copyright">
+        &copy; {{ current_year }} SBQuest. All rights reserved.
+    </div>
 </footer>
 
 </body>

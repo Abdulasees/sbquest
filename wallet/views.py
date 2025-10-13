@@ -27,7 +27,7 @@ def wallet_home(request):
 
 
 
-@login_required
+
 def redeem_view(request):
     user = request.user
 

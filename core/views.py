@@ -6,7 +6,7 @@ from wallet.models import WalletTransaction
 from django.db.models import Sum
 
 
-@login_required
+
 def home_view(request):
     user = request.user
 

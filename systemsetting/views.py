@@ -76,7 +76,6 @@ def assign_offers(user, today, half_day):
 # VIEWS
 # -------------------------------
 @never_cache
-@login_required
 def daily_offer_list(request):
     today, half_day = current_slot()
 
@@ -114,7 +113,6 @@ def daily_offer_list(request):
 
 
 @never_cache
-@login_required
 def claim_offer(request, offer_id, question_index=0):
     today, half_day = current_slot()
     offer = get_object_or_404(DailyOffer, id=offer_id)
