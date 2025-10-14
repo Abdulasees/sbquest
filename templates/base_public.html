@@ -95,7 +95,6 @@
             transition: background 0.3s;
         }
 
-        /* Footer */
         footer {
             background-color: #2d2d2d;
             color: #fff;
@@ -104,17 +103,11 @@
             border-top: 2px solid #1a1a1a;
         }
 
-        .footer-links {
-            margin-bottom: 8px;
-            font-size: 15px;
-        }
-
         .copyright {
             font-size: 14px;
             color: #ccc;
         }
 
-        /* Mobile Responsive */
         @media (max-width: 768px) {
             .container {
                 flex-direction: column;
@@ -137,8 +130,8 @@
     <h1>Welcome, {{ user.username }}</h1>
     <div class="nav">
         <a href="/" style="color:#fff;">Home</a>
-        <a href="/offers/" style="color:#fff;">Daily Offers</a>
-        <a href="/tasks/" style="color:#fff;">Daily Tasks</a>
+        <!-- <a href="/offers/" style="color:#fff;">Daily Offers</a>
+        <a href="/tasks/" style="color:#fff;">Daily Tasks</a> -->
         <a href="/wallet/" style="color:#fff;">Wallet</a>
         <a href="/about/" style="color:#fff;">About</a>
     </div>
@@ -149,11 +142,11 @@
     <div class="box" id="daily-offers">
         <h2>📅 Daily Offers</h2>
         {% if offers %}
-            <ul>
+            <!-- <ul>
                 {% for offer in offers %}
                     <li>{{ offer.title }}</li>
                 {% endfor %}
-            </ul>
+            </ul> -->
         {% else %}
             <p>No daily offers available today.</p>
         {% endif %}
@@ -164,11 +157,11 @@
     <div class="box" id="daily-tasks">
         <h2>✅ Daily Tasks</h2>
         {% if tasks %}
-            <ul>
+            <!-- <ul>
                 {% for task in tasks %}
                     <li>{{ task.title }}</li>
                 {% endfor %}
-            </ul>
+            </ul> -->
         {% else %}
             <p>No daily tasks available today.</p>
         {% endif %}
@@ -176,7 +169,6 @@
     </div>
 </div>
 
-<!-- Footer -->
 <footer>
     <div class="footer-links">
         <a href="/privacy-policy/" style="color:#fff; text-decoration:underline;">Privacy Policy</a> |
