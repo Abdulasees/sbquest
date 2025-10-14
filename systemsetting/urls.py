@@ -5,7 +5,7 @@ app_name = 'systemsetting'
 
 urlpatterns = [
     # List daily offers
-    path('offers/', views.daily_offer_list, name='daily_offer_list'),
+    path('', views.daily_offer_list, name='daily_offer_list'),
 
     # Start the offer (first question)
     path('claim-offer/<int:offer_id>/', views.claim_offer, name='claim_offer_first'),
