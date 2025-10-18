@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from .models import Quiz, Question, Answer, UserAnswer
 from django.utils import timezone
-from tasks.models import UserTask
+from tasks.models import VisitorTask
 
 
 @login_required
@@ -49,7 +49,7 @@ def take_quiz(request, quiz_id):
         task = getattr(quiz, "task", None)
         points_awarded = 0
         if task:
-            user_task, created = UserTask.objects.get_or_create(
+            user_task, created = VisitorTask.objects.get_or_create(
                 user=request.user,
                 task=task,
                 defaults={

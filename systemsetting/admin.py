@@ -2,6 +2,7 @@ from django import forms
 from django.contrib import admin
 import nested_admin
 from .models import DailyOffer, DailyOfferQuestion, DailyOfferAnswer
+from .models import DailyOfferAssignment
 
 
 # --- Form: adds a textarea field to Question inline ---
@@ -96,3 +97,13 @@ class DailyOfferAdmin(nested_admin.NestedModelAdmin):
                     DailyOfferAnswer.objects.filter(question=question).exclude(
                         answer_text=first_starred_text
                     ).update(is_correct=False)
+
+
+from .models import DailyOfferAssignment
+
+@admin.register(DailyOfferAssignment)
+class DailyOfferAssignmentAdmin(admin.ModelAdmin):
+    list_display = ("visitor_id", "offer", "assigned_date", "half_day", "completed", "reward_given")
+    list_filter = ("assigned_date", "half_day", "completed", "reward_given")
+    search_fields = ("visitor_id", "offer__title")
+

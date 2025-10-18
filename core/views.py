@@ -1,49 +1,63 @@
 from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
-from tasks.models import UserTask
+from tasks.models import VisitorTask
 from systemsetting.models import DailyOffer
 from wallet.models import WalletTransaction
 from django.db.models import Sum
 
+import uuid
+
+def get_visitor_id(request, response=None):
+    visitor_id = request.COOKIES.get("visitor_id")
+    if not visitor_id:
+        visitor_id = str(uuid.uuid4())
+        if response:
+            # set cookie for 30 days
+            response.set_cookie("visitor_id", visitor_id, max_age=30*24*60*60)
+    return visitor_id
 
 
-def home_view(request):
-    user = request.user
 
-    # ---------------------------
-    # Existing data
-    # ---------------------------
+
+def public_home_view(request):
+    # Temporary response to set cookie
+    response = render(request, 'base_public.html')
+
+    visitor_id = get_visitor_id(request, response)
+
+    # Fetch daily offers
     daily_offers = DailyOffer.objects.all()
-    daily_tasks = UserTask.objects.all()
 
-    # ---------------------------
-    # SB Balance
-    # ---------------------------
+    # Fetch visitor tasks
+    visitor_tasks = VisitorTask.objects.filter(visitor_id=visitor_id)
+
+    # Calculate SB balance
     total_credits = WalletTransaction.objects.filter(
-        user=user,
+        visitor_id=visitor_id,
         transaction_type='credit',
         status='approved'
     ).aggregate(total=Sum('amount'))['total'] or 0
 
     total_debits = WalletTransaction.objects.filter(
-        user=user,
+        visitor_id=visitor_id,
         transaction_type='debit',
         status='approved'
     ).aggregate(total=Sum('amount'))['total'] or 0
 
     total_sb = total_credits - total_debits
 
-    # ---------------------------
     # Recent transactions (last 5)
-    # ---------------------------
-    recent_transactions = WalletTransaction.objects.filter(user=user).order_by('-timestamp')[:5]
+    recent_transactions = WalletTransaction.objects.filter(visitor_id=visitor_id).order_by('-timestamp')[:5]
 
-    return render(request, 'home.html', {
+    # Pass data to template
+    context = {
         'offers': daily_offers,
-        'tasks': daily_tasks,
+        'tasks': visitor_tasks,
         'total_sb': total_sb,
-        'recent_transactions': recent_transactions
-    })
+        'recent_transactions': recent_transactions,
+    }
+
+    return render(request, 'base_public.html', context)
 
 
 # ---------------------------
@@ -51,9 +65,9 @@ def home_view(request):
 
 # ---------------------------
 
-def public_home_view(request):
-    # Public landing page for logged-out users
-    return render(request, 'base_public.html')
+# def public_home_view(request):
+#     # Public landing page for logged-out users
+#     return render(request, 'base_public.html')
 
 def about_view(request):
     return render(request, 'about.html')

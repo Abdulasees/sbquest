@@ -3,7 +3,8 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.utils import timezone
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
-from .models import Task, UserTask
+from .models import Task, VisitorTask
+
 from quiz.models import UserAnswer
 from wallet.models import WalletTransaction
 from django.views.decorators.cache import never_cache
@@ -44,7 +45,7 @@ def assign_tasks(user, slot_start, slot_end):
     Assign fresh tasks only if none exist for this slot and not completed.
     """
     # Check already assigned tasks in this slot
-    existing = UserTask.objects.filter(
+    existing = VisitorTask.objects.filter(
         user=user,
         assigned_at__gte=slot_start,
         assigned_at__lt=slot_end
@@ -54,7 +55,7 @@ def assign_tasks(user, slot_start, slot_end):
         return list(existing)
 
     # Exclude tasks already completed by user in any slot
-    completed_ids = UserTask.objects.filter(
+    completed_ids = VisitorTask.objects.filter(
         user=user, completed=True
     ).values_list("task_id", flat=True)
 
@@ -65,7 +66,8 @@ def assign_tasks(user, slot_start, slot_end):
     ist_now = timezone.now().astimezone(ZoneInfo("Asia/Kolkata"))
 
     for task in fresh_tasks:
-        ut = UserTask.objects.create(user=user, task=task, assigned_at=ist_now)
+        ut = VisitorTask.objects.create(user=user, task=task, assigned_at=ist_now)
+
         assigned_list.append(ut)
 
     return assigned_list
@@ -80,7 +82,7 @@ def task_list(request):
     slot_start, slot_end = get_slot_times()
 
     # 1. Get tasks already assigned in this slot
-    assigned = UserTask.objects.filter(
+    assigned = VisitorTask.objects.filter(
         user=user,
         assigned_at__gte=slot_start,
         assigned_at__lt=slot_end
@@ -94,7 +96,7 @@ def task_list(request):
     unfinished_tasks = [ut.task for ut in assigned if not ut.completed]
 
     # 4. If batch is already finished, show empty
-    completed_count = UserTask.objects.filter(
+    completed_count = VisitorTask.objects.filter(
         user=user,
         completed=True,
         completed_at__gte=slot_start,
@@ -150,7 +152,7 @@ def task_detail(request, pk):
                 # Finish quiz
                 if q_index + 1 >= total_questions:
                     slot_start, slot_end = get_slot_times()
-                    user_task = UserTask.objects.filter(
+                    user_task = VisitorTask.objects.filter(
                         user=request.user,
                         task=task,
                         assigned_at__gte=slot_start,
@@ -206,7 +208,7 @@ def submit_task(request, task_id):
 
     if request.method == "POST":
         # Check completed tasks in this slot
-        completed_count = UserTask.objects.filter(
+        completed_count = VisitorTask.objects.filter(
             user=user,
             completed=True,
             completed_at__gte=slot_start,
@@ -217,7 +219,7 @@ def submit_task(request, task_id):
             return redirect("tasks:task_list")
 
         # Get the assignment for this task
-        user_task = UserTask.objects.filter(
+        user_task = VisitorTask.objects.filter(
             user=user,
             task=task,
             assigned_at__gte=slot_start,
@@ -231,9 +233,9 @@ def submit_task(request, task_id):
 
                 if not user_task.reward_given:
                     WalletTransaction.objects.create(
-                        user=request.user,
+                        visitor_id=str(request.user.id),
                         amount=task.reward_sb,
-                        transaction_type="credit",
+                        transaction_type="task_reward",
                         status="approved",
                     )
                     user_task.reward_given = True
@@ -244,14 +246,14 @@ def submit_task(request, task_id):
             messages.info(request, "Task already completed or not assigned in this slot.")
 
         # Defensive cleanup: remove extra uncompleted assignments
-        finished_count = UserTask.objects.filter(
+        finished_count = VisitorTask.objects.filter(
             user=user,
             completed=True,
             completed_at__gte=slot_start,
             completed_at__lt=slot_end
         ).count()
         if finished_count >= BATCH_SIZE:
-            UserTask.objects.filter(
+            VisitorTask.objects.filter(
                 user=user,
                 completed=False,
                 assigned_at__gte=slot_start,
