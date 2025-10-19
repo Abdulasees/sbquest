@@ -46,7 +46,7 @@ def assign_tasks(user, slot_start, slot_end):
     """
     # Check already assigned tasks in this slot
     existing = VisitorTask.objects.filter(
-        user=user,
+        visitor_id=str(user.id),
         assigned_at__gte=slot_start,
         assigned_at__lt=slot_end
     )
@@ -56,7 +56,7 @@ def assign_tasks(user, slot_start, slot_end):
 
     # Exclude tasks already completed by user in any slot
     completed_ids = VisitorTask.objects.filter(
-        user=user, completed=True
+        visitor_id=str(user.id), completed=True
     ).values_list("task_id", flat=True)
 
     # Select fresh tasks
@@ -66,7 +66,8 @@ def assign_tasks(user, slot_start, slot_end):
     ist_now = timezone.now().astimezone(ZoneInfo("Asia/Kolkata"))
 
     for task in fresh_tasks:
-        ut = VisitorTask.objects.create(user=user, task=task, assigned_at=ist_now)
+        ut = VisitorTask.objects.create(visitor_id=str(user.id), task=task, assigned_at=ist_now)
+
 
         assigned_list.append(ut)
 
@@ -83,7 +84,7 @@ def task_list(request):
 
     # 1. Get tasks already assigned in this slot
     assigned = VisitorTask.objects.filter(
-        user=user,
+        visitor_id=str(user.id),
         assigned_at__gte=slot_start,
         assigned_at__lt=slot_end
     ).order_by("assigned_at")
@@ -97,7 +98,7 @@ def task_list(request):
 
     # 4. If batch is already finished, show empty
     completed_count = VisitorTask.objects.filter(
-        user=user,
+        visitor_id=str(user.id),
         completed=True,
         completed_at__gte=slot_start,
         completed_at__lt=slot_end
@@ -153,7 +154,7 @@ def task_detail(request, pk):
                 if q_index + 1 >= total_questions:
                     slot_start, slot_end = get_slot_times()
                     user_task = VisitorTask.objects.filter(
-                        user=request.user,
+                        visitor_id=str(request.user.id),
                         task=task,
                         assigned_at__gte=slot_start,
                         assigned_at__lt=slot_end,
@@ -166,7 +167,7 @@ def task_detail(request, pk):
                             user_task.completed_at = timezone.now()
                             if not user_task.reward_given:
                                 WalletTransaction.objects.create(
-                                    user=request.user,
+                                    visitor_id=str(request.user.id),
                                     amount=task.reward_sb,
                                     transaction_type="credit",
                                     status="approved",
@@ -209,7 +210,7 @@ def submit_task(request, task_id):
     if request.method == "POST":
         # Check completed tasks in this slot
         completed_count = VisitorTask.objects.filter(
-            user=user,
+            visitor_id=str(user.id),
             completed=True,
             completed_at__gte=slot_start,
             completed_at__lt=slot_end,
@@ -220,7 +221,7 @@ def submit_task(request, task_id):
 
         # Get the assignment for this task
         user_task = VisitorTask.objects.filter(
-            user=user,
+            visitor_id=str(user.id),
             task=task,
             assigned_at__gte=slot_start,
             assigned_at__lt=slot_end,
@@ -247,14 +248,14 @@ def submit_task(request, task_id):
 
         # Defensive cleanup: remove extra uncompleted assignments
         finished_count = VisitorTask.objects.filter(
-            user=user,
+            visitor_id=str(user.id),
             completed=True,
             completed_at__gte=slot_start,
             completed_at__lt=slot_end
         ).count()
         if finished_count >= BATCH_SIZE:
             VisitorTask.objects.filter(
-                user=user,
+                visitor_id=str(user.id),
                 completed=False,
                 assigned_at__gte=slot_start,
                 assigned_at__lt=slot_end

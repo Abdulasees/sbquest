@@ -39,7 +39,7 @@ def assign_offers(user, today, half_day):
     Assign fresh offers only if none exist for this slot.
     """
     existing = DailyOfferAssignment.objects.filter(
-        user=user,
+        visitor_id=str(user.id),
         assigned_date=today,
         half_day=half_day
     ).select_related("offer")
@@ -49,7 +49,7 @@ def assign_offers(user, today, half_day):
 
     # Exclude offers already completed by the user
     completed_ids = DailyOfferAssignment.objects.filter(
-        user=user, completed=True
+        visitor_id=str(user.id), completed=True
     ).values_list("offer_id", flat=True)
 
     all_offers = list(DailyOffer.objects.filter(is_active=True).exclude(id__in=completed_ids).order_by("id"))
@@ -60,7 +60,7 @@ def assign_offers(user, today, half_day):
     selected = []
     for offer in all_offers[:BATCH_SIZE]:
         assignment = DailyOfferAssignment.objects.create(
-            user=user,
+            visitor_id=str(user.id),
             offer=offer,
             assigned_date=today,
             half_day=half_day,
@@ -81,7 +81,7 @@ def daily_offer_list(request):
 
     # ✅ 1. Get offers already assigned in this slot
     assignments = DailyOfferAssignment.objects.filter(
-        user=request.user,
+        visitor_id=str(request.user.id),
         assigned_date=today,
         half_day=half_day
     ).select_related("offer")
@@ -118,7 +118,7 @@ def claim_offer(request, offer_id, question_index=0):
     offer = get_object_or_404(DailyOffer, id=offer_id)
 
     assignment = DailyOfferAssignment.objects.filter(
-        user=request.user,
+        visitor_id=str(request.user.id),
         offer=offer,
         assigned_date=today,
         half_day=half_day
@@ -170,7 +170,7 @@ def claim_offer(request, offer_id, question_index=0):
 
                     if not assignment.reward_given:
                         WalletTransaction.objects.create(
-                            user=request.user,
+                            visitor_id=str(request.user.id),
                             amount=offer.reward_sb,
                             transaction_type="daily_offer_reward",
                             status="approved",
