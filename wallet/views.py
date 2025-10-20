@@ -1,22 +1,33 @@
 from django.shortcuts import render, redirect
-from django.contrib.auth.decorators import login_required
 from django.utils import timezone
 from .models import WalletTransaction
 from django.db.models import Sum
+import uuid
 
 # Conversion rate: 1 SB point = 0.1 currency unit
 SB_TO_MONEY_RATE = 0.1
+MIN_REDEEM_AMOUNT = 10  # minimum redeemable money units
 
-# Minimum redeemable money units
-MIN_REDEEM_AMOUNT = 10
+# Helper: get or create visitor_id for anonymous users
+def get_visitor_id(request):
+    visitor_id = request.session.get('visitor_id')
+    if not visitor_id:
+        visitor_id = str(uuid.uuid4())  # generate a unique visitor ID
+        request.session['visitor_id'] = visitor_id
+    return visitor_id
 
 def wallet_home(request):
-    user = request.user
-    total_sb = WalletTransaction.objects.filter(user=user, status='approved').aggregate(total=Sum('amount'))['total'] or 0
-    total_money = total_sb * SB_TO_MONEY_RATE
-    MIN_REDEEM_AMOUNT = 10  # minimum redeemable money
+    visitor_id = get_visitor_id(request)
 
-    transactions = WalletTransaction.objects.filter(user=user).order_by('-timestamp')
+    # Total approved SB points
+    total_sb = WalletTransaction.objects.filter(
+        visitor_id=visitor_id, status='approved'
+    ).aggregate(total=Sum('amount'))['total'] or 0
+
+    total_money = total_sb * SB_TO_MONEY_RATE
+
+    # Fetch all transactions for this visitor
+    transactions = WalletTransaction.objects.filter(visitor_id=visitor_id).order_by('-timestamp')
 
     return render(request, 'wallet_overview.html', {
         'total_sb': total_sb,
@@ -26,24 +37,23 @@ def wallet_home(request):
     })
 
 
-
-
 def redeem_view(request):
-    user = request.user
+    visitor_id = get_visitor_id(request)
 
     # Total approved SB points
     total_sb = WalletTransaction.objects.filter(
-        user=user, status='approved'
+        visitor_id=visitor_id, status='approved'
     ).aggregate(total=Sum('amount'))['total'] or 0
 
     total_money = total_sb * SB_TO_MONEY_RATE
 
-    transactions = WalletTransaction.objects.filter(user=user).order_by('-timestamp')
+    # Fetch all transactions for this visitor
+    transactions = WalletTransaction.objects.filter(visitor_id=visitor_id).order_by('-timestamp')
 
     # Add computed fields for display
     for tx in transactions:
         if tx.transaction_type == 'redeem_request':
-            tx.display_money = abs(tx.amount) * SB_TO_MONEY_RATE   # Money equivalent
+            tx.display_money = abs(tx.amount) * SB_TO_MONEY_RATE  # Money equivalent
             tx.sb_deducted = abs(tx.amount)                        # SB points deducted
         else:
             tx.display_money = tx.amount * SB_TO_MONEY_RATE
@@ -70,7 +80,7 @@ def redeem_view(request):
             sb_to_deduct = money_to_redeem / SB_TO_MONEY_RATE
 
             WalletTransaction.objects.create(
-                user=user,
+                visitor_id=visitor_id,
                 amount=-sb_to_deduct,
                 transaction_type='redeem_request',
                 upi_id=upi_id,
