@@ -66,8 +66,17 @@ def assign_tasks(user, slot_start, slot_end):
     assigned_list = []
     ist_now = timezone.now().astimezone(ZoneInfo("Asia/Kolkata"))
 
+    half_day = 0 if slot_start.hour == 0 else 1
+    assigned_date = slot_start.date()
+
     for task in fresh_tasks:
-        ut = VisitorTask.objects.create(visitor_id=str(user.id), task=task, assigned_at=ist_now)
+        ut = VisitorTask.objects.create(
+        visitor_id=str(user.id),
+        task=task,
+        assigned_at=ist_now,
+        assigned_date=assigned_date,  # <-- add this
+        half_day=half_day             # <-- add this
+    )
 
 
         assigned_list.append(ut)
