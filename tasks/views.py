@@ -12,6 +12,7 @@ from django.db import transaction
 from zoneinfo import ZoneInfo  # Python 3.9+
 
 
+
 # -------------------------------
 # CONFIG
 # -------------------------------
@@ -95,6 +96,11 @@ def task_list(request):
 
     # 3. Filter only unfinished tasks
     unfinished_tasks = [ut.task for ut in assigned if not ut.completed]
+    # Get all attempted (completed) tasks by user in this slot
+    attempted_tasks = [
+        ut.task for ut in assigned if ut.completed
+    ]
+
 
     # 4. If batch is already finished, show empty
     completed_count = VisitorTask.objects.filter(
@@ -104,9 +110,17 @@ def task_list(request):
         completed_at__lt=slot_end
     ).count()
     if completed_count >= BATCH_SIZE or not unfinished_tasks:
-        return render(request, "task_list.html", {"tasks": []})
+        return render(request, "task_list.html", {
+            "tasks": attempted_tasks,  # show completed if slot done
+            "attempted_tasks": attempted_tasks
+        })
 
-    return render(request, "task_list.html", {"tasks": unfinished_tasks})
+    all_tasks = list(unfinished_tasks) + list(attempted_tasks)
+
+    return render(request, "task_list.html", {
+        "tasks": all_tasks,
+        "attempted_tasks": attempted_tasks
+    })
 
 
 # -------------------------------
