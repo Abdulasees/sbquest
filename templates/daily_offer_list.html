@@ -143,7 +143,6 @@
         }
     }
     </style>
-
 </head>
 <body>
 <div class="container">
@@ -155,11 +154,12 @@
                 <div class="offer-title">{{ offer.title }}</div>
                 <div class="offer-description">{{ offer.description }}</div>
                 <div class="offer-reward">Reward: {{ offer.reward_sb }} points</div>
+                <!-- Use visitor-based session, no login needed -->
                 <a href="{% url 'systemsetting:claim_offer' offer.id 0 %}" class="offer-start-btn">Start Offer</a>
             </div>
         {% endfor %}
     {% else %}
-        <p class="empty">No offers available at the moment. Please check back later!</p>
+        <p class="empty">{{ message|default:"No offers available at the moment. Please check back later!" }}</p>
     {% endif %}
 </div>
 </body>

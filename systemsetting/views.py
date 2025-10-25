@@ -8,6 +8,7 @@ from zoneinfo import ZoneInfo
 
 from .models import DailyOffer, DailyOfferAssignment, DailyOfferAnswer
 from wallet.models import WalletTransaction
+import uuid
 
 # -------------------------------
 # CONFIG
@@ -34,12 +35,15 @@ def current_slot():
 # -------------------------------
 # HELPER: Assign fresh offers
 # -------------------------------
-def assign_offers(user, today, half_day):
+def assign_offers(request, today, half_day):
     """
     Assign fresh offers only if none exist for this slot.
+
+    
     """
+    visitor_id = get_visitor_id(request)
     existing = DailyOfferAssignment.objects.filter(
-        visitor_id=str(user.id),
+        visitor_id=visitor_id,
         assigned_date=today,
         half_day=half_day
     ).select_related("offer")
@@ -49,7 +53,7 @@ def assign_offers(user, today, half_day):
 
     # Exclude offers already completed by the user
     completed_ids = DailyOfferAssignment.objects.filter(
-        visitor_id=str(user.id), completed=True
+        visitor_id=visitor_id, completed=True
     ).values_list("offer_id", flat=True)
 
     all_offers = list(DailyOffer.objects.filter(is_active=True).exclude(id__in=completed_ids).order_by("id"))
@@ -60,7 +64,7 @@ def assign_offers(user, today, half_day):
     selected = []
     for offer in all_offers[:BATCH_SIZE]:
         assignment = DailyOfferAssignment.objects.create(
-            visitor_id=str(user.id),
+            visitor_id=visitor_id,
             offer=offer,
             assigned_date=today,
             half_day=half_day,
@@ -72,6 +76,14 @@ def assign_offers(user, today, half_day):
 
     return selected
 
+def get_visitor_id(request):
+    visitor_id = request.session.get("visitor_id")
+    if not visitor_id:
+        visitor_id = str(uuid.uuid4())
+        request.session["visitor_id"] = visitor_id
+    return visitor_id
+
+
 # -------------------------------
 # VIEWS
 # -------------------------------
@@ -80,15 +92,17 @@ def daily_offer_list(request):
     today, half_day = current_slot()
 
     # ✅ 1. Get offers already assigned in this slot
+    visitor_id = get_visitor_id(request)
+
     assignments = DailyOfferAssignment.objects.filter(
-        visitor_id=str(request.user.id),
+        visitor_id=visitor_id,
         assigned_date=today,
         half_day=half_day
     ).select_related("offer")
 
-    # ✅ 2. Assign fresh batch if nothing exists
     if not assignments.exists():
-        assignments = assign_offers(request.user, today, half_day)
+        assignments = assign_offers(request, today, half_day)
+
 
     # ✅ 3. Enforce batch size
     if len(assignments) > BATCH_SIZE:
@@ -117,12 +131,15 @@ def claim_offer(request, offer_id, question_index=0):
     today, half_day = current_slot()
     offer = get_object_or_404(DailyOffer, id=offer_id)
 
+    visitor_id = get_visitor_id(request)
+
     assignment = DailyOfferAssignment.objects.filter(
-        visitor_id=str(request.user.id),
+        visitor_id=visitor_id,
         offer=offer,
         assigned_date=today,
         half_day=half_day
     ).first()
+
 
     if not assignment or assignment.completed:
         return redirect("systemsetting:daily_offer_list")
@@ -170,7 +187,7 @@ def claim_offer(request, offer_id, question_index=0):
 
                     if not assignment.reward_given:
                         WalletTransaction.objects.create(
-                            visitor_id=str(request.user.id),
+                            visitor_id=visitor_id,
                             amount=offer.reward_sb,
                             transaction_type="daily_offer_reward",
                             status="approved",
