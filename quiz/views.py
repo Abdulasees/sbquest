@@ -3,74 +3,54 @@ from django.contrib.auth.decorators import login_required
 from .models import Quiz, Question, Answer, UserAnswer
 from django.utils import timezone
 from tasks.models import VisitorTask
+from tasks.views import get_visitor_id
 
 
-@login_required
+
 def quiz_list(request):
     quizzes = Quiz.objects.all()
     return render(request, 'quiz_list.html', {'quizzes': quizzes})
 
 
-@login_required
+
 def start_quiz(request, quiz_id):
     quiz = get_object_or_404(Quiz, id=quiz_id)
-    # Always go to the first question
     first_question = quiz.questions.first()
     if not first_question:
         return redirect('quiz:quiz_result', quiz_id=quiz.id)
-    return redirect('quiz:take_quiz', quiz_id=quiz.id, question_id=first_question.id)
+    # initialize session
+    request.session['quiz_index'] = 0
+    request.session['quiz_answers'] = {}
+    request.session['quiz_id'] = quiz.id
+    return redirect('quiz:take_quiz', quiz_id=quiz.id)
 
 
-@login_required
+
 def take_quiz(request, quiz_id):
+    visitor_id = get_visitor_id(request)
     quiz = get_object_or_404(Quiz, id=quiz_id)
     questions = list(quiz.questions.all())
     index = request.session.get("quiz_index", 0)
+    answers_dict = request.session.get("quiz_answers", {})
 
-    # ✅ quiz finished
+    # Quiz finished
     if index >= len(questions):
         score = 0
-        answers = request.session.get("quiz_answers", {})
-
-        for qid, selected in answers.items():
+        for qid, selected_id in answers_dict.items():
             question = get_object_or_404(Question, id=int(qid))
-            selected_answer = get_object_or_404(Answer, id=int(selected))
+            selected_answer = get_object_or_404(Answer, id=int(selected_id))
             is_correct = selected_answer.is_correct
 
             UserAnswer.objects.update_or_create(
-                user=request.user,
+                visitor_id=visitor_id,
                 question=question,
-                defaults={"selected_answer": selected_answer, "is_correct": is_correct},
+                defaults={"is_correct": is_correct},
             )
+
             if is_correct:
                 score += 1
 
-        # ✅ handle task reward (if quiz is linked to a Task)
-        task = getattr(quiz, "task", None)
-        points_awarded = 0
-        if task:
-            user_task, created = VisitorTask.objects.get_or_create(
-                user=request.user,
-                task=task,
-                defaults={
-                    "completed": True,
-                    "completed_at": timezone.now(),
-                    "reward_given": True,
-                },
-            )
-            if not created and not user_task.completed:
-                user_task.completed = True
-                user_task.completed_at = timezone.now()
-
-            if not user_task.reward_given:
-                request.user.points += task.reward_sb
-                request.user.save()
-                user_task.reward_given = True
-                points_awarded = task.reward_sb
-
-            user_task.save()
-
-        # cleanup
+        # Cleanup session
         request.session.pop("quiz_index", None)
         request.session.pop("quiz_answers", None)
         request.session.pop("quiz_id", None)
@@ -79,18 +59,15 @@ def take_quiz(request, quiz_id):
             "quiz": quiz,
             "score": score,
             "total": len(questions),
-            "points_earned": points_awarded,
-            "total_points": request.user.points,
         })
 
-    # ✅ continue quiz
+    # Continue quiz
     current_question = questions[index]
     answers = current_question.answers.all()
 
     if request.method == "POST":
-        selected_answer_id = request.POST.get("answer")  # ✅ matches your HTML
+        selected_answer_id = request.POST.get("answer")
         if selected_answer_id:
-            answers_dict = request.session.get("quiz_answers", {})
             answers_dict[str(current_question.id)] = selected_answer_id
             request.session["quiz_answers"] = answers_dict
             request.session["quiz_index"] = index + 1
@@ -105,12 +82,10 @@ def take_quiz(request, quiz_id):
     })
 
 
-
-
-@login_required
 def quiz_result(request, quiz_id):
+    visitor_id = get_visitor_id(request)
     quiz = get_object_or_404(Quiz, id=quiz_id)
-    user_answers = UserAnswer.objects.filter(user=request.user, question__quiz=quiz)
+    user_answers = UserAnswer.objects.filter(visitor_id=visitor_id, question__quiz=quiz)
     score = user_answers.filter(is_correct=True).count()
     total = quiz.questions.count()
 
