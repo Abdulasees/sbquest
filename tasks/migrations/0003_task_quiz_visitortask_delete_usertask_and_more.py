@@ -7,8 +7,8 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('quiz', '0006_add_visitor_id_to_useranswer'),
-        ('tasks', '0002_initial'),
+    ('quiz', '0006_add_visitor_id_to_useranswer'),
+    ('tasks', '0001_initial'),
     ]
 
     operations = [
