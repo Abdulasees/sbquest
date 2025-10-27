@@ -105,7 +105,8 @@ def task_list(request):
     assigned = VisitorTask.objects.filter(
         visitor_id=visitor_id,
         assigned_at__gte=slot_start,
-        assigned_at__lt=slot_end
+        assigned_at__lt=slot_end,
+        completed=False
     ).order_by("assigned_at")
 
     # 2. Assign fresh tasks if none exist

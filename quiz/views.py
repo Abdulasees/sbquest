@@ -4,6 +4,8 @@ from .models import Quiz, Question, Answer, UserAnswer
 from django.utils import timezone
 from tasks.models import VisitorTask
 from tasks.views import get_visitor_id
+from django.views.decorators.cache import never_cache
+
 
 
 
@@ -25,7 +27,7 @@ def start_quiz(request, quiz_id):
     return redirect('quiz:take_quiz', quiz_id=quiz.id)
 
 
-
+@never_cache
 def take_quiz(request, quiz_id):
     visitor_id = get_visitor_id(request)
     quiz = get_object_or_404(Quiz, id=quiz_id)
@@ -81,7 +83,7 @@ def take_quiz(request, quiz_id):
         "total_questions": len(questions),
     })
 
-
+@never_cache
 def quiz_result(request, quiz_id):
     visitor_id = get_visitor_id(request)
     quiz = get_object_or_404(Quiz, id=quiz_id)
