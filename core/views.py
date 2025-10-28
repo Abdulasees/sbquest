@@ -7,6 +7,13 @@ from django.db.models import Sum
 
 import uuid
 
+from django.http import HttpResponse
+
+def ads_txt(request):
+    content = "google.com, pub-9745567567370540, DIRECT, f08c47fec0942fa0"
+    return HttpResponse(content, content_type="text/plain")
+
+
 def get_visitor_id(request, response=None):
     visitor_id = request.COOKIES.get("visitor_id")
     if not visitor_id:
