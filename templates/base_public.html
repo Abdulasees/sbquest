@@ -6,8 +6,8 @@
         src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9745567567370540" 
         crossorigin="anonymous">
     </script>
-    <title>SBQuest - Dashboard</title>
-    <meta name="description" content="Dashboard for SBQuest users. View daily tasks, offers, and manage your rewards.">
+    <title>SBQuest – Daily Learning & Rewards Dashboard</title>
+    <meta name="description" content="SBQuest helps users learn daily through short, engaging tasks and quizzes while earning real SB points. Start instantly without sign-up and track progress with your Visitor ID.">
     <meta name="keywords" content="SBQuest, rewards, daily tasks, daily offers, points, dashboard">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
@@ -140,29 +140,31 @@
     </div>
 </header>
 
-<section style="max-width:850px;margin:30px auto;text-align:center;background:#fff;padding:20px;border-radius:10px;box-shadow:0 3px 10px rgba(0,0,0,0.1);">
-    <h2 style="color:#2c3e50;">Learn, Play, and Earn with SBQuest</h2>
-    <p style="font-size:16px;line-height:1.6;color:#444;">
-      SBQuest is an innovative online platform designed to make daily learning fun and rewarding for everyone.
-      Each day, users can complete simple educational tasks, quizzes, and interactive offers to earn SB points.
-      These points can be redeemed for exciting rewards or transferred directly to your UPI wallet.
-    </p>
-    <p style="font-size:16px;line-height:1.6;color:#444;">
-      Our goal is to encourage consistent learning habits through small, achievable challenges.
-      Explore daily tasks, try new offers, and enjoy a smarter way to learn and earn from anywhere in India!
-    </p>
-  </section>
+<section style="max-width:850px;margin:20px auto;background:#fff;padding:20px;border-radius:10px;box-shadow:0 3px 10px rgba(0,0,0,0.1);">
+  <h2 style="color:#2c3e50;">Why Use SBQuest?</h2>
+  <p style="font-size:16px;line-height:1.6;color:#444;">
+    SBQuest is built for learners who believe in consistent daily growth. It transforms the idea of regular study into a motivating routine through simple, interactive challenges that make learning enjoyable and rewarding. Instead of long lessons, users engage in short, skill-enhancing tasks designed to improve focus, memory, and general knowledge — while earning SB points for every effort.
+  </p>
+  <p style="font-size:16px;line-height:1.6;color:#444;">
+    Every day, SBQuest automatically assigns new tasks and limited-time offers that combine both learning and rewards. From general awareness to logical reasoning and current affairs, each question is crafted to help users gain quick insights in just a few minutes, encouraging daily participation and habit-based learning.
+  </p>
+  <p style="font-size:16px;line-height:1.6;color:#444;">
+    Each visitor receives a unique <strong>Visitor ID</strong> that securely tracks their progress, earned points, and wallet balance — without any sign-up or login. You can start instantly and redeem your genuine SB points directly via UPI. Please note that clearing browser data, deleting cookies, or switching devices will reset your <strong>Visitor ID</strong>, which may erase your saved progress or balance.
+  </p>
+</section>
+
+
 
 <div class="container">
     <!-- Daily Offers -->
     <div class="box" id="daily-offers">
         <h2>📅 Daily Offers</h2>
         {% if offers %}
-            <ul>
+            <!-- <ul>
                 {% for offer in offers %}
-                    <!-- <li>{{ offer.title }}</li> -->
+                    <li>{{ offer.title }}</li>
                 {% endfor %}
-            </ul>
+            </ul> -->
         {% else %}
             <p>No daily offers available today.</p>
         {% endif %}
@@ -173,11 +175,11 @@
     <div class="box" id="daily-tasks">
         <h2>✅ Daily Tasks</h2>
         {% if tasks %}
-            <ul>
+            <!-- <ul>
                 {% for task in tasks %}
-                    <!-- <li>{{ task.title }}</li> -->
+                    <li>{{ task.title }}</li>
                 {% endfor %}
-            </ul>
+            </ul> -->
         {% else %}
             <!-- <p>No daily tasks available today.</p> -->
         {% endif %}
