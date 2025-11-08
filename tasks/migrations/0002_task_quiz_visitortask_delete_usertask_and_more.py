@@ -33,9 +33,9 @@ class Migration(migrations.Migration):
                 ('user', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL)),
             ],
         ),
-        migrations.DeleteModel(
-            name='UserTask',
-        ),
+        # migrations.DeleteModel(
+        #     name='UserTask',
+        # ),
         migrations.AddConstraint(
             model_name='visitortask',
             constraint=models.UniqueConstraint(fields=('user', 'task', 'assigned_date', 'half_day'), name='unique_task_per_user_per_slot'),
