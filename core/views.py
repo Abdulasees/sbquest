@@ -5,7 +5,6 @@ from systemsetting.models import DailyOffer
 from wallet.models import WalletTransaction
 from django.db.models import Sum
 
-import uuid
 
 from django.http import HttpResponse
 
@@ -14,49 +13,44 @@ def ads_txt(request):
     return HttpResponse(content, content_type="text/plain")
 
 
-def get_visitor_id(request, response=None):
-    visitor_id = request.COOKIES.get("visitor_id")
-    if not visitor_id:
-        visitor_id = str(uuid.uuid4())
-        if response:
-            # set cookie for 30 days
-            response.set_cookie("visitor_id", visitor_id, max_age=30*24*60*60)
-    return visitor_id
+# def get_visitor_id(request, response=None):
+#     visitor_id = request.COOKIES.get("visitor_id")
+#     if not visitor_id:
+#         visitor_id = str(uuid.uuid4())
+#         if response:
+#             # set cookie for 30 days
+#             response.set_cookie("visitor_id", visitor_id, max_age=30*24*60*60)
+#     return visitor_id
 
 
 
 
 def public_home_view(request):
-    # Temporary response to set cookie
-    response = render(request, 'base_public.html')
-
-    visitor_id = get_visitor_id(request, response)
-
-    # Fetch daily offers
+    # Fetch daily offers (everyone can see)
     daily_offers = DailyOffer.objects.all()
 
-    # Fetch visitor tasks
-    visitor_tasks = VisitorTask.objects.filter(visitor_id=visitor_id)
+    if request.user.is_authenticated:
+        # Logged-in users: show tasks and wallet info
+        visitor_tasks = VisitorTask.objects.filter(user=request.user)
 
-    # Calculate SB balance
-    total_credits = WalletTransaction.objects.filter(
-        visitor_id=visitor_id,
-        transaction_type='credit',
-        status='approved'
-    ).aggregate(total=Sum('amount'))['total'] or 0
+        total_credits = WalletTransaction.objects.filter(
+            user=request.user, transaction_type='credit', status='approved'
+        ).aggregate(total=Sum('amount'))['total'] or 0
 
-    total_debits = WalletTransaction.objects.filter(
-        visitor_id=visitor_id,
-        transaction_type='debit',
-        status='approved'
-    ).aggregate(total=Sum('amount'))['total'] or 0
+        total_debits = WalletTransaction.objects.filter(
+            user=request.user, transaction_type='debit', status='approved'
+        ).aggregate(total=Sum('amount'))['total'] or 0
 
-    total_sb = total_credits - total_debits
+        total_sb = total_credits - total_debits
 
-    # Recent transactions (last 5)
-    recent_transactions = WalletTransaction.objects.filter(visitor_id=visitor_id).order_by('-timestamp')[:5]
+        recent_transactions = WalletTransaction.objects.filter(user=request.user).order_by('-timestamp')[:5]
 
-    # Pass data to template
+    else:
+        # Guests: no tasks or wallet info
+        visitor_tasks = []
+        total_sb = 0
+        recent_transactions = []
+
     context = {
         'offers': daily_offers,
         'tasks': visitor_tasks,
@@ -65,6 +59,7 @@ def public_home_view(request):
     }
 
     return render(request, 'base_public.html', context)
+
 
 
 # ---------------------------
