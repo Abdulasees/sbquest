@@ -21,8 +21,9 @@ class Migration(migrations.Migration):
             ),
             preserve_default=False,
         ),
-        migrations.RemoveField(
-            model_name='wallettransaction',
-            name='visitor_id',
-        ),
+        # Removed the RemoveField operation because 'visitor_id' is already gone
+        # migrations.RemoveField(
+        #     model_name='wallettransaction',
+        #     name='visitor_id',
+        # ),
     ]
