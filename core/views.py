@@ -72,15 +72,15 @@ def public_home_view(request):
 
 # ---------------------------
 
-# def public_home_view(request):
-#     # Public landing page for logged-out users
-#     return render(request, 'base_public.html')
+@login_required(login_url='/login/')
+def home(request):
+    return render(request, 'home.html')
 
 def about_view(request):
     return render(request, 'about.html')
 
-# def contact_view(request):
-#     return render(request, 'contact.html')
+def contact_view(request):
+    return render(request, 'contact.html')
 
 def privacy_policy_view(request):
     return render(request, 'privacy_policy.html')

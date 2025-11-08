@@ -43,13 +43,13 @@ def get_slot_times():
 # -------------------------------
 # HELPER: Assign fresh tasks
 # -------------------------------
-def assign_tasks(visitor_id, slot_start, slot_end):
+def assign_tasks(user, slot_start, slot_end):
     """
     Assign fresh tasks only if none exist for this slot and not completed.
     """
     # Check already assigned tasks in this slot
     existing = VisitorTask.objects.filter(
-        visitor_id=visitor_id,
+        user=user,
         assigned_at__gte=slot_start,
         assigned_at__lt=slot_end
     )
@@ -59,7 +59,7 @@ def assign_tasks(visitor_id, slot_start, slot_end):
 
     # Exclude tasks already completed by user in any slot
     completed_ids = VisitorTask.objects.filter(
-        visitor_id=visitor_id, completed=True
+        user=user, completed=True
     ).values_list("task_id", flat=True)
 
     # Select fresh tasks
@@ -73,7 +73,7 @@ def assign_tasks(visitor_id, slot_start, slot_end):
 
     for task in fresh_tasks:
         ut = VisitorTask.objects.create(
-        visitor_id=visitor_id,
+        user=user,
         task=task,
         assigned_at=ist_now,
         assigned_date=assigned_date,  # <-- add this
@@ -84,26 +84,27 @@ def assign_tasks(visitor_id, slot_start, slot_end):
         assigned_list.append(ut)
 
     return assigned_list
-def get_visitor_id(request):
-    visitor_id = request.session.get('visitor_id')
-    if not visitor_id:
-        visitor_id = str(uuid.uuid4())
-        request.session['visitor_id'] = visitor_id
-    return visitor_id
+# def get_visitor_id(request):
+#     visitor_id = request.session.get('visitor_id')
+#     if not visitor_id:
+#         visitor_id = str(uuid.uuid4())
+#         request.session['visitor_id'] = visitor_id
+#     return visitor_id
 
 
 # -------------------------------
 # TASK LIST VIEW
 # -------------------------------
+@login_required
 @never_cache
 def task_list(request):
-    visitor_id = get_visitor_id(request)
+    user = request.user
 
     slot_start, slot_end = get_slot_times()
 
     # 1. Get tasks already assigned in this slot
     assigned = VisitorTask.objects.filter(
-        visitor_id=visitor_id,
+        user=user,
         assigned_at__gte=slot_start,
         assigned_at__lt=slot_end,
         completed=False
@@ -111,7 +112,7 @@ def task_list(request):
 
     # 2. Assign fresh tasks if none exist
     if not assigned.exists():
-        assigned = assign_tasks(visitor_id, slot_start, slot_end)
+        assigned = assign_tasks(user, slot_start, slot_end)
 
     # 3. Filter only unfinished tasks
     unfinished_tasks = [ut.task for ut in assigned if not ut.completed]
@@ -123,7 +124,7 @@ def task_list(request):
 
     # 4. If batch is already finished, show empty
     completed_count = VisitorTask.objects.filter(
-        visitor_id=visitor_id,
+        user=user,
         completed=True,
         completed_at__gte=slot_start,
         completed_at__lt=slot_end
@@ -145,9 +146,10 @@ def task_list(request):
 # -------------------------------
 # TASK DETAIL / QUIZ VIEW
 # -------------------------------
+@login_required
 def task_detail(request, pk):
     task = get_object_or_404(Task, pk=pk)
-    visitor_id = get_visitor_id(request)
+    user = request.user
     quiz = task.quiz
 
     if not quiz:
@@ -176,7 +178,7 @@ def task_detail(request, pk):
             is_correct = selected_answer.is_correct
 
             UserAnswer.objects.update_or_create(
-                visitor_id=visitor_id,
+                user=user,
                 question=current_question,
                 defaults={"is_correct": is_correct},
             )
@@ -188,7 +190,7 @@ def task_detail(request, pk):
                 if q_index + 1 >= total_questions:
                     slot_start, slot_end = get_slot_times()
                     user_task = VisitorTask.objects.filter(
-                        visitor_id = visitor_id,
+                        user=user,
                         task=task,
                         assigned_at__gte=slot_start,
                         assigned_at__lt=slot_end,
@@ -201,7 +203,7 @@ def task_detail(request, pk):
                             user_task.completed_at = timezone.now()
                             if not user_task.reward_given:
                                 WalletTransaction.objects.create(
-                                    visitor_id = visitor_id,
+                                    user=user,
                                     amount=task.reward_sb,
                                     transaction_type="credit",
                                     status="approved",
@@ -232,11 +234,12 @@ def task_detail(request, pk):
 # -------------------------------
 # SUBMIT TASK VIEW (NON-QUIZ)
 # -------------------------------
+@login_required
 @never_cache
 def submit_task(request, task_id):
     task = get_object_or_404(Task, id=task_id)
     slot_start, slot_end = get_slot_times()
-    visitor_id = get_visitor_id(request)
+    user = request.user
 
 
     if task.quiz:
@@ -245,7 +248,7 @@ def submit_task(request, task_id):
     if request.method == "POST":
         # Check completed tasks in this slot
         completed_count = VisitorTask.objects.filter(
-            visitor_id=visitor_id,
+            user=user,
             completed=True,
             completed_at__gte=slot_start,
             completed_at__lt=slot_end,
@@ -256,7 +259,7 @@ def submit_task(request, task_id):
 
         # Get the assignment for this task
         user_task = VisitorTask.objects.filter(
-            visitor_id=visitor_id,
+            user=user,
             task=task,
             assigned_at__gte=slot_start,
             assigned_at__lt=slot_end,
@@ -269,7 +272,7 @@ def submit_task(request, task_id):
 
                 if not user_task.reward_given:
                     WalletTransaction.objects.create(
-                        visitor_id=visitor_id,
+                        user=user,
                         amount=task.reward_sb,
                         transaction_type="task_reward",
                         status="approved",
@@ -283,14 +286,14 @@ def submit_task(request, task_id):
 
         # Defensive cleanup: remove extra uncompleted assignments
         finished_count = VisitorTask.objects.filter(
-            visitor_id=visitor_id,
+            user=user,
             completed=True,
             completed_at__gte=slot_start,
             completed_at__lt=slot_end
         ).count()
         if finished_count >= BATCH_SIZE:
             VisitorTask.objects.filter(
-                visitor_id=visitor_id,
+                user=user,
                 completed=False,
                 assigned_at__gte=slot_start,
                 assigned_at__lt=slot_end
@@ -304,6 +307,7 @@ def submit_task(request, task_id):
 # -------------------------------
 # TASK TITLES ONLY (Optional)
 # -------------------------------
+@login_required
 def task_titles_only(request):
     tasks = Task.objects.filter(active=True)
     return render(request, "task_titles_only.html", {"tasks": tasks})

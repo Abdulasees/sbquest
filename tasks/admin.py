@@ -13,8 +13,8 @@ class TaskAdmin(admin.ModelAdmin):
 
 @admin.register(VisitorTask)
 class VisitorTaskAdmin(admin.ModelAdmin):
-    list_display = ('visitor_id', 'task', 'assigned_date', 'half_day', 'completed', 'completed_at', 'reward_given', 'assigned_at')
+    list_display = ('user', 'task', 'assigned_date', 'half_day', 'completed', 'completed_at', 'reward_given', 'assigned_at')
     list_filter = ('completed', 'half_day', 'assigned_date', 'reward_given')
-    search_fields = ('visitor_id', 'task__title')
+    search_fields = ('user__username', 'task__title')
     autocomplete_fields = ('task',)
     ordering = ('-assigned_at',)

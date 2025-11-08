@@ -135,9 +135,17 @@
 
     <div class="nav">
         <a href="/" style="color:#fff;">Home</a>
-        <a href="/wallet/" style="color:#fff;">Wallet</a>
         <a href="/about/" style="color:#fff;">About</a>
-    </div>
+
+        {% if user.is_authenticated %}
+        <a href="/home/" style="color:#fff;">Dashboard</a>
+        <a href="/logout/" style="color:#fff;">Logout</a>
+        {% else %}
+        <a href="/login/" style="color:#fff;">Login</a>
+        <a href="/register/" style="color:#fff;">Register</a>
+        {% endif %}
+</div>
+
 </header>
 
 <section style="max-width:850px;margin:20px auto;background:#fff;padding:20px;border-radius:10px;box-shadow:0 3px 10px rgba(0,0,0,0.1);">

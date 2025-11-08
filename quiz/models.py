@@ -1,5 +1,7 @@
 from django.db import models
 from users.models import User
+from django.conf import settings
+
 
 
 class Quiz(models.Model):
@@ -29,15 +31,27 @@ class Answer(models.Model):
 
 
 class UserAnswer(models.Model):
-    visitor_id = models.CharField(max_length=64, db_index=True)  # track anonymous users
+    user = models.ForeignKey(
+        settings.AUTH_USER_MODEL,
+        on_delete=models.CASCADE,
+        null=True,
+        blank=True
+    )
     question = models.ForeignKey("quiz.Question", on_delete=models.CASCADE)
     is_correct = models.BooleanField(default=False)
     answered_at = models.DateTimeField(auto_now_add=True)
 
     class Meta:
-        unique_together = ('visitor_id', 'question')  # one answer per visitor per question
+        constraints = [
+            models.UniqueConstraint(
+                fields=['user', 'question'],
+                name='unique_user_question_answer'
+            )
+        ]
 
     def __str__(self):
-        return f"{self.visitor_id} - {self.question} ({'Correct' if self.is_correct else 'Wrong'})"
+        username = self.user.username if self.user else "Anonymous"
+        return f"{username} - {self.question} ({'Correct' if self.is_correct else 'Wrong'})"
+
 
 

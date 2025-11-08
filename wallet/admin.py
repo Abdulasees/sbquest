@@ -5,7 +5,7 @@ from .models import WalletTransaction
 @admin.register(WalletTransaction)
 class WalletTransactionAdmin(admin.ModelAdmin):
     list_display = (
-        'visitor_id',   # updated from 'user'
+        'user',   # updated from 'user'
         'transaction_type', 
         'amount', 
         'upi_id', 
@@ -13,7 +13,7 @@ class WalletTransactionAdmin(admin.ModelAdmin):
         'timestamp'
     )
     list_filter = ('status', 'transaction_type')
-    search_fields = ('visitor_id', 'upi_id')  # updated from 'user__username'
+    search_fields = ('user__username', 'upi_id')  # updated from 'user__username'
     actions = ['approve_requests', 'reject_requests']
 
     @admin.action(description="Approve selected redeem requests")

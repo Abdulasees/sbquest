@@ -1,5 +1,6 @@
 from django.db import models
 from quiz.models import Quiz  # ✅ keep quiz link for public tasks
+from django.conf import settings
 
 
 class Task(models.Model):
@@ -15,7 +16,7 @@ class Task(models.Model):
 
 
 class VisitorTask(models.Model):
-    visitor_id = models.CharField(max_length=64, db_index=True)  # ✅ replaces user
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)  # ✅ replaces user
     task = models.ForeignKey(Task, on_delete=models.CASCADE)
     assigned_date = models.DateField()                           # ✅ for tracking daily slots
     half_day = models.IntegerField(default=0)                    # 0 = morning, 1 = evening slot
@@ -27,10 +28,10 @@ class VisitorTask(models.Model):
     class Meta:
         constraints = [
             models.UniqueConstraint(
-                fields=['visitor_id', 'task', 'assigned_date', 'half_day'],
-                name='unique_task_per_visitor_per_slot'
+                fields=['user', 'task', 'assigned_date', 'half_day'],
+                name='unique_task_per_user_per_slot'
             )
         ]
 
     def __str__(self):
-        return f"{self.visitor_id} - {self.task.title} ({self.assigned_date}, half={self.half_day})"
+        return f"{self.user.username} - {self.task.title} ({self.assigned_date}, half={self.half_day})"

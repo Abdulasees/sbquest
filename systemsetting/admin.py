@@ -99,11 +99,11 @@ class DailyOfferAdmin(nested_admin.NestedModelAdmin):
                     ).update(is_correct=False)
 
 
-from .models import DailyOfferAssignment
+# from .models import DailyOfferAssignment
 
-@admin.register(DailyOfferAssignment)
-class DailyOfferAssignmentAdmin(admin.ModelAdmin):
-    list_display = ("visitor_id", "offer", "assigned_date", "half_day", "completed", "reward_given")
-    list_filter = ("assigned_date", "half_day", "completed", "reward_given")
-    search_fields = ("visitor_id", "offer__title")
+# @admin.register(DailyOfferAssignment)
+# class DailyOfferAssignmentAdmin(admin.ModelAdmin):
+#     list_display = ("visitor_id", "offer", "assigned_date", "half_day", "completed", "reward_given")
+#     list_filter = ("assigned_date", "half_day", "completed", "reward_given")
+#     search_fields = ("visitor_id", "offer__title")
 

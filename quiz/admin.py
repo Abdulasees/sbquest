@@ -90,5 +90,7 @@ class QuizAdmin(nested_admin.NestedModelAdmin):
 # --- UserAnswer admin (tracking user submissions) ---
 @admin.register(UserAnswer)
 class UserAnswerAdmin(admin.ModelAdmin):
-    list_display = ("visitor_id", "question", "is_correct")
+    list_display = ("user", "question", "is_correct", "answered_at")
     list_filter = ("is_correct", "question__quiz")
+    search_fields = ("user__username", "question__text")
+

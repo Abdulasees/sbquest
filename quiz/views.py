@@ -3,18 +3,18 @@ from django.contrib.auth.decorators import login_required
 from .models import Quiz, Question, Answer, UserAnswer
 from django.utils import timezone
 from tasks.models import VisitorTask
-from tasks.views import get_visitor_id
+# from tasks.views import get_visitor_id
 from django.views.decorators.cache import never_cache
 
 
 
-
+@login_required
 def quiz_list(request):
     quizzes = Quiz.objects.all()
     return render(request, 'quiz_list.html', {'quizzes': quizzes})
 
 
-
+@login_required
 def start_quiz(request, quiz_id):
     quiz = get_object_or_404(Quiz, id=quiz_id)
     first_question = quiz.questions.first()
@@ -26,10 +26,11 @@ def start_quiz(request, quiz_id):
     request.session['quiz_id'] = quiz.id
     return redirect('quiz:take_quiz', quiz_id=quiz.id)
 
-
+@login_required
 @never_cache
 def take_quiz(request, quiz_id):
-    visitor_id = get_visitor_id(request)
+    user = request.user
+
     quiz = get_object_or_404(Quiz, id=quiz_id)
     questions = list(quiz.questions.all())
     index = request.session.get("quiz_index", 0)
@@ -44,7 +45,7 @@ def take_quiz(request, quiz_id):
             is_correct = selected_answer.is_correct
 
             UserAnswer.objects.update_or_create(
-                visitor_id=visitor_id,
+                user=user,
                 question=question,
                 defaults={"is_correct": is_correct},
             )
@@ -82,12 +83,12 @@ def take_quiz(request, quiz_id):
         "question_number": index + 1,
         "total_questions": len(questions),
     })
-
+@login_required
 @never_cache
 def quiz_result(request, quiz_id):
-    visitor_id = get_visitor_id(request)
+    user = request.user
     quiz = get_object_or_404(Quiz, id=quiz_id)
-    user_answers = UserAnswer.objects.filter(visitor_id=visitor_id, question__quiz=quiz)
+    user_answers = UserAnswer.objects.filter(user=user, question__quiz=quiz)
     score = user_answers.filter(is_correct=True).count()
     total = quiz.questions.count()
 

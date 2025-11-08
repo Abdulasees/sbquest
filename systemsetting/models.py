@@ -1,4 +1,5 @@
 from django.db import models
+from django.conf import settings
 
 
 # ---------------------------
@@ -48,7 +49,7 @@ class DailyOfferAnswer(models.Model):
 # Tracks the daily fresh assignment of offers per visitor
 # ---------------------------
 class DailyOfferAssignment(models.Model):
-    visitor_id = models.CharField(max_length=64, db_index=True)  # ✅ Replaces user
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, null=True, blank=True)
     offer = models.ForeignKey(DailyOffer, on_delete=models.CASCADE)
     assigned_date = models.DateField()
     half_day = models.IntegerField(default=0)  # 0 = morning, 1 = afternoon
@@ -60,10 +61,10 @@ class DailyOfferAssignment(models.Model):
     class Meta:
         constraints = [
             models.UniqueConstraint(
-                fields=['visitor_id', 'offer', 'assigned_date', 'half_day'],
-                name='unique_offer_per_visitor_per_day_half'
+                fields=['user', 'offer', 'assigned_date', 'half_day'],
+                name='unique_offer_per_user_per_day_half'
             )
         ]
 
     def __str__(self):
-        return f"{self.visitor_id} - {self.offer.title} ({self.assigned_date}, half={self.half_day})"
+        return f"{self.user.username} - {self.offer.title} ({self.assigned_date}, half={self.half_day})"
