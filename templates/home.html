@@ -140,11 +140,6 @@
     
     <div class="box">
         <h2>📅 Daily Offers</h2>
-        {% if offers %}
-            
-        {% else %}
-            <p>No daily offers available today.</p>
-        {% endif %}
         <a href="{% url 'systemsetting:daily_offer_list' %}">My Offer Logs</a>
     </div>
 

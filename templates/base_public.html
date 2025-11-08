@@ -6,7 +6,7 @@
         src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9745567567370540" 
         crossorigin="anonymous">
     </script>
-    <title>SBQuest – Daily Learning & Rewards Dashboard</title>
+    <title>SBQuest – Daily Learning</title>
     <meta name="description" content="SBQuest helps users learn daily through short, engaging tasks and quizzes while earning real SB points. Start instantly without sign-up and track progress with your Visitor ID.">
     <meta name="keywords" content="SBQuest, rewards, daily tasks, daily offers, points, dashboard">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -138,8 +138,6 @@
         <a href="/about/" style="color:#fff;">About</a>
 
         {% if user.is_authenticated %}
-        <a href="/home/" style="color:#fff;">Dashboard</a>
-        <a href="/logout/" style="color:#fff;">Logout</a>
         {% else %}
         <a href="/login/" style="color:#fff;">Login</a>
         <a href="/register/" style="color:#fff;">Register</a>
@@ -172,9 +170,7 @@
           <li>Check new learning offers available.</li>
           <li>Visit this section every day for new learning tasks.</li>
       </ul>
-      <p style="margin-top:15px;">
-          <a href="/offers/" style="color:#007bff; text-decoration:underline;">View All Offers</a>
-      </p>
+
   </div>
 
     <!-- Daily Tasks -->
@@ -185,9 +181,7 @@
           <li>Points are added automatically to your wallet.</li>
           <li>Redeem your points easily using UPI.</li>
       </ul>
-      <p style="margin-top:15px;">
-          <a href="/tasks/" style="color:#007bff; text-decoration:underline;">View All Tasks</a>
-      </p>
+      
   </div>
 </div>
 
