@@ -5,6 +5,7 @@ urlpatterns = [
     path('', views.public_home_view, name='public_home'),  # ✅ main page
 
     # SEO / policy pages
+    path('dashboard/', views.home, name='home'),
     path('about/', views.about_view, name='about'),
     path('privacy-policy/', views.privacy_policy_view, name='privacy_policy'),
     path('terms-conditions/', views.terms_conditions_view, name='terms_conditions'),

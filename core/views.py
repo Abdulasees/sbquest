@@ -67,7 +67,7 @@ def public_home_view(request):
 
 # ---------------------------
 
-@login_required(login_url='/login/')
+@login_required
 def home(request):
     return render(request, 'home.html')
 
