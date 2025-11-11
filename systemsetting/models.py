@@ -49,7 +49,7 @@ class DailyOfferAnswer(models.Model):
 # Tracks the daily fresh assignment of offers per visitor
 # ---------------------------
 class DailyOfferAssignment(models.Model):
-    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, null=True, blank=True)
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     offer = models.ForeignKey(DailyOffer, on_delete=models.CASCADE)
     assigned_date = models.DateField()
     half_day = models.IntegerField(default=0)  # 0 = morning, 1 = afternoon
