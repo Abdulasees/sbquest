@@ -47,21 +47,16 @@ def delete_account_view(request):
     if request.method == 'POST':
         user = request.user
 
-        # Delete related files if user has a profile with avatar
-        if hasattr(user, 'profile'):
-            if user.profile.avatar and os.path.isfile(user.profile.avatar.path):
-                os.remove(user.profile.avatar.path)
-
-        # Log out the user
+        # Log out
         logout(request)
 
-        # Delete the user account
-        # This will also delete all related models with on_delete=CASCADE
+        # Delete user and all cascade data
         user.delete()
 
-        messages.success(request, "Your account and all personal data, including wallet transactions, have been deleted successfully.")
-        return redirect('public_home')  # Redirect to signup/login page
+        messages.success(request, "✅ Your account and all associated data have been deleted.")
+        return redirect('public_home')
 
     return render(request, 'delete_account.html')
+
 
 
