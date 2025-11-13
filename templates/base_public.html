@@ -531,34 +531,35 @@ document.addEventListener("DOMContentLoaded", () => {
 function showQuestion(n) {
   const questions = document.querySelectorAll('.quiz-question');
 
-  // Validate answer of current question
-  if(n > currentQuestion) { // moving forward
+  // Only validate current question if moving forward
+  if (n > currentQuestion) {
     const options = questions[currentQuestion].querySelectorAll('input[type=radio]');
     let selected = '';
-    options.forEach(el => { if(el.checked) selected = el.value; });
+    options.forEach(el => { if (el.checked) selected = el.value; });
 
     const resultEl = questions[currentQuestion].querySelector('.feedback');
-
     const correctAnswer = answers['q'+(currentQuestion+1)];
 
-    if(selected === '') {
+    if (selected === '') {
       alert('Please select an answer before moving forward!');
-      return; // stop if nothing selected
+      return; // Stop navigation if nothing selected
     }
 
-    if(selected === correctAnswer){
+    if (selected === correctAnswer) {
       resultEl.textContent = '✅ Correct!';
       resultEl.style.color = 'green';
+      // Allow navigation to next question
     } else {
       resultEl.textContent = '❌ Incorrect. Correct: ' + correctAnswer;
       resultEl.style.color = 'red';
+      return; // Stop navigation if wrong answer
     }
   }
 
   // Hide all questions
   questions.forEach(q => q.style.display = 'none');
 
-  // Show the requested question
+  // Show requested question
   questions[n].style.display = 'block';
   currentQuestion = n;
 
