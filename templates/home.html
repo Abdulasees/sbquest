@@ -136,21 +136,29 @@
 </header>
 
 <div class="container">
+    <div class="box" style="background-color: #f9f9f9; width: 100%;">
+    <h2>📝 How to Use Your Dashboard</h2>
+    <ol>
+        <li>Check <strong>Daily Learning</strong> to see the rewards available for completing tasks today.</li>
+        <li>Visit <strong>Daily Tasks</strong> to view and complete tasks to earn points or rewards.</li>
+        <li>Track your rewards and points in the <strong>Wallet</strong> section.</li>
+        <li>Update your profile information in the <strong>Profile</strong> section to personalize your experience.</li>
+        <li>If you have questions or issues, use the <strong>Contact</strong> link or read our <strong>FAQ</strong>.</li>
+        <li>Review policies like <strong>Privacy Policy</strong>, <strong>Terms & Conditions</strong>, and <strong>Rewards Policy</strong> for safe usage.</li>
+        <li>Learn more about the platform through <strong>How It Works</strong> and <strong>Community Guidelines</strong>.</li>
+    </ol>
+</div>
+
 
     
     <div class="box">
-        <h2>📅 Daily Offers</h2>
-        <a href="{% url 'systemsetting:daily_offer_list' %}">My Offer Logs</a>
+        <h2>📅 Daily Learning</h2>
+        <a href="{% url 'systemsetting:daily_offer_list' %}">View All Tasks</a>
     </div>
 
     
     <div class="box">
         <h2>✅ Daily Tasks</h2>
-        {% if tasks %}
-            
-        {% else %}
-            <p>No daily tasks available today.</p>
-        {% endif %}
         <a href="{% url 'tasks:task_list' %}">View All Tasks</a>
     </div>
 
