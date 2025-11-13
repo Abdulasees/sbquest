@@ -170,7 +170,7 @@
   <form id="quizForm">
 
     <!-- Question 1 -->
-    <div class="quiz-question" style="margin-bottom:25px;padding:15px;border:1px solid #e0e0e0;border-radius:8px;">
+    <div class="quiz-question" style="display:block;margin-bottom:25px;padding:15px;border:1px solid #e0e0e0;border-radius:8px;">
       <h3>Question 1: Which is the capital of France?</h3>
       <label><input type="radio" name="q1" value="Paris"> Paris</label><br>
       <label><input type="radio" name="q1" value="London"> London</label><br>
@@ -187,11 +187,10 @@
       <label><input type="radio" name="q1" value="Brussels"> Brussels</label><br>
       <label><input type="radio" name="q1" value="Amsterdam"> Amsterdam</label><br>
       <label><input type="radio" name="q1" value="Copenhagen"> Copenhagen</label><br>
-      <p id="result-q1" style="font-weight:bold;margin-top:10px;"></p>
     </div>
 
     <!-- Question 2 -->
-    <div class="quiz-question" style="margin-bottom:25px;padding:15px;border:1px solid #e0e0e0;border-radius:8px;">
+    <div class="quiz-question" style="display:none;margin-bottom:25px;padding:15px;border:1px solid #e0e0e0;border-radius:8px;">
       <h3>Question 2: Who developed the theory of relativity?</h3>
       <label><input type="radio" name="q2" value="Albert Einstein"> Albert Einstein</label><br>
       <label><input type="radio" name="q2" value="Isaac Newton"> Isaac Newton</label><br>
@@ -208,330 +207,336 @@
       <label><input type="radio" name="q2" value="Max Planck"> Max Planck</label><br>
       <label><input type="radio" name="q2" value="Erwin Schrödinger"> Erwin Schrödinger</label><br>
       <label><input type="radio" name="q2" value="Alexander Graham Bell"> Alexander Graham Bell</label><br>
-      <p id="result-q2" style="font-weight:bold;margin-top:10px;"></p>
     </div>
 
     <!-- Question 3 -->
-    <div class="quiz-question" style="margin-bottom:25px;padding:15px;border:1px solid #e0e0e0;border-radius:8px;">
-      <h3>Question 3: Which planet is known as the Red Planet?</h3>
-      <label><input type="radio" name="q3" value="Mercury"> Mercury</label><br>
-      <label><input type="radio" name="q3" value="Venus"> Venus</label><br>
-      <label><input type="radio" name="q3" value="Earth"> Earth</label><br>
-      <label><input type="radio" name="q3" value="Mars"> Mars</label><br>
+    <div class="quiz-question" style="display:none;margin-bottom:25px;padding:15px;border:1px solid #e0e0e0;border-radius:8px;">
+      <h3>Question 3: What is the largest planet in our solar system?</h3>
       <label><input type="radio" name="q3" value="Jupiter"> Jupiter</label><br>
       <label><input type="radio" name="q3" value="Saturn"> Saturn</label><br>
-      <label><input type="radio" name="q3" value="Uranus"> Uranus</label><br>
+      <label><input type="radio" name="q3" value="Earth"> Earth</label><br>
+      <label><input type="radio" name="q3" value="Mars"> Mars</label><br>
+      <label><input type="radio" name="q3" value="Venus"> Venus</label><br>
+      <label><input type="radio" name="q3" value="Mercury"> Mercury</label><br>
       <label><input type="radio" name="q3" value="Neptune"> Neptune</label><br>
+      <label><input type="radio" name="q3" value="Uranus"> Uranus</label><br>
       <label><input type="radio" name="q3" value="Pluto"> Pluto</label><br>
       <label><input type="radio" name="q3" value="Ceres"> Ceres</label><br>
-      <label><input type="radio" name="q3" value="Eris"> Eris</label><br>
       <label><input type="radio" name="q3" value="Haumea"> Haumea</label><br>
       <label><input type="radio" name="q3" value="Makemake"> Makemake</label><br>
-      <label><input type="radio" name="q3" value="Sedna"> Sedna</label><br>
-      <label><input type="radio" name="q3" value="Orcus"> Orcus</label><br>
-      <p id="result-q3" style="font-weight:bold;margin-top:10px;"></p>
+      <label><input type="radio" name="q3" value="Eris"> Eris</label><br>
+      <label><input type="radio" name="q3" value="Sun"> Sun</label><br>
+      <label><input type="radio" name="q3" value="Moon"> Moon</label><br>
     </div>
 
     <!-- Question 4 -->
-    <div class="quiz-question" style="margin-bottom:25px;padding:15px;border:1px solid #e0e0e0;border-radius:8px;">
-      <h3>Question 4: What gas do humans breathe in to survive?</h3>
+    <div class="quiz-question" style="display:none;margin-bottom:25px;padding:15px;border:1px solid #e0e0e0;border-radius:8px;">
+      <h3>Question 4: Which element has the chemical symbol 'O'?</h3>
       <label><input type="radio" name="q4" value="Oxygen"> Oxygen</label><br>
-      <label><input type="radio" name="q4" value="Carbon Dioxide"> Carbon Dioxide</label><br>
-      <label><input type="radio" name="q4" value="Nitrogen"> Nitrogen</label><br>
+      <label><input type="radio" name="q4" value="Gold"> Gold</label><br>
+      <label><input type="radio" name="q4" value="Silver"> Silver</label><br>
       <label><input type="radio" name="q4" value="Hydrogen"> Hydrogen</label><br>
+      <label><input type="radio" name="q4" value="Carbon"> Carbon</label><br>
+      <label><input type="radio" name="q4" value="Nitrogen"> Nitrogen</label><br>
       <label><input type="radio" name="q4" value="Helium"> Helium</label><br>
-      <label><input type="radio" name="q4" value="Methane"> Methane</label><br>
-      <label><input type="radio" name="q4" value="Neon"> Neon</label><br>
-      <label><input type="radio" name="q4" value="Argon"> Argon</label><br>
-      <label><input type="radio" name="q4" value="Ozone"> Ozone</label><br>
-      <label><input type="radio" name="q4" value="Krypton"> Krypton</label><br>
-      <label><input type="radio" name="q4" value="Xenon"> Xenon</label><br>
-      <label><input type="radio" name="q4" value="Radon"> Radon</label><br>
+      <label><input type="radio" name="q4" value="Iron"> Iron</label><br>
+      <label><input type="radio" name="q4" value="Copper"> Copper</label><br>
+      <label><input type="radio" name="q4" value="Zinc"> Zinc</label><br>
+      <label><input type="radio" name="q4" value="Calcium"> Calcium</label><br>
+      <label><input type="radio" name="q4" value="Potassium"> Potassium</label><br>
+      <label><input type="radio" name="q4" value="Magnesium"> Magnesium</label><br>
+      <label><input type="radio" name="q4" value="Phosphorus"> Phosphorus</label><br>
       <label><input type="radio" name="q4" value="Chlorine"> Chlorine</label><br>
-      <label><input type="radio" name="q4" value="Fluorine"> Fluorine</label><br>
-      <label><input type="radio" name="q4" value="Sulfur"> Sulfur</label><br>
-      <p id="result-q4" style="font-weight:bold;margin-top:10px;"></p>
     </div>
 
     <!-- Question 5 -->
-    <div class="quiz-question" style="margin-bottom:25px;padding:15px;border:1px solid #e0e0e0;border-radius:8px;">
-      <h3>Question 5: Who wrote 'Romeo and Juliet'?</h3>
-      <label><input type="radio" name="q5" value="William Shakespeare"> William Shakespeare</label><br>
-      <label><input type="radio" name="q5" value="Charles Dickens"> Charles Dickens</label><br>
-      <label><input type="radio" name="q5" value="Mark Twain"> Mark Twain</label><br>
-      <label><input type="radio" name="q5" value="Jane Austen"> Jane Austen</label><br>
-      <label><input type="radio" name="q5" value="Leo Tolstoy"> Leo Tolstoy</label><br>
-      <label><input type="radio" name="q5" value="F. Scott Fitzgerald"> F. Scott Fitzgerald</label><br>
-      <label><input type="radio" name="q5" value="George Orwell"> George Orwell</label><br>
-      <label><input type="radio" name="q5" value="Ernest Hemingway"> Ernest Hemingway</label><br>
-      <label><input type="radio" name="q5" value="Victor Hugo"> Victor Hugo</label><br>
-      <label><input type="radio" name="q5" value="Homer"> Homer</label><br>
-      <label><input type="radio" name="q5" value="Dante Alighieri"> Dante Alighieri</label><br>
-      <label><input type="radio" name="q5" value="Miguel de Cervantes"> Miguel de Cervantes</label><br>
-      <label><input type="radio" name="q5" value="J.K. Rowling"> J.K. Rowling</label><br>
-      <label><input type="radio" name="q5" value="Tolkien"> Tolkien</label><br>
-      <label><input type="radio" name="q5" value="Agatha Christie"> Agatha Christie</label><br>
-      <p id="result-q5" style="font-weight:bold;margin-top:10px;"></p>
+    <div class="quiz-question" style="display:none;margin-bottom:25px;padding:15px;border:1px solid #e0e0e0;border-radius:8px;">
+      <h3>Question 5: Who painted the Mona Lisa?</h3>
+      <label><input type="radio" name="q5" value="Leonardo da Vinci"> Leonardo da Vinci</label><br>
+      <label><input type="radio" name="q5" value="Vincent van Gogh"> Vincent van Gogh</label><br>
+      <label><input type="radio" name="q5" value="Pablo Picasso"> Pablo Picasso</label><br>
+      <label><input type="radio" name="q5" value="Claude Monet"> Claude Monet</label><br>
+      <label><input type="radio" name="q5" value="Rembrandt"> Rembrandt</label><br>
+      <label><input type="radio" name="q5" value="Michelangelo"> Michelangelo</label><br>
+      <label><input type="radio" name="q5" value="Raphael"> Raphael</label><br>
+      <label><input type="radio" name="q5" value="Caravaggio"> Caravaggio</label><br>
+      <label><input type="radio" name="q5" value="Salvador Dali"> Salvador Dali</label><br>
+      <label><input type="radio" name="q5" value="Frida Kahlo"> Frida Kahlo</label><br>
+      <label><input type="radio" name="q5" value="Jackson Pollock"> Jackson Pollock</label><br>
+      <label><input type="radio" name="q5" value="Henri Matisse"> Henri Matisse</label><br>
+      <label><input type="radio" name="q5" value="Edvard Munch"> Edvard Munch</label><br>
+      <label><input type="radio" name="q5" value="Gustav Klimt"> Gustav Klimt</label><br>
+      <label><input type="radio" name="q5" value="Paul Cézanne"> Paul Cézanne</label><br>
     </div>
 
     <!-- Question 6 -->
-    <div class="quiz-question" style="margin-bottom:25px;padding:15px;border:1px solid #e0e0e0;border-radius:8px;">
-      <h3>Question 6: What is the largest mammal on Earth?</h3>
-      <label><input type="radio" name="q6" value="Blue Whale"> Blue Whale</label><br>
-      <label><input type="radio" name="q6" value="Elephant"> Elephant</label><br>
-      <label><input type="radio" name="q6" value="Giraffe"> Giraffe</label><br>
-      <label><input type="radio" name="q6" value="Hippopotamus"> Hippopotamus</label><br>
-      <label><input type="radio" name="q6" value="Sperm Whale"> Sperm Whale</label><br>
-      <label><input type="radio" name="q6" value="Orca"> Orca</label><br>
-      <label><input type="radio" name="q6" value="Tiger"> Tiger</label><br>
-      <label><input type="radio" name="q6" value="Polar Bear"> Polar Bear</label><br>
-      <label><input type="radio" name="q6" value="Brown Bear"> Brown Bear</label><br>
-      <label><input type="radio" name="q6" value="Shark"> Shark</label><br>
-      <label><input type="radio" name="q6" value="Whale Shark"> Whale Shark</label><br>
-      <label><input type="radio" name="q6" value="Dolphin"> Dolphin</label><br>
-      <label><input type="radio" name="q6" value="Seal"> Seal</label><br>
-      <label><input type="radio" name="q6" value="Manatee"> Manatee</label><br>
-      <label><input type="radio" name="q6" value="Otter"> Otter</label><br>
-      <p id="result-q6" style="font-weight:bold;margin-top:10px;"></p>
+    <div class="quiz-question" style="display:none;margin-bottom:25px;padding:15px;border:1px solid #e0e0e0;border-radius:8px;">
+      <h3>Question 6: What is the square root of 144?</h3>
+      <label><input type="radio" name="q6" value="12"> 12</label><br>
+      <label><input type="radio" name="q6" value="14"> 14</label><br>
+      <label><input type="radio" name="q6" value="10"> 10</label><br>
+      <label><input type="radio" name="q6" value="16"> 16</label><br>
+      <label><input type="radio" name="q6" value="18"> 18</label><br>
+      <label><input type="radio" name="q6" value="20"> 20</label><br>
+      <label><input type="radio" name="q6" value="11"> 11</label><br>
+      <label><input type="radio" name="q6" value="13"> 13</label><br>
+      <label><input type="radio" name="q6" value="15"> 15</label><br>
+      <label><input type="radio" name="q6" value="17"> 17</label><br>
+      <label><input type="radio" name="q6" value="19"> 19</label><br>
+      <label><input type="radio" name="q6" value="9"> 9</label><br>
+      <label><input type="radio" name="q6" value="8"> 8</label><br>
+      <label><input type="radio" name="q6" value="7"> 7</label><br>
+      <label><input type="radio" name="q6" value="6"> 6</label><br>
     </div>
 
     <!-- Question 7 -->
-    <div class="quiz-question" style="margin-bottom:25px;padding:15px;border:1px solid #e0e0e0;border-radius:8px;">
-      <h3>Question 7: Which is the longest river in the world?</h3>
-      <label><input type="radio" name="q7" value="Nile"> Nile</label><br>
-      <label><input type="radio" name="q7" value="Amazon"> Amazon</label><br>
-      <label><input type="radio" name="q7" value="Yangtze"> Yangtze</label><br>
-      <label><input type="radio" name="q7" value="Mississippi"> Mississippi</label><br>
-      <label><input type="radio" name="q7" value="Congo"> Congo</label><br>
-      <label><input type="radio" name="q7" value="Ganges"> Ganges</label><br>
-      <label><input type="radio" name="q7" value="Mekong"> Mekong</label><br>
-      <label><input type="radio" name="q7" value="Volga"> Volga</label><br>
-      <label><input type="radio" name="q7" value="Danube"> Danube</label><br>
-      <label><input type="radio" name="q7" value="Rhine"> Rhine</label><br>
-      <label><input type="radio" name="q7" value="Indus"> Indus</label><br>
-      <label><input type="radio" name="q7" value="Rio Grande"> Rio Grande</label><br>
-      <label><input type="radio" name="q7" value="Yellow River"> Yellow River</label><br>
-      <label><input type="radio" name="q7" value="Tigris"> Tigris</label><br>
-      <label><input type="radio" name="q7" value="Euphrates"> Euphrates</label><br>
-      <p id="result-q7" style="font-weight:bold;margin-top:10px;"></p>
+    <div class="quiz-question" style="display:none;margin-bottom:25px;padding:15px;border:1px solid #e0e0e0;border-radius:8px;">
+      <h3>Question 7: Which country is known as the Land of the Rising Sun?</h3>
+      <label><input type="radio" name="q7" value="Japan"> Japan</label><br>
+      <label><input type="radio" name="q7" value="China"> China</label><br>
+      <label><input type="radio" name="q7" value="Thailand"> Thailand</label><br>
+      <label><input type="radio" name="q7" value="India"> India</label><br>
+      <label><input type="radio" name="q7" value="South Korea"> South Korea</label><br>
+      <label><input type="radio" name="q7" value="Vietnam"> Vietnam</label><br>
+      <label><input type="radio" name="q7" value="Malaysia"> Malaysia</label><br>
+      <label><input type="radio" name="q7" value="Philippines"> Philippines</label><br>
+      <label><input type="radio" name="q7" value="Singapore"> Singapore</label><br>
+      <label><input type="radio" name="q7" value="Indonesia"> Indonesia</label><br>
+      <label><input type="radio" name="q7" value="Nepal"> Nepal</label><br>
+      <label><input type="radio" name="q7" value="Sri Lanka"> Sri Lanka</label><br>
+      <label><input type="radio" name="q7" value="Bangladesh"> Bangladesh</label><br>
+      <label><input type="radio" name="q7" value="Bhutan"> Bhutan</label><br>
+      <label><input type="radio" name="q7" value="Mongolia"> Mongolia</label><br>
     </div>
 
     <!-- Question 8 -->
-    <div class="quiz-question" style="margin-bottom:25px;padding:15px;border:1px solid #e0e0e0;border-radius:8px;">
-      <h3>Question 8: What is the speed of light?</h3>
-      <label><input type="radio" name="q8" value="299,792 km/s"> 299,792 km/s</label><br>
-      <label><input type="radio" name="q8" value="150,000 km/s"> 150,000 km/s</label><br>
-      <label><input type="radio" name="q8" value="1,000 km/s"> 1,000 km/s</label><br>
-      <label><input type="radio" name="q8" value="300,000 km/s"> 300,000 km/s</label><br>
-      <label><input type="radio" name="q8" value="30,000 km/s"> 30,000 km/s</label><br>
-      <label><input type="radio" name="q8" value="3,000 km/s"> 3,000 km/s</label><br>
-      <label><input type="radio" name="q8" value="299,792 m/s"> 299,792 m/s</label><br>
-      <label><input type="radio" name="q8" value="3 km/s"> 3 km/s</label><br>
-      <label><input type="radio" name="q8" value="3,000 m/s"> 3,000 m/s</label><br>
-      <label><input type="radio" name="q8" value="30,000 m/s"> 30,000 m/s</label><br>
-      <label><input type="radio" name="q8" value="3,000,000 km/s"> 3,000,000 km/s</label><br>
-      <label><input type="radio" name="q8" value="150,000 m/s"> 150,000 m/s</label><br>
-      <label><input type="radio" name="q8" value="299,000 km/s"> 299,000 km/s</label><br>
-      <label><input type="radio" name="q8" value="300,000 m/s"> 300,000 m/s</label><br>
-      <label><input type="radio" name="q8" value="299,792,458 m/s"> 299,792,458 m/s</label><br>
-      <p id="result-q8" style="font-weight:bold;margin-top:10px;"></p>
+    <div class="quiz-question" style="display:none;margin-bottom:25px;padding:15px;border:1px solid #e0e0e0;border-radius:8px;">
+      <h3>Question 8: What gas do plants absorb from the atmosphere?</h3>
+      <label><input type="radio" name="q8" value="Carbon Dioxide"> Carbon Dioxide</label><br>
+      <label><input type="radio" name="q8" value="Oxygen"> Oxygen</label><br>
+      <label><input type="radio" name="q8" value="Nitrogen"> Nitrogen</label><br>
+      <label><input type="radio" name="q8" value="Hydrogen"> Hydrogen</label><br>
+      <label><input type="radio" name="q8" value="Helium"> Helium</label><br>
+      <label><input type="radio" name="q8" value="Methane"> Methane</label><br>
+      <label><input type="radio" name="q8" value="Neon"> Neon</label><br>
+      <label><input type="radio" name="q8" value="Argon"> Argon</label><br>
+      <label><input type="radio" name="q8" value="Carbon Monoxide"> Carbon Monoxide</label><br>
+      <label><input type="radio" name="q8" value="Sulfur Dioxide"> Sulfur Dioxide</label><br>
+      <label><input type="radio" name="q8" value="Nitrous Oxide"> Nitrous Oxide</label><br>
+      <label><input type="radio" name="q8" value="Chlorine"> Chlorine</label><br>
+      <label><input type="radio" name="q8" value="Ozone"> Ozone</label><br>
+      <label><input type="radio" name="q8" value="Radon"> Radon</label><br>
+      <label><input type="radio" name="q8" value="Krypton"> Krypton</label><br>
     </div>
 
     <!-- Question 9 -->
-    <div class="quiz-question" style="margin-bottom:25px;padding:15px;border:1px solid #e0e0e0;border-radius:8px;">
-      <h3>Question 9: Who painted the Mona Lisa?</h3>
-      <label><input type="radio" name="q9" value="Leonardo da Vinci"> Leonardo da Vinci</label><br>
-      <label><input type="radio" name="q9" value="Michelangelo"> Michelangelo</label><br>
-      <label><input type="radio" name="q9" value="Raphael"> Raphael</label><br>
-      <label><input type="radio" name="q9" value="Donatello"> Donatello</label><br>
-      <label><input type="radio" name="q9" value="Vincent van Gogh"> Vincent van Gogh</label><br>
-      <label><input type="radio" name="q9" value="Pablo Picasso"> Pablo Picasso</label><br>
-      <label><input type="radio" name="q9" value="Claude Monet"> Claude Monet</label><br>
-      <label><input type="radio" name="q9" value="Salvador Dali"> Salvador Dali</label><br>
-      <label><input type="radio" name="q9" value="Edvard Munch"> Edvard Munch</label><br>
-      <label><input type="radio" name="q9" value="Rembrandt"> Rembrandt</label><br>
-      <label><input type="radio" name="q9" value="Jackson Pollock"> Jackson Pollock</label><br>
-      <label><input type="radio" name="q9" value="Caravaggio"> Caravaggio</label><br>
-      <label><input type="radio" name="q9" value="Georges Seurat"> Georges Seurat</label><br>
-      <label><input type="radio" name="q9" value="Gustav Klimt"> Gustav Klimt</label><br>
-      <label><input type="radio" name="q9" value="Henri Matisse"> Henri Matisse</label><br>
-      <p id="result-q9" style="font-weight:bold;margin-top:10px;"></p>
+    <div class="quiz-question" style="display:none;margin-bottom:25px;padding:15px;border:1px solid #e0e0e0;border-radius:8px;">
+      <h3>Question 9: Which language is used for web development?</h3>
+      <label><input type="radio" name="q9" value="HTML"> HTML</label><br>
+      <label><input type="radio" name="q9" value="Python"> Python</label><br>
+      <label><input type="radio" name="q9" value="Java"> Java</label><br>
+      <label><input type="radio" name="q9" value="C++"> C++</label><br>
+      <label><input type="radio" name="q9" value="Ruby"> Ruby</label><br>
+      <label><input type="radio" name="q9" value="PHP"> PHP</label><br>
+      <label><input type="radio" name="q9" value="JavaScript"> JavaScript</label><br>
+      <label><input type="radio" name="q9" value="Swift"> Swift</label><br>
+      <label><input type="radio" name="q9" value="Kotlin"> Kotlin</label><br>
+      <label><input type="radio" name="q9" value="Go"> Go</label><br>
+      <label><input type="radio" name="q9" value="TypeScript"> TypeScript</label><br>
+      <label><input type="radio" name="q9" value="SQL"> SQL</label><br>
+      <label><input type="radio" name="q9" value="Perl"> Perl</label><br>
+      <label><input type="radio" name="q9" value="Scala"> Scala</label><br>
+      <label><input type="radio" name="q9" value="R"> R</label><br>
     </div>
 
     <!-- Question 10 -->
-    <div class="quiz-question" style="margin-bottom:25px;padding:15px;border:1px solid #e0e0e0;border-radius:8px;">
-      <h3>Question 10: Which gas is primarily responsible for global warming?</h3>
-      <label><input type="radio" name="q10" value="Carbon Dioxide"> Carbon Dioxide</label><br>
+    <div class="quiz-question" style="display:none;margin-bottom:25px;padding:15px;border:1px solid #e0e0e0;border-radius:8px;">
+      <h3>Question 10: What is H2O commonly known as?</h3>
+      <label><input type="radio" name="q10" value="Water"> Water</label><br>
       <label><input type="radio" name="q10" value="Oxygen"> Oxygen</label><br>
-      <label><input type="radio" name="q10" value="Nitrogen"> Nitrogen</label><br>
       <label><input type="radio" name="q10" value="Hydrogen"> Hydrogen</label><br>
-      <label><input type="radio" name="q10" value="Methane"> Methane</label><br>
-      <label><input type="radio" name="q10" value="Helium"> Helium</label><br>
-      <label><input type="radio" name="q10" value="Neon"> Neon</label><br>
-      <label><input type="radio" name="q10" value="Argon"> Argon</label><br>
-      <label><input type="radio" name="q10" value="Ozone"> Ozone</label><br>
-      <label><input type="radio" name="q10" value="Radon"> Radon</label><br>
-      <label><input type="radio" name="q10" value="Krypton"> Krypton</label><br>
-      <label><input type="radio" name="q10" value="Xenon"> Xenon</label><br>
-      <label><input type="radio" name="q10" value="Carbon Monoxide"> Carbon Monoxide</label><br>
-      <label><input type="radio" name="q10" value="Sulfur Dioxide"> Sulfur Dioxide</label><br>
-      <label><input type="radio" name="q10" value="Nitrous Oxide"> Nitrous Oxide</label><br>
-      <p id="result-q10" style="font-weight:bold;margin-top:10px;"></p>
+      <label><input type="radio" name="q10" value="Carbon Dioxide"> Carbon Dioxide</label><br>
+      <label><input type="radio" name="q10" value="Salt"> Salt</label><br>
+      <label><input type="radio" name="q10" value="Acid"> Acid</label><br>
+      <label><input type="radio" name="q10" value="Alcohol"> Alcohol</label><br>
+      <label><input type="radio" name="q10" value="Sugar"> Sugar</label><br>
+      <label><input type="radio" name="q10" value="Ammonia"> Ammonia</label><br>
+      <label><input type="radio" name="q10" value="Milk"> Milk</label><br>
+      <label><input type="radio" name="q10" value="Steam"> Steam</label><br>
+      <label><input type="radio" name="q10" value="Ice"> Ice</label><br>
+      <label><input type="radio" name="q10" value="Oil"> Oil</label><br>
+      <label><input type="radio" name="q10" value="Vinegar"> Vinegar</label><br>
+      <label><input type="radio" name="q10" value="Blood"> Blood</label><br>
     </div>
 
+
     <!-- Question 11 -->
-    <div class="quiz-question" style="margin-bottom:25px;padding:15px;border:1px solid #e0e0e0;border-radius:8px;">
-      <h3>Question 11: Which planet is known as the Red Planet?</h3>
-      <label><input type="radio" name="q11" value="Mars"> Mars</label><br>
-      <label><input type="radio" name="q11" value="Venus"> Venus</label><br>
-      <label><input type="radio" name="q11" value="Jupiter"> Jupiter</label><br>
-      <label><input type="radio" name="q11" value="Saturn"> Saturn</label><br>
-      <label><input type="radio" name="q11" value="Mercury"> Mercury</label><br>
-      <label><input type="radio" name="q11" value="Earth"> Earth</label><br>
-      <label><input type="radio" name="q11" value="Neptune"> Neptune</label><br>
-      <label><input type="radio" name="q11" value="Uranus"> Uranus</label><br>
-      <label><input type="radio" name="q11" value="Pluto"> Pluto</label><br>
-      <label><input type="radio" name="q11" value="Ceres"> Ceres</label><br>
-      <label><input type="radio" name="q11" value="Eris"> Eris</label><br>
-      <label><input type="radio" name="q11" value="Haumea"> Haumea</label><br>
-      <label><input type="radio" name="q11" value="Makemake"> Makemake</label><br>
-      <label><input type="radio" name="q11" value="Kepler-22b"> Kepler-22b</label><br>
-      <label><input type="radio" name="q11" value="Gliese 581g"> Gliese 581g</label><br>
-      <p id="result-q11" style="font-weight:bold;margin-top:10px;"></p>
+    <div class="quiz-question" style="display:none;margin-bottom:25px;padding:15px;border:1px solid #e0e0e0;border-radius:8px;">
+      <h3>Question 11: Who is known as the father of computers?</h3>
+      <label><input type="radio" name="q11" value="Charles Babbage"> Charles Babbage</label><br>
+      <label><input type="radio" name="q11" value="Alan Turing"> Alan Turing</label><br>
+      <label><input type="radio" name="q11" value="John von Neumann"> John von Neumann</label><br>
+      <label><input type="radio" name="q11" value="Bill Gates"> Bill Gates</label><br>
+      <label><input type="radio" name="q11" value="Steve Jobs"> Steve Jobs</label><br>
+      <label><input type="radio" name="q11" value="Tim Berners-Lee"> Tim Berners-Lee</label><br>
+      <label><input type="radio" name="q11" value="Ada Lovelace"> Ada Lovelace</label><br>
+      <label><input type="radio" name="q11" value="Dennis Ritchie"> Dennis Ritchie</label><br>
+      <label><input type="radio" name="q11" value="Grace Hopper"> Grace Hopper</label><br>
+      <label><input type="radio" name="q11" value="James Gosling"> James Gosling</label><br>
+      <label><input type="radio" name="q11" value="Niklaus Wirth"> Niklaus Wirth</label><br>
+      <label><input type="radio" name="q11" value="Douglas Engelbart"> Douglas Engelbart</label><br>
+      <label><input type="radio" name="q11" value="John McCarthy"> John McCarthy</label><br>
+      <label><input type="radio" name="q11" value="Bjarne Stroustrup"> Bjarne Stroustrup</label><br>
+      <label><input type="radio" name="q11" value="Konrad Zuse"> Konrad Zuse</label><br>
     </div>
 
     <!-- Question 12 -->
-    <div class="quiz-question" style="margin-bottom:25px;padding:15px;border:1px solid #e0e0e0;border-radius:8px;">
-      <h3>Question 12: What is the smallest prime number?</h3>
-      <label><input type="radio" name="q12" value="2"> 2</label><br>
-      <label><input type="radio" name="q12" value="1"> 1</label><br>
-      <label><input type="radio" name="q12" value="3"> 3</label><br>
-      <label><input type="radio" name="q12" value="5"> 5</label><br>
-      <label><input type="radio" name="q12" value="7"> 7</label><br>
-      <label><input type="radio" name="q12" value="11"> 11</label><br>
-      <label><input type="radio" name="q12" value="13"> 13</label><br>
-      <label><input type="radio" name="q12" value="17"> 17</label><br>
-      <label><input type="radio" name="q12" value="19"> 19</label><br>
-      <label><input type="radio" name="q12" value="23"> 23</label><br>
-      <label><input type="radio" name="q12" value="29"> 29</label><br>
-      <label><input type="radio" name="q12" value="31"> 31</label><br>
-      <label><input type="radio" name="q12" value="37"> 37</label><br>
-      <label><input type="radio" name="q12" value="41"> 41</label><br>
-      <label><input type="radio" name="q12" value="43"> 43</label><br>
-      <p id="result-q12" style="font-weight:bold;margin-top:10px;"></p>
+    <div class="quiz-question" style="display:none;margin-bottom:25px;padding:15px;border:1px solid #e0e0e0;border-radius:8px;">
+      <h3>Question 12: What is the largest planet in our solar system?</h3>
+      <label><input type="radio" name="q12" value="Jupiter"> Jupiter</label><br>
+      <label><input type="radio" name="q12" value="Saturn"> Saturn</label><br>
+      <label><input type="radio" name="q12" value="Earth"> Earth</label><br>
+      <label><input type="radio" name="q12" value="Mars"> Mars</label><br>
+      <label><input type="radio" name="q12" value="Venus"> Venus</label><br>
+      <label><input type="radio" name="q12" value="Mercury"> Mercury</label><br>
+      <label><input type="radio" name="q12" value="Neptune"> Neptune</label><br>
+      <label><input type="radio" name="q12" value="Uranus"> Uranus</label><br>
+      <label><input type="radio" name="q12" value="Pluto"> Pluto</label><br>
+      <label><input type="radio" name="q12" value="Ceres"> Ceres</label><br>
+      <label><input type="radio" name="q12" value="Eris"> Eris</label><br>
+      <label><input type="radio" name="q12" value="Haumea"> Haumea</label><br>
+      <label><input type="radio" name="q12" value="Makemake"> Makemake</label><br>
+      <label><input type="radio" name="q12" value="Io"> Io</label><br>
+      <label><input type="radio" name="q12" value="Europa"> Europa</label><br>
     </div>
 
     <!-- Question 13 -->
-    <div class="quiz-question" style="margin-bottom:25px;padding:15px;border:1px solid #e0e0e0;border-radius:8px;">
-      <h3>Question 13: What is H2O commonly known as?</h3>
-      <label><input type="radio" name="q13" value="Water"> Water</label><br>
-      <label><input type="radio" name="q13" value="Hydrogen Peroxide"> Hydrogen Peroxide</label><br>
-      <label><input type="radio" name="q13" value="Oxygen"> Oxygen</label><br>
-      <label><input type="radio" name="q13" value="Hydrogen"> Hydrogen</label><br>
-      <label><input type="radio" name="q13" value="Salt"> Salt</label><br>
-      <label><input type="radio" name="q13" value="Acid"> Acid</label><br>
-      <label><input type="radio" name="q13" value="Alcohol"> Alcohol</label><br>
-      <label><input type="radio" name="q13" value="Vinegar"> Vinegar</label><br>
-      <label><input type="radio" name="q13" value="Milk"> Milk</label><br>
-      <label><input type="radio" name="q13" value="Carbon Dioxide"> Carbon Dioxide</label><br>
-      <label><input type="radio" name="q13" value="Soap"> Soap</label><br>
-      <label><input type="radio" name="q13" value="Oil"> Oil</label><br>
-      <label><input type="radio" name="q13" value="Juice"> Juice</label><br>
-      <label><input type="radio" name="q13" value="Steam"> Steam</label><br>
-      <label><input type="radio" name="q13" value="Snow"> Snow</label><br>
-      <p id="result-q13" style="font-weight:bold;margin-top:10px;"></p>
+    <div class="quiz-question" style="display:none;margin-bottom:25px;padding:15px;border:1px solid #e0e0e0;border-radius:8px;">
+      <h3>Question 13: Which organ in the human body pumps blood?</h3>
+      <label><input type="radio" name="q13" value="Heart"> Heart</label><br>
+      <label><input type="radio" name="q13" value="Lungs"> Lungs</label><br>
+      <label><input type="radio" name="q13" value="Kidney"> Kidney</label><br>
+      <label><input type="radio" name="q13" value="Liver"> Liver</label><br>
+      <label><input type="radio" name="q13" value="Brain"> Brain</label><br>
+      <label><input type="radio" name="q13" value="Stomach"> Stomach</label><br>
+      <label><input type="radio" name="q13" value="Intestine"> Intestine</label><br>
+      <label><input type="radio" name="q13" value="Skin"> Skin</label><br>
+      <label><input type="radio" name="q13" value="Spleen"> Spleen</label><br>
+      <label><input type="radio" name="q13" value="Pancreas"> Pancreas</label><br>
+      <label><input type="radio" name="q13" value="Bladder"> Bladder</label><br>
+      <label><input type="radio" name="q13" value="Appendix"> Appendix</label><br>
+      <label><input type="radio" name="q13" value="Gallbladder"> Gallbladder</label><br>
+      <label><input type="radio" name="q13" value="Thyroid"> Thyroid</label><br>
+      <label><input type="radio" name="q13" value="Bone Marrow"> Bone Marrow</label><br>
     </div>
 
     <!-- Question 14 -->
-    <div class="quiz-question" style="margin-bottom:25px;padding:15px;border:1px solid #e0e0e0;border-radius:8px;">
-      <h3>Question 14: Which country gifted the Statue of Liberty to the USA?</h3>
-      <label><input type="radio" name="q14" value="France"> France</label><br>
-      <label><input type="radio" name="q14" value="England"> England</label><br>
-      <label><input type="radio" name="q14" value="Germany"> Germany</label><br>
-      <label><input type="radio" name="q14" value="Italy"> Italy</label><br>
-      <label><input type="radio" name="q14" value="Spain"> Spain</label><br>
-      <label><input type="radio" name="q14" value="Canada"> Canada</label><br>
-      <label><input type="radio" name="q14" value="Mexico"> Mexico</label><br>
-      <label><input type="radio" name="q14" value="Netherlands"> Netherlands</label><br>
-      <label><input type="radio" name="q14" value="Belgium"> Belgium</label><br>
-      <label><input type="radio" name="q14" value="Sweden"> Sweden</label><br>
-      <label><input type="radio" name="q14" value="Norway"> Norway</label><br>
-      <label><input type="radio" name="q14" value="Denmark"> Denmark</label><br>
-      <label><input type="radio" name="q14" value="Portugal"> Portugal</label><br>
-      <label><input type="radio" name="q14" value="Austria"> Austria</label><br>
-      <label><input type="radio" name="q14" value="Switzerland"> Switzerland</label><br>
-      <p id="result-q14" style="font-weight:bold;margin-top:10px;"></p>
+    <div class="quiz-question" style="display:none;margin-bottom:25px;padding:15px;border:1px solid #e0e0e0;border-radius:8px;">
+      <h3>Question 14: What is the fastest land animal?</h3>
+      <label><input type="radio" name="q14" value="Cheetah"> Cheetah</label><br>
+      <label><input type="radio" name="q14" value="Lion"> Lion</label><br>
+      <label><input type="radio" name="q14" value="Tiger"> Tiger</label><br>
+      <label><input type="radio" name="q14" value="Leopard"> Leopard</label><br>
+      <label><input type="radio" name="q14" value="Horse"> Horse</label><br>
+      <label><input type="radio" name="q14" value="Deer"> Deer</label><br>
+      <label><input type="radio" name="q14" value="Elephant"> Elephant</label><br>
+      <label><input type="radio" name="q14" value="Dog"> Dog</label><br>
+      <label><input type="radio" name="q14" value="Rabbit"> Rabbit</label><br>
+      <label><input type="radio" name="q14" value="Kangaroo"> Kangaroo</label><br>
+      <label><input type="radio" name="q14" value="Fox"> Fox</label><br>
+      <label><input type="radio" name="q14" value="Hyena"> Hyena</label><br>
+      <label><input type="radio" name="q14" value="Buffalo"> Buffalo</label><br>
+      <label><input type="radio" name="q14" value="Camel"> Camel</label><br>
+      <label><input type="radio" name="q14" value="Giraffe"> Giraffe</label><br>
     </div>
 
     <!-- Question 15 -->
-    <div class="quiz-question" style="margin-bottom:25px;padding:15px;border:1px solid #e0e0e0;border-radius:8px;">
-      <h3>Question 15: Which element has the chemical symbol 'O'?</h3>
-      <label><input type="radio" name="q15" value="Oxygen"> Oxygen</label><br>
-      <label><input type="radio" name="q15" value="Gold"> Gold</label><br>
-      <label><input type="radio" name="q15" value="Iron"> Iron</label><br>
-      <label><input type="radio" name="q15" value="Silver"> Silver</label><br>
-      <label><input type="radio" name="q15" value="Hydrogen"> Hydrogen</label><br>
-      <label><input type="radio" name="q15" value="Nitrogen"> Nitrogen</label><br>
-      <label><input type="radio" name="q15" value="Helium"> Helium</label><br>
-      <label><input type="radio" name="q15" value="Carbon"> Carbon</label><br>
-      <label><input type="radio" name="q15" value="Neon"> Neon</label><br>
-      <label><input type="radio" name="q15" value="Chlorine"> Chlorine</label><br>
-      <label><input type="radio" name="q15" value="Fluorine"> Fluorine</label><br>
-      <label><input type="radio" name="q15" value="Phosphorus"> Phosphorus</label><br>
-      <label><input type="radio" name="q15" value="Sulfur"> Sulfur</label><br>
-      <label><input type="radio" name="q15" value="Potassium"> Potassium</label><br>
-      <label><input type="radio" name="q15" value="Calcium"> Calcium</label><br>
-      <p id="result-q15" style="font-weight:bold;margin-top:10px;"></p>
+    <div class="quiz-question" style="display:none;margin-bottom:25px;padding:15px;border:1px solid #e0e0e0;border-radius:8px;">
+      <h3>Question 15: What is the chemical formula for table salt?</h3>
+      <label><input type="radio" name="q15" value="NaCl"> NaCl</label><br>
+      <label><input type="radio" name="q15" value="KCl"> KCl</label><br>
+      <label><input type="radio" name="q15" value="NaOH"> NaOH</label><br>
+      <label><input type="radio" name="q15" value="H2SO4"> H2SO4</label><br>
+      <label><input type="radio" name="q15" value="HCl"> HCl</label><br>
+      <label><input type="radio" name="q15" value="Na2CO3"> Na2CO3</label><br>
+      <label><input type="radio" name="q15" value="MgSO4"> MgSO4</label><br>
+      <label><input type="radio" name="q15" value="CaCO3"> CaCO3</label><br>
+      <label><input type="radio" name="q15" value="KNO3"> KNO3</label><br>
+      <label><input type="radio" name="q15" value="Na2SO4"> Na2SO4</label><br>
+      <label><input type="radio" name="q15" value="LiCl"> LiCl</label><br>
+      <label><input type="radio" name="q15" value="NaF"> NaF</label><br>
+      <label><input type="radio" name="q15" value="BaCl2"> BaCl2</label><br>
+      <label><input type="radio" name="q15" value="AlCl3"> AlCl3</label><br>
+      <label><input type="radio" name="q15" value="ZnCl2"> ZnCl2</label><br>
     </div>
 
+    
+    <!-- Navigation Buttons -->
+    <div style="margin-top:20px;">
+      <button type="button" id="prevBtn" onclick="nextPrev(-1)" style="padding:10px 20px;">Previous</button>
+      <button type="button" id="nextBtn" onclick="nextPrev(1)" style="padding:10px 20px;">Next</button>
+      <button type="button" id="submitBtn" onclick="submitQuiz()" style="padding:10px 20px;display:none;">Submit</button>
+    </div>
 
-    <button type="button" onclick="checkAllAnswers()" style="margin-top:20px;padding:10px 20px;font-size:16px;">Submit All Answers</button>
     <p id="overall-result" style="font-weight:bold;margin-top:15px;"></p>
   </form>
 </section>
 
 <script>
-function checkAllAnswers() {
-  const answers = {
-    q1: 'Paris',
-    q2: 'Albert Einstein',
-    q3: 'Mars',
-    q4: 'Oxygen',
-    q5: 'William Shakespeare',
-    q6: 'Blue Whale',
-    q7: 'Nile',
-    q8: '299,792 km/s',
-    q9: 'Leonardo da Vinci',
-    q10: 'Carbon Dioxide',
-    q11: 'Diamond',
-    q12: 'France',
-    q13: 'Charles Babbage',
-    q14: 'Skin',
-    q15: '2'
-  };
+let currentQuestion = 0;
+const questions = document.querySelectorAll(".quiz-question");
 
+const answers = {
+  q1: "Paris",
+  q2: "Albert Einstein",
+  q3: "Jupiter",
+  q4: "William Shakespeare",
+  q5: "Pacific Ocean",
+  q6: "Mount Everest",
+  q7: "Hydrogen",
+  q8: "Blue Whale",
+  q9: "Asia",
+  q10: "Mercury",
+  q11: "Charles Babbage",
+  q12: "Jupiter",
+  q13: "Heart",
+  q14: "Cheetah",
+  q15: "NaCl"
+};
+
+function showQuestion(n) {
+  questions.forEach((q,i)=> q.style.display = (i===n)?"block":"none");
+  document.getElementById("prevBtn").style.display = n===0?"none":"inline-block";
+  document.getElementById("nextBtn").style.display = n===questions.length-1?"none":"inline-block";
+  document.getElementById("submitBtn").style.display = n===questions.length-1?"inline-block":"none";
+}
+
+function nextPrev(n){
+  const qName = 'q'+(currentQuestion+1);
+  const options = document.getElementsByName(qName);
+  let selected = Array.from(options).find(opt => opt.checked);
+  if(n===1 && !selected){
+    alert("Please select an answer before moving forward!");
+    return;
+  }
+  currentQuestion += n;
+  showQuestion(currentQuestion);
+}
+
+function submitQuiz(){
   let correctCount = 0;
-
-  for (let i = 1; i <= 15; i++) {
+  for(let i=1;i<=questions.length;i++){
     const qName = 'q'+i;
     const options = document.getElementsByName(qName);
-    let selected = '';
-    options.forEach(el => { if(el.checked) selected = el.value; });
-
-    const resultEl = document.getElementById('result-'+qName);
-    if(selected === answers[qName]){
-      resultEl.textContent = '✅ Correct!';
-      resultEl.style.color = 'green';
-      correctCount++;
-    } else {
-      resultEl.textContent = '❌ Incorrect. Correct: ' + (answers[qName] || 'N/A');
-      resultEl.style.color = 'red';
-    }
+    let selected = Array.from(options).find(opt=>opt.checked);
+    if(selected && selected.value===answers[qName]) correctCount++;
   }
-
-  document.getElementById('overall-result').textContent = `You got ${correctCount} out of 15 correct!`;
+  document.getElementById("overall-result").textContent = `You got ${correctCount} out of ${questions.length} correct!`;
 }
+
+showQuestion(currentQuestion);
 </script>
+
 
 <!-- END 15 SAMPLE QUIZZES -->
 
