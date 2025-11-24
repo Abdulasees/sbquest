@@ -1,675 +1,228 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <script async 
-        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9745567567370540" 
-        crossorigin="anonymous">
-    </script>
-    <title>SBQuest – Daily Learning</title>
-    <meta name="description" content="SBQuest helps users learn daily through short, interactive quizzes and educational challenges. Start instantly without sign-up and track your personal learning progress.">
-    <meta name="keywords" content="SBQuest, daily learning, educational quizzes, general awareness, study platform, self-improvement, learning motivation">
-    <meta name="robots" content="index, follow">
-    <link rel="canonical" href="https://www.sbquest.in/">
-
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background: #f4f4f4;
-            margin: 0;
-            padding: 0;
-        }
-
-        header {
-            background-color: #2d2d2d;
-            color: white;
-            padding: 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-        }
-
-        header h1 {
-            font-size: 1.5em;
-            margin: 0;
-        }
-
-        .nav {
-            display: flex;
-            gap: 15px;
-            flex-wrap: wrap;
-        }
-
-        .nav a {
-            font-weight: 500;
-            text-decoration: none;
-            transition: color 0.3s, text-decoration 0.3s;
-        }
-
-        .nav a:hover {
-            color: #00c6ff;
-            text-decoration: underline;
-        }
-
-        .container {
-            padding: 30px;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-around;
-        }
-
-        .box {
-            background: white;
-            width: 45%;
-            min-width: 280px;
-            margin: 15px;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-            transition: transform 0.2s, box-shadow 0.2s;
-        }
-
-        .box:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 6px 16px rgba(0,0,0,0.15);
-        }
-
-        h2 {
-            margin-top: 0;
-            color: #2c3e50;
-            font-size: 1.3em;
-            border-bottom: 2px solid #f0f0f0;
-            padding-bottom: 8px;
-        }
-
-        ul {
-            padding-left: 20px;
-            list-style: disc;
-        }
-
-        ul li {
-            margin: 8px 0;
-            font-size: 15px;
-            line-height: 1.4;
-        }
-
-        ul li:hover {
-            background: #f9f9f9;
-            border-radius: 5px;
-            padding: 5px;
-            transition: background 0.3s;
-        }
-
-        footer {
-            background-color: #2d2d2d;
-            color: #fff;
-            text-align: center;
-            padding: 20px;
-            border-top: 2px solid #1a1a1a;
-        }
-
-        .copyright {
-            font-size: 14px;
-            color: #ccc;
-        }
-
-        @media (max-width: 768px) {
-            .container {
-                flex-direction: column;
-                align-items: center;
-                padding: 20px;
-            }
-            .box {
-                width: 100%;
-                margin: 10px 0;
-            }
-            .nav {
-                justify-content: center;
-            }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <script async
+    src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9745567567370540"
+    crossorigin="anonymous"></script>
+  <title>SBQuest — Daily Learning Made Simple</title>
+  <meta name="description" content="SBQuest: short, focused quizzes and mini-lessons to build daily learning habits in general knowledge, science, history and current affairs.">
+  <meta name="keywords" content="SBQuest, daily learning, quizzes, general knowledge, current affairs, study tips, microlearning">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://www.sbquest.in/">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <style>
+    :root{
+      --bg:#f4f4f4;
+      --card:#ffffff;
+      --accent:#007bff;
+      --muted:#444;
+      --header:#2d2d2d;
+    }
+    body {font-family:Arial, sans-serif;background:var(--bg);margin:0;padding:0;color:var(--muted);}
+    header{background-color:var(--header);color:#fff;padding:20px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap}
+    header h1{font-size:1.4rem;margin:0}
+    .nav{display:flex;gap:15px;flex-wrap:wrap}
+    .nav a{font-weight:500;color:#fff;text-decoration:none}
+    .nav a:hover{color:#cdeeff;text-decoration:underline}
+    main{max-width:1100px;margin:22px auto;padding:0 18px}
+    .hero{background:var(--card);padding:26px;border-radius:10px;box-shadow:0 3px 12px rgba(0,0,0,0.08);margin-bottom:18px}
+    .hero h2{margin-top:0;color:#2c3e50}
+    .hero p{line-height:1.7;font-size:16px}
+    .content-grid{display:grid;grid-template-columns:1fr 360px;gap:18px;align-items:start}
+    .card{background:var(--card);padding:20px;border-radius:10px;box-shadow:0 4px 16px rgba(0,0,0,0.06)}
+    .article h3{color:var(--accent);margin-top:0}
+    .article p{line-height:1.75}
+    .small-cta{display:inline-block;margin-top:12px;padding:10px 14px;border-radius:8px;background:var(--accent);color:#fff;text-decoration:none}
+    footer{background:var(--header);color:#fff;text-align:center;padding:20px;margin-top:20px;border-top:2px solid #1a1a1a}
+    .footer-links a{color:#fff;text-decoration:underline;margin:0 6px;font-size:14px}
+    @media (max-width:980px){.content-grid{grid-template-columns:1fr;}.nav{justify-content:center}}
+  </style>
 </head>
 <body>
 
 <header>
-    <h1>Welcome to SBQuest!</h1>
-
-    <div class="nav">
-        <a href="/" style="color:#fff;">Home</a>
-        <a href="/about/" style="color:#fff;">About</a>
-
-        
-        <a href="/users/login/" style="color:#fff;">Login</a>
-        <a href="/users/signup/" style="color:#fff;">Register</a>
-        
-</div>
-
+  <h1>SBQuest</h1>
+  <nav class="nav" aria-label="Main navigation">
+    <a href="/">Home</a>
+    <a href="/about/">About</a>
+    <a href="/how-it-works/">How it works</a>
+    <a href="/users/login/">Login</a>
+    <a href="/users/signup/">Register</a>
+  </nav>
 </header>
 
-<section style="max-width:850px;margin:20px auto;background:#fff;padding:20px;border-radius:10px;box-shadow:0 3px 10px rgba(0,0,0,0.1);">
-  <h2 style="color:#2c3e50;">Why Use SBQuest?</h2>
-
-<p style="font-size:16px;line-height:1.6;color:#444;">
-  SBQuest is built for learners who believe in consistent daily growth. It transforms the idea of regular study into a motivating routine through simple, interactive quizzes that make learning enjoyable and effective. Instead of long lessons, users engage in short, skill-enhancing activities designed to improve focus, memory, and general knowledge in just a few minutes a day.
-</p>
-
-<p style="font-size:16px;line-height:1.6;color:#444;">
-  Every day, SBQuest automatically releases new quizzes covering diverse topics such as general awareness, current affairs, and educational learning. Each quiz is crafted to deliver valuable insights quickly, encouraging daily participation and continuous self-improvement.
-</p>
-
-<p style="font-size:16px;line-height:1.6;color:#444;">
-  Registered users can securely log in to their accounts to track their progress, quiz history, and learning performance over time. All quiz results and progress data are safely stored in your account, ensuring that your achievements remain intact even if you clear browser history or switch devices. Simply log in again with your credentials to continue from where you left off.
-</p>
-
-</section>
-
-<section style="max-width:850px;margin:20px auto;background:#fff;padding:20px;border-radius:10px;box-shadow:0 3px 10px rgba(0,0,0,0.1);">
-  <h2 style="color:#2c3e50;margin-bottom:20px;">Try 15 Sample Quizzes!</h2>
-
-  <form id="quizForm">
-
-    <!-- Question 1 -->
-    <div class="quiz-question" style="display:block;margin-bottom:25px;padding:15px;border:1px solid #e0e0e0;border-radius:8px;">
-      <h3>Question 1: Which is the capital of France?</h3>
-      <label><input type="radio" name="q1" value="Paris"> Paris</label><br>
-      <label><input type="radio" name="q1" value="London"> London</label><br>
-      <label><input type="radio" name="q1" value="Rome"> Rome</label><br>
-      <label><input type="radio" name="q1" value="Berlin"> Berlin</label><br>
-      <label><input type="radio" name="q1" value="Madrid"> Madrid</label><br>
-      <label><input type="radio" name="q1" value="Lisbon"> Lisbon</label><br>
-      <label><input type="radio" name="q1" value="Vienna"> Vienna</label><br>
-      <label><input type="radio" name="q1" value="Athens"> Athens</label><br>
-      <label><input type="radio" name="q1" value="Oslo"> Oslo</label><br>
-      <label><input type="radio" name="q1" value="Helsinki"> Helsinki</label><br>
-      <label><input type="radio" name="q1" value="Warsaw"> Warsaw</label><br>
-      <label><input type="radio" name="q1" value="Prague"> Prague</label><br>
-      <label><input type="radio" name="q1" value="Brussels"> Brussels</label><br>
-      <label><input type="radio" name="q1" value="Amsterdam"> Amsterdam</label><br>
-      <label><input type="radio" name="q1" value="Copenhagen"> Copenhagen</label><br>
-      <p class="feedback" style="font-weight:bold;margin-top:5px;"></p>
-    </div>
-
-    <!-- Question 2 -->
-    <div class="quiz-question" style="display:none;margin-bottom:25px;padding:15px;border:1px solid #e0e0e0;border-radius:8px;">
-      <h3>Question 2: Who developed the theory of relativity?</h3>
-      <label><input type="radio" name="q2" value="Albert Einstein"> Albert Einstein</label><br>
-      <label><input type="radio" name="q2" value="Isaac Newton"> Isaac Newton</label><br>
-      <label><input type="radio" name="q2" value="Galileo Galilei"> Galileo Galilei</label><br>
-      <label><input type="radio" name="q2" value="Nikola Tesla"> Nikola Tesla</label><br>
-      <label><input type="radio" name="q2" value="Marie Curie"> Marie Curie</label><br>
-      <label><input type="radio" name="q2" value="Niels Bohr"> Niels Bohr</label><br>
-      <label><input type="radio" name="q2" value="James Clerk Maxwell"> James Clerk Maxwell</label><br>
-      <label><input type="radio" name="q2" value="Stephen Hawking"> Stephen Hawking</label><br>
-      <label><input type="radio" name="q2" value="Michael Faraday"> Michael Faraday</label><br>
-      <label><input type="radio" name="q2" value="Leonardo da Vinci"> Leonardo da Vinci</label><br>
-      <label><input type="radio" name="q2" value="Thomas Edison"> Thomas Edison</label><br>
-      <label><input type="radio" name="q2" value="Archimedes"> Archimedes</label><br>
-      <label><input type="radio" name="q2" value="Max Planck"> Max Planck</label><br>
-      <label><input type="radio" name="q2" value="Erwin Schrödinger"> Erwin Schrödinger</label><br>
-      <label><input type="radio" name="q2" value="Alexander Graham Bell"> Alexander Graham Bell</label><br>
-      <p class="feedback" style="font-weight:bold;margin-top:5px;"></p>
-    </div>
-
-    <!-- Question 3 -->
-    <div class="quiz-question" style="display:none;margin-bottom:25px;padding:15px;border:1px solid #e0e0e0;border-radius:8px;">
-      <h3>Question 3: What is the largest planet in our solar system?</h3>
-      <label><input type="radio" name="q3" value="Jupiter"> Jupiter</label><br>
-      <label><input type="radio" name="q3" value="Saturn"> Saturn</label><br>
-      <label><input type="radio" name="q3" value="Earth"> Earth</label><br>
-      <label><input type="radio" name="q3" value="Mars"> Mars</label><br>
-      <label><input type="radio" name="q3" value="Venus"> Venus</label><br>
-      <label><input type="radio" name="q3" value="Mercury"> Mercury</label><br>
-      <label><input type="radio" name="q3" value="Neptune"> Neptune</label><br>
-      <label><input type="radio" name="q3" value="Uranus"> Uranus</label><br>
-      <label><input type="radio" name="q3" value="Pluto"> Pluto</label><br>
-      <label><input type="radio" name="q3" value="Ceres"> Ceres</label><br>
-      <label><input type="radio" name="q3" value="Haumea"> Haumea</label><br>
-      <label><input type="radio" name="q3" value="Makemake"> Makemake</label><br>
-      <label><input type="radio" name="q3" value="Eris"> Eris</label><br>
-      <label><input type="radio" name="q3" value="Sun"> Sun</label><br>
-      <label><input type="radio" name="q3" value="Moon"> Moon</label><br>
-      <p class="feedback" style="font-weight:bold;margin-top:5px;"></p>
-    </div>
-
-    <!-- Question 4 -->
-    <div class="quiz-question" style="display:none;margin-bottom:25px;padding:15px;border:1px solid #e0e0e0;border-radius:8px;">
-      <h3>Question 4: Which element has the chemical symbol 'O'?</h3>
-      <label><input type="radio" name="q4" value="Oxygen"> Oxygen</label><br>
-      <label><input type="radio" name="q4" value="Gold"> Gold</label><br>
-      <label><input type="radio" name="q4" value="Silver"> Silver</label><br>
-      <label><input type="radio" name="q4" value="Hydrogen"> Hydrogen</label><br>
-      <label><input type="radio" name="q4" value="Carbon"> Carbon</label><br>
-      <label><input type="radio" name="q4" value="Nitrogen"> Nitrogen</label><br>
-      <label><input type="radio" name="q4" value="Helium"> Helium</label><br>
-      <label><input type="radio" name="q4" value="Iron"> Iron</label><br>
-      <label><input type="radio" name="q4" value="Copper"> Copper</label><br>
-      <label><input type="radio" name="q4" value="Zinc"> Zinc</label><br>
-      <label><input type="radio" name="q4" value="Calcium"> Calcium</label><br>
-      <label><input type="radio" name="q4" value="Potassium"> Potassium</label><br>
-      <label><input type="radio" name="q4" value="Magnesium"> Magnesium</label><br>
-      <label><input type="radio" name="q4" value="Phosphorus"> Phosphorus</label><br>
-      <label><input type="radio" name="q4" value="Chlorine"> Chlorine</label><br>
-      <p class="feedback" style="font-weight:bold;margin-top:5px;"></p>
-    </div>
-
-    <!-- Question 5 -->
-    <div class="quiz-question" style="display:none;margin-bottom:25px;padding:15px;border:1px solid #e0e0e0;border-radius:8px;">
-      <h3>Question 5: Which city is the Taj Mahal located in?</h3>
-      <label><input type="radio" name="q5" value="Agra"> Agra</label><br>
-      <label><input type="radio" name="q5" value="Delhi"> Delhi</label><br>
-      <label><input type="radio" name="q5" value="Mumbai"> Mumbai</label><br>
-      <label><input type="radio" name="q5" value="Jaipur"> Jaipur</label><br>
-      <label><input type="radio" name="q5" value="Kolkata"> Kolkata</label><br>
-      <label><input type="radio" name="q5" value="Chennai"> Chennai</label><br>
-      <label><input type="radio" name="q5" value="Bengaluru"> Bengaluru</label><br>
-      <label><input type="radio" name="q5" value="Hyderabad"> Hyderabad</label><br>
-      <label><input type="radio" name="q5" value="Lucknow"> Lucknow</label><br>
-      <label><input type="radio" name="q5" value="Pune"> Pune</label><br>
-      <label><input type="radio" name="q5" value="Ahmedabad"> Ahmedabad</label><br>
-      <label><input type="radio" name="q5" value="Varanasi"> Varanasi</label><br>
-      <label><input type="radio" name="q5" value="Patna"> Patna</label><br>
-      <label><input type="radio" name="q5" value="Ranchi"> Ranchi</label><br>
-      <label><input type="radio" name="q5" value="Bhopal"> Bhopal</label><br>
-      <p class="feedback" style="font-weight:bold;margin-top:5px;"></p>
-    </div>
-
-
-    <!-- Question 6 -->
-    <div class="quiz-question" style="display:none;margin-bottom:25px;padding:15px;border:1px solid #e0e0e0;border-radius:8px;">
-      <h3>Question 6: What is the square root of 144?</h3>
-      <label><input type="radio" name="q6" value="12"> 12</label><br>
-      <label><input type="radio" name="q6" value="14"> 14</label><br>
-      <label><input type="radio" name="q6" value="10"> 10</label><br>
-      <label><input type="radio" name="q6" value="16"> 16</label><br>
-      <label><input type="radio" name="q6" value="18"> 18</label><br>
-      <label><input type="radio" name="q6" value="20"> 20</label><br>
-      <label><input type="radio" name="q6" value="11"> 11</label><br>
-      <label><input type="radio" name="q6" value="13"> 13</label><br>
-      <label><input type="radio" name="q6" value="15"> 15</label><br>
-      <label><input type="radio" name="q6" value="17"> 17</label><br>
-      <label><input type="radio" name="q6" value="19"> 19</label><br>
-      <label><input type="radio" name="q6" value="9"> 9</label><br>
-      <label><input type="radio" name="q6" value="8"> 8</label><br>
-      <label><input type="radio" name="q6" value="7"> 7</label><br>
-      <label><input type="radio" name="q6" value="6"> 6</label><br>
-      <p class="feedback" style="font-weight:bold;margin-top:5px;"></p>
-    </div>
-
-    <!-- Question 7 -->
-    <div class="quiz-question" style="display:none;margin-bottom:25px;padding:15px;border:1px solid #e0e0e0;border-radius:8px;">
-      <h3>Question 7: Which country is known as the Land of the Rising Sun?</h3>
-      <label><input type="radio" name="q7" value="Japan"> Japan</label><br>
-      <label><input type="radio" name="q7" value="China"> China</label><br>
-      <label><input type="radio" name="q7" value="Thailand"> Thailand</label><br>
-      <label><input type="radio" name="q7" value="India"> India</label><br>
-      <label><input type="radio" name="q7" value="South Korea"> South Korea</label><br>
-      <label><input type="radio" name="q7" value="Vietnam"> Vietnam</label><br>
-      <label><input type="radio" name="q7" value="Malaysia"> Malaysia</label><br>
-      <label><input type="radio" name="q7" value="Philippines"> Philippines</label><br>
-      <label><input type="radio" name="q7" value="Singapore"> Singapore</label><br>
-      <label><input type="radio" name="q7" value="Indonesia"> Indonesia</label><br>
-      <label><input type="radio" name="q7" value="Nepal"> Nepal</label><br>
-      <label><input type="radio" name="q7" value="Sri Lanka"> Sri Lanka</label><br>
-      <label><input type="radio" name="q7" value="Bangladesh"> Bangladesh</label><br>
-      <label><input type="radio" name="q7" value="Bhutan"> Bhutan</label><br>
-      <label><input type="radio" name="q7" value="Mongolia"> Mongolia</label><br>
-      <p class="feedback" style="font-weight:bold;margin-top:5px;"></p>
-    </div>
-
-    <!-- Question 8 -->
-    <div class="quiz-question" style="display:none;margin-bottom:25px;padding:15px;border:1px solid #e0e0e0;border-radius:8px;">
-      <h3>Question 8: What gas do plants absorb from the atmosphere?</h3>
-      <label><input type="radio" name="q8" value="Carbon Dioxide"> Carbon Dioxide</label><br>
-      <label><input type="radio" name="q8" value="Oxygen"> Oxygen</label><br>
-      <label><input type="radio" name="q8" value="Nitrogen"> Nitrogen</label><br>
-      <label><input type="radio" name="q8" value="Hydrogen"> Hydrogen</label><br>
-      <label><input type="radio" name="q8" value="Helium"> Helium</label><br>
-      <label><input type="radio" name="q8" value="Methane"> Methane</label><br>
-      <label><input type="radio" name="q8" value="Neon"> Neon</label><br>
-      <label><input type="radio" name="q8" value="Argon"> Argon</label><br>
-      <label><input type="radio" name="q8" value="Carbon Monoxide"> Carbon Monoxide</label><br>
-      <label><input type="radio" name="q8" value="Sulfur Dioxide"> Sulfur Dioxide</label><br>
-      <label><input type="radio" name="q8" value="Nitrous Oxide"> Nitrous Oxide</label><br>
-      <label><input type="radio" name="q8" value="Chlorine"> Chlorine</label><br>
-      <label><input type="radio" name="q8" value="Ozone"> Ozone</label><br>
-      <label><input type="radio" name="q8" value="Radon"> Radon</label><br>
-      <label><input type="radio" name="q8" value="Krypton"> Krypton</label><br>
-      <p class="feedback" style="font-weight:bold;margin-top:5px;"></p>
-    </div>
-
-    <!-- Question 9 -->
-    <div class="quiz-question" style="display:none;margin-bottom:25px;padding:15px;border:1px solid #e0e0e0;border-radius:8px;">
-      <h3>Question 9: Which language is used for web development?</h3>
-      <label><input type="radio" name="q9" value="HTML"> HTML</label><br>
-      <label><input type="radio" name="q9" value="Python"> Python</label><br>
-      <label><input type="radio" name="q9" value="Java"> Java</label><br>
-      <label><input type="radio" name="q9" value="C++"> C++</label><br>
-      <label><input type="radio" name="q9" value="Ruby"> Ruby</label><br>
-      <label><input type="radio" name="q9" value="PHP"> PHP</label><br>
-      <label><input type="radio" name="q9" value="JavaScript"> JavaScript</label><br>
-      <label><input type="radio" name="q9" value="Swift"> Swift</label><br>
-      <label><input type="radio" name="q9" value="Kotlin"> Kotlin</label><br>
-      <label><input type="radio" name="q9" value="Go"> Go</label><br>
-      <label><input type="radio" name="q9" value="TypeScript"> TypeScript</label><br>
-      <label><input type="radio" name="q9" value="SQL"> SQL</label><br>
-      <label><input type="radio" name="q9" value="Perl"> Perl</label><br>
-      <label><input type="radio" name="q9" value="Scala"> Scala</label><br>
-      <label><input type="radio" name="q9" value="R"> R</label><br>
-      <p class="feedback" style="font-weight:bold;margin-top:5px;"></p>
-    </div>
-
-    <!-- Question 10 -->
-    <div class="quiz-question" style="display:none;margin-bottom:25px;padding:15px;border:1px solid #e0e0e0;border-radius:8px;">
-      <h3>Question 10: What is H2O commonly known as?</h3>
-      <label><input type="radio" name="q10" value="Water"> Water</label><br>
-      <label><input type="radio" name="q10" value="Oxygen"> Oxygen</label><br>
-      <label><input type="radio" name="q10" value="Hydrogen"> Hydrogen</label><br>
-      <label><input type="radio" name="q10" value="Carbon Dioxide"> Carbon Dioxide</label><br>
-      <label><input type="radio" name="q10" value="Salt"> Salt</label><br>
-      <label><input type="radio" name="q10" value="Acid"> Acid</label><br>
-      <label><input type="radio" name="q10" value="Alcohol"> Alcohol</label><br>
-      <label><input type="radio" name="q10" value="Sugar"> Sugar</label><br>
-      <label><input type="radio" name="q10" value="Ammonia"> Ammonia</label><br>
-      <label><input type="radio" name="q10" value="Milk"> Milk</label><br>
-      <label><input type="radio" name="q10" value="Steam"> Steam</label><br>
-      <label><input type="radio" name="q10" value="Ice"> Ice</label><br>
-      <label><input type="radio" name="q10" value="Oil"> Oil</label><br>
-      <label><input type="radio" name="q10" value="Vinegar"> Vinegar</label><br>
-      <label><input type="radio" name="q10" value="Blood"> Blood</label><br>
-      <p class="feedback" style="font-weight:bold;margin-top:5px;"></p>
-    </div>
-
-
-    <!-- Question 11 -->
-    <div class="quiz-question" style="display:none;margin-bottom:25px;padding:15px;border:1px solid #e0e0e0;border-radius:8px;">
-      <h3>Question 11: Who is known as the father of computers?</h3>
-      <label><input type="radio" name="q11" value="Charles Babbage"> Charles Babbage</label><br>
-      <label><input type="radio" name="q11" value="Alan Turing"> Alan Turing</label><br>
-      <label><input type="radio" name="q11" value="John von Neumann"> John von Neumann</label><br>
-      <label><input type="radio" name="q11" value="Bill Gates"> Bill Gates</label><br>
-      <label><input type="radio" name="q11" value="Steve Jobs"> Steve Jobs</label><br>
-      <label><input type="radio" name="q11" value="Tim Berners-Lee"> Tim Berners-Lee</label><br>
-      <label><input type="radio" name="q11" value="Ada Lovelace"> Ada Lovelace</label><br>
-      <label><input type="radio" name="q11" value="Dennis Ritchie"> Dennis Ritchie</label><br>
-      <label><input type="radio" name="q11" value="Grace Hopper"> Grace Hopper</label><br>
-      <label><input type="radio" name="q11" value="James Gosling"> James Gosling</label><br>
-      <label><input type="radio" name="q11" value="Niklaus Wirth"> Niklaus Wirth</label><br>
-      <label><input type="radio" name="q11" value="Douglas Engelbart"> Douglas Engelbart</label><br>
-      <label><input type="radio" name="q11" value="John McCarthy"> John McCarthy</label><br>
-      <label><input type="radio" name="q11" value="Bjarne Stroustrup"> Bjarne Stroustrup</label><br>
-      <label><input type="radio" name="q11" value="Konrad Zuse"> Konrad Zuse</label><br>
-      <p class="feedback" style="font-weight:bold;margin-top:5px;"></p>
-    </div>
-
-    <!-- Question 12 -->
-    <div class="quiz-question" style="display:none;margin-bottom:25px;padding:15px;border:1px solid #e0e0e0;border-radius:8px;">
-      <h3>Question 12: What is the financial capital of India?</h3>
-      <label><input type="radio" name="q12" value="Mumbai"> Mumbai</label><br>
-      <label><input type="radio" name="q12" value="Delhi"> Delhi</label><br>
-      <label><input type="radio" name="q12" value="Kolkata"> Kolkata</label><br>
-      <label><input type="radio" name="q12" value="Chennai"> Chennai</label><br>
-      <label><input type="radio" name="q12" value="Bengaluru"> Bengaluru</label><br>
-      <label><input type="radio" name="q12" value="Hyderabad"> Hyderabad</label><br>
-      <label><input type="radio" name="q12" value="Pune"> Pune</label><br>
-      <label><input type="radio" name="q12" value="Ahmedabad"> Ahmedabad</label><br>
-      <label><input type="radio" name="q12" value="Jaipur"> Jaipur</label><br>
-      <label><input type="radio" name="q12" value="Lucknow"> Lucknow</label><br>
-      <label><input type="radio" name="q12" value="Bhopal"> Bhopal</label><br>
-      <label><input type="radio" name="q12" value="Patna"> Patna</label><br>
-      <label><input type="radio" name="q12" value="Ranchi"> Ranchi</label><br>
-      <label><input type="radio" name="q12" value="Surat"> Surat</label><br>
-      <label><input type="radio" name="q12" value="Indore"> Indore</label><br>
-      <p class="feedback" style="font-weight:bold;margin-top:5px;"></p>
-    </div>
-
-
-    <!-- Question 13 -->
-    <div class="quiz-question" style="display:none;margin-bottom:25px;padding:15px;border:1px solid #e0e0e0;border-radius:8px;">
-      <h3>Question 13: Which organ in the human body pumps blood?</h3>
-      <label><input type="radio" name="q13" value="Heart"> Heart</label><br>
-      <label><input type="radio" name="q13" value="Lungs"> Lungs</label><br>
-      <label><input type="radio" name="q13" value="Kidney"> Kidney</label><br>
-      <label><input type="radio" name="q13" value="Liver"> Liver</label><br>
-      <label><input type="radio" name="q13" value="Brain"> Brain</label><br>
-      <label><input type="radio" name="q13" value="Stomach"> Stomach</label><br>
-      <label><input type="radio" name="q13" value="Intestine"> Intestine</label><br>
-      <label><input type="radio" name="q13" value="Skin"> Skin</label><br>
-      <label><input type="radio" name="q13" value="Spleen"> Spleen</label><br>
-      <label><input type="radio" name="q13" value="Pancreas"> Pancreas</label><br>
-      <label><input type="radio" name="q13" value="Bladder"> Bladder</label><br>
-      <label><input type="radio" name="q13" value="Appendix"> Appendix</label><br>
-      <label><input type="radio" name="q13" value="Gallbladder"> Gallbladder</label><br>
-      <label><input type="radio" name="q13" value="Thyroid"> Thyroid</label><br>
-      <label><input type="radio" name="q13" value="Bone Marrow"> Bone Marrow</label><br>
-      <p class="feedback" style="font-weight:bold;margin-top:5px;"></p>
-    </div>
-
-    <!-- Question 14 -->
-    <div class="quiz-question" style="display:none;margin-bottom:25px;padding:15px;border:1px solid #e0e0e0;border-radius:8px;">
-      <h3>Question 14: What is the fastest land animal?</h3>
-      <label><input type="radio" name="q14" value="Cheetah"> Cheetah</label><br>
-      <label><input type="radio" name="q14" value="Lion"> Lion</label><br>
-      <label><input type="radio" name="q14" value="Tiger"> Tiger</label><br>
-      <label><input type="radio" name="q14" value="Leopard"> Leopard</label><br>
-      <label><input type="radio" name="q14" value="Horse"> Horse</label><br>
-      <label><input type="radio" name="q14" value="Deer"> Deer</label><br>
-      <label><input type="radio" name="q14" value="Elephant"> Elephant</label><br>
-      <label><input type="radio" name="q14" value="Dog"> Dog</label><br>
-      <label><input type="radio" name="q14" value="Rabbit"> Rabbit</label><br>
-      <label><input type="radio" name="q14" value="Kangaroo"> Kangaroo</label><br>
-      <label><input type="radio" name="q14" value="Fox"> Fox</label><br>
-      <label><input type="radio" name="q14" value="Hyena"> Hyena</label><br>
-      <label><input type="radio" name="q14" value="Buffalo"> Buffalo</label><br>
-      <label><input type="radio" name="q14" value="Camel"> Camel</label><br>
-      <label><input type="radio" name="q14" value="Giraffe"> Giraffe</label><br>
-      <p class="feedback" style="font-weight:bold;margin-top:5px;"></p>
-    </div>
-
-    <!-- Question 15 -->
-    <div class="quiz-question" style="display:none;margin-bottom:25px;padding:15px;border:1px solid #e0e0e0;border-radius:8px;">
-      <h3>Question 15: What is the chemical formula for table salt?</h3>
-      <label><input type="radio" name="q15" value="NaCl"> NaCl</label><br>
-      <label><input type="radio" name="q15" value="KCl"> KCl</label><br>
-      <label><input type="radio" name="q15" value="NaOH"> NaOH</label><br>
-      <label><input type="radio" name="q15" value="H2SO4"> H2SO4</label><br>
-      <label><input type="radio" name="q15" value="HCl"> HCl</label><br>
-      <label><input type="radio" name="q15" value="Na2CO3"> Na2CO3</label><br>
-      <label><input type="radio" name="q15" value="MgSO4"> MgSO4</label><br>
-      <label><input type="radio" name="q15" value="CaCO3"> CaCO3</label><br>
-      <label><input type="radio" name="q15" value="KNO3"> KNO3</label><br>
-      <label><input type="radio" name="q15" value="Na2SO4"> Na2SO4</label><br>
-      <label><input type="radio" name="q15" value="LiCl"> LiCl</label><br>
-      <label><input type="radio" name="q15" value="NaF"> NaF</label><br>
-      <label><input type="radio" name="q15" value="BaCl2"> BaCl2</label><br>
-      <label><input type="radio" name="q15" value="AlCl3"> AlCl3</label><br>
-      <label><input type="radio" name="q15" value="ZnCl2"> ZnCl2</label><br>
-      <p class="feedback" style="font-weight:bold;margin-top:5px;"></p>
-    </div>
-
-    
-    <!-- Navigation Buttons -->
-    <div style="margin-top:20px;">
-      <button type="button" id="prevBtn" onclick="showQuestion(currentQuestion-1)">Previous</button>
-      <button type="button" id="nextBtn" onclick="showQuestion(currentQuestion+1)">Next</button>
-      <button type="button" id="submitBtn" onclick="checkAllAnswers()" style="display:none;">Submit</button>
-
-    </div>
-
-    <p id="overall-result" style="font-weight:bold;margin-top:15px;"></p>
-  </form>
-</section>
-
-<script>
-let currentQuestion = 0;
-const questions = document.querySelectorAll(".quiz-question");
-
-const answers = {
-  q1: "Paris",
-  q2: "Albert Einstein",
-  q3: "Jupiter",
-  q4: "Oxygen",
-  q5: "Agra",
-  q6: "12",
-  q7: "Japan",
-  q8: "Carbon Dioxide",
-  q9: "HTML",
-  q10: "Water",
-  q11: "Charles Babbage",
-  q12: "Mumbai",
-  q13: "Heart",
-  q14: "Cheetah",
-  q15: "NaCl"
-};
-
-document.addEventListener("DOMContentLoaded", () => {
-  const questions = document.querySelectorAll('.quiz-question');
-  questions.forEach(q => q.style.display = 'none'); // Hide all
-  questions[0].style.display = 'block'; // Show first
-});
-
-function showQuestion(n) {
-  const questions = document.querySelectorAll('.quiz-question');
-
-  // Prevent going before first question or after last question
-  if (n < 0 || n >= questions.length) return;
-
-  // Only validate current question if moving forward
-  if (n > currentQuestion) {
-    const options = questions[currentQuestion].querySelectorAll('input[type=radio]');
-    let selected = '';
-    options.forEach(el => { if (el.checked) selected = el.value; });
-
-    const resultEl = questions[currentQuestion].querySelector('.feedback');
-    const correctAnswer = answers['q'+(currentQuestion+1)];
-
-    if (selected === '') {
-      alert('Please select an answer before moving forward!');
-      return; // Stop navigation if nothing selected
-    }
-
-    if (selected === correctAnswer) {
-      resultEl.textContent = '✅ Correct!';
-      resultEl.style.color = 'green';
-      // Allow navigation to next question
-    } else {
-      resultEl.textContent = '❌ Incorrect';
-      resultEl.style.color = 'red';
-      return; // Stop navigation if wrong answer
-    }
-  }
-
-  // Hide all questions
-  questions.forEach(q => q.style.display = 'none');
-
-  // Show requested question
-  questions[n].style.display = 'block';
-  currentQuestion = n;
-
-  // Show/hide buttons
-  document.getElementById('prevBtn').style.display = (n === 0) ? 'none' : 'inline-block';
-  document.getElementById('nextBtn').style.display = (n === questions.length-1) ? 'none' : 'inline-block';
-  document.getElementById('submitBtn').style.display = (n === questions.length-1) ? 'inline-block' : 'none';
-}
-
-</script>
-
-
-<!-- END 15 SAMPLE QUIZZES -->
-
-
-<div class="box" style="width:90%;max-width:950px;margin:25px auto;">
-  <h2>SBQuest Blog – Learn, Grow, and Stay Inspired</h2>
-
-  <article style="margin-bottom:25px;">
-    <h3 style="color:#007bff;">1. The Power of Daily Learning Habits</h3>
-    <p style="font-size:16px;line-height:1.7;color:#444;">
-      Developing a daily learning habit is one of the most effective ways to grow mentally and intellectually. When you dedicate a few minutes each day to learning something new, your brain builds stronger memory connections and becomes more adaptable. SBQuest is designed on this principle — that small, consistent efforts bring long-term success. Instead of long lessons, it promotes short, focused quizzes and tasks that help you grasp concepts quickly and retain them better. These micro-learning moments not only enhance your knowledge but also increase your motivation to keep learning.
+<main>
+  <!-- HERO / MAIN EXPLANATION -->
+  <section class="hero" aria-labelledby="hero-heading">
+    <h2 id="hero-heading">Daily learning that fits your life — short quizzes, clear explanations</h2>
+    <p>
+      SBQuest helps busy learners build a habit of steady improvement using short, focused quizzes and brief learning notes. Each activity is designed to take just a few minutes, making it simple to practice every day without needing long study sessions. Our content covers general knowledge, science basics, history highlights and current affairs — ideal for students, job-seekers and learners who want to sharpen their understanding consistently.
     </p>
-    <p style="font-size:16px;line-height:1.7;color:#444;">
-      Over time, consistency leads to mastery. Spending a few minutes daily solving quizzes or awareness-based questions can significantly improve your overall focus and confidence. SBQuest’s progress-tracking system reinforces this habit, turning learning into a motivating journey where every small step counts. As your progress level grows, you gain a visible sense of achievement that inspires you to return and continue your learning streak every day.
+    <p>
+      Every quiz question on SBQuest is paired with a short explanation so you immediately understand why an answer is correct. That immediate feedback is the fastest path from curiosity to actual comprehension. You can try sample quizzes on this homepage or create a free account to track progress and save results.
     </p>
-  </article>
+    <a class="small-cta" href="/how-it-works/">See how SBQuest works</a>
+  </section>
 
-  <article style="margin-bottom:25px;">
-    <h3 style="color:#007bff;">2. Why Gamified Learning Keeps You Motivated</h3>
-    <p style="font-size:16px;line-height:1.7;color:#444;">
-      Traditional study methods can sometimes feel monotonous because they lack immediate feedback or engagement. SBQuest changes this through gamified learning — making education interactive, fun, and rewarding in a non-monetary sense. Each completed task or quiz boosts your learning score, showing clear evidence of growth and effort. This instant feedback loop keeps motivation high and helps you maintain a regular learning rhythm.
-    </p>
-    <p style="font-size:16px;line-height:1.7;color:#444;">
-      Gamification also helps reduce procrastination. With short challenges, visible progress indicators, and personal milestones, SBQuest provides a consistent sense of achievement that keeps you active. Each success — no matter how small — adds confidence and satisfaction. This healthy balance of fun and learning makes education a daily habit that feels natural and enjoyable.
-    </p>
-  </article>
+  <div class="content-grid">
+    <!-- MAIN COLUMN -->
+    <section class="card article" aria-labelledby="main-article">
+      <h3 id="main-article">Why microlearning and quizzes work</h3>
 
-  <article>
-    <h3 style="color:#007bff;">3. Small Efforts, Big Results: The SBQuest Way</h3>
-    <p style="font-size:16px;line-height:1.7;color:#444;">
-      Big goals often feel overwhelming, but SBQuest believes that true progress comes from steady, small actions. Every quiz or question you complete contributes to your overall growth. Whether you’re improving your general awareness or strengthening memory, each activity adds measurable value to your personal development.
-    </p>
-    <p style="font-size:16px;line-height:1.7;color:#444;">
-      SBQuest’s system is designed for simplicity and focus. Registered users can log in securely and continue their learning journey anytime without losing progress. This seamless experience allows you to focus purely on learning rather than setup. Over time, these short daily sessions become part of your routine, strengthening both your discipline and curiosity. That’s the essence of SBQuest — learning made simple, consistent, and genuinely motivating.
-    </p>
-  </article>
+      <p>
+        Research in cognitive science shows that short, distributed practice beats long, infrequent sessions for long-term memory. SBQuest uses microlearning — small chunks of content repeated over time — to strengthen recall and clarity. When you answer a question and then read a concise explanation, you form stronger understanding than by passively reading a long text block.
+      </p>
 
-  <!-- History Article -->
-  <article style="margin-bottom:25px;">
-    <h3 style="color:#007bff;">4. Discover the Past with History Quizzes</h3>
-    <p style="font-size:16px;line-height:1.7;color:#444;">
-      Understanding history helps us make sense of the present and prepare for the future. SBQuest’s history quizzes cover a wide range of topics including important events, notable personalities, and cultural milestones. Short, interactive questions make it easier to remember facts and grasp historical connections.
-    </p>
-    <p style="font-size:16px;line-height:1.7;color:#444;">
-      By participating in history quizzes daily, learners develop a better understanding of cause-and-effect in past events. Active engagement ensures that knowledge is retained more effectively than passive reading. Each quiz encourages exploration, critical thinking, and curiosity about the world’s rich past.
-    </p>
-    <p style="font-size:16px;line-height:1.7;color:#444;">
-      Over time, consistent practice through history quizzes builds a strong foundation in general knowledge. SBQuest makes learning history enjoyable, motivating users to return daily and continue expanding their understanding of human civilization.
-    </p>
-  </article>
+      <h3 style="margin-top:18px">What you get on SBQuest</h3>
+      <p>
+        Our content is organized around general awareness, science basics, history highlights, and current affairs. Each area includes compact quizzes and short explanatory notes. Public pages contain educational articles and sample quizzes without requiring login. Registered users can save progress, revisit earlier attempts, and practice consistently over time.
+      </p>
 
-  <!-- Science Article -->
-  <article style="margin-bottom:25px;">
-    <h3 style="color:#007bff;">5. How Daily Science Quizzes Boost Your Knowledge</h3>
-    <p style="font-size:16px;line-height:1.7;color:#444;">
-      Science is constantly evolving, and staying updated can be challenging. Daily quizzes on science topics — including general scientific facts, discoveries, and practical knowledge — help learners grasp important concepts quickly. SBQuest makes science learning accessible and fun through bite-sized questions.
-    </p>
-    <p style="font-size:16px;line-height:1.7;color:#444;">
-      Active participation in quizzes helps learners understand concepts rather than just memorize facts. For example, quizzes on recent discoveries, technology advancements, or interesting phenomena make learning engaging and interactive. SBQuest encourages users to explore these topics in short, focused sessions that are easy to fit into daily routines.
-    </p>
-    <p style="font-size:16px;line-height:1.7;color:#444;">
-      Regular science quizzes also promote curiosity and analytical thinking. By challenging yourself daily, you develop better comprehension, memory retention, and a habit of exploring scientific knowledge consistently. SBQuest ensures these sessions are short, interesting, and result-oriented.
-    </p>
-  </article>
+      <h3 style="margin-top:18px">How to use SBQuest effectively</h3>
+      <p>
+        Start with a short warm-up quiz (3–5 questions). After answering, read the brief explanations — understanding why the incorrect choices are wrong strengthens your conceptual clarity. Repeat similar quizzes over several days to reinforce learning. Use the review feature to revisit challenging questions and practice them again.
+      </p>
 
-  <!-- Current Affairs Article -->
-  <article style="margin-bottom:25px;">
-    <h3 style="color:#007bff;">6. Stay Informed with Current Affairs Quizzes</h3>
-    <p style="font-size:16px;line-height:1.7;color:#444;">
-      Keeping up with current events is essential for personal growth and informed decision-making. SBQuest offers daily quizzes on current affairs, covering topics like national news, international developments, and key policy updates. Short, interactive questions help learners quickly understand and remember important facts.
-    </p>
-    <p style="font-size:16px;line-height:1.7;color:#444;">
-      Active participation in current affairs quizzes helps improve awareness and analytical thinking. Instead of passively reading news articles, learners can test their knowledge, check explanations, and understand the context of major events. This process reinforces memory and encourages regular engagement with ongoing developments.
-    </p>
-    <p style="font-size:16px;line-height:1.7;color:#444;">
-      Daily practice with current affairs quizzes also builds confidence in discussions, exams, or interviews. SBQuest ensures that learning is consistent, easy to follow, and beneficial, making it a practical tool for staying informed and knowledgeable every day.
+      <h3 style="margin-top:18px">Example learning paths</h3>
+      <p>
+        Beginners can follow a basic path: one short quiz on general knowledge, one on scientific concepts, and one on history each day. Intermediate learners can add a current-affairs quiz to stay updated with national and global developments. SBQuest keeps paths flexible so that you can adjust the routine according to your schedule.
+      </p>
+
+      <h3 style="margin-top:18px">Content quality and accuracy</h3>
+      <p>
+        Every quiz item is created and reviewed manually to ensure clarity and correctness. Explanations are concise and aim to teach the idea quickly. When factual updates are needed — such as new data or current-affairs changes — the question database is updated for accuracy and consistency.
+      </p>
+
+      <h3 style="margin-top:18px">Accessibility and user experience</h3>
+      <p>
+        Pages are designed for fast loading, easy readability, and accessibility across devices. Large fonts, clean spacing, and clear navigation ensure a smooth experience for learners on phones, tablets, and desktops. Support pages like FAQ and Contact are available for quick help.
+      </p>
+    </section>
+
+    <!-- SIDEBAR -->
+    <aside class="card" aria-labelledby="sidebar-heading">
+      <h3 id="sidebar-heading">Try a Sample Quiz</h3>
+      <p>Test yourself with example questions to see how SBQuest delivers quick learning and clear explanations.</p>
+
+      <div style="margin-top:12px;">
+        <form>
+          <fieldset style="border:0;padding:0;margin:0">
+            <legend style="font-weight:600;margin-bottom:8px">Question 1</legend>
+            <p style="margin:0 0 8px 0">Which city is the Taj Mahal located in?</p>
+            <label><input type="radio" name="s1" value="Agra"> Agra</label><br>
+            <label><input type="radio" name="s1" value="Delhi"> Delhi</label><br>
+            <label><input type="radio" name="s1" value="Jaipur"> Jaipur</label>
+          </fieldset>
+
+          <hr style="margin:12px 0">
+
+          <fieldset style="border:0;padding:0;margin:0">
+            <legend style="font-weight:600;margin-bottom:8px">Question 2</legend>
+            <p style="margin:0 0 8px 0">What is H₂O commonly known as?</p>
+            <label><input type="radio" name="s2" value="Water"> Water</label><br>
+            <label><input type="radio" name="s2" value="Oxygen"> Oxygen</label><br>
+            <label><input type="radio" name="s2" value="Salt"> Salt</label>
+          </fieldset>
+
+          <hr style="margin:12px 0">
+
+          <fieldset style="border:0;padding:0;margin:0">
+            <legend style="font-weight:600;margin-bottom:8px">Question 3</legend>
+            <p style="margin:0 0 8px 0">Who developed the theory of relativity?</p>
+            <label><input type="radio" name="s3" value="Einstein"> Albert Einstein</label><br>
+            <label><input type="radio" name="s3" value="Newton"> Isaac Newton</label><br>
+            <label><input type="radio" name="s3" value="Galileo"> Galileo Galilei</label>
+          </fieldset>
+
+          <div style="margin-top:10px">
+            <a class="small-cta" href="/try-sample-quiz/">Try full quiz</a>
+          </div>
+        </form>
+      </div>
+
+      <hr style="margin:16px 0">
+
+      <h4 style="margin:0 0 8px 0">Resources</h4>
+      <ul style="padding-left:18px;margin-top:8px">
+        <li><a href="/how-it-works/">How SBQuest works</a></li>
+        <li><a href="/faq/">FAQ</a></li>
+        <li><a href="/about/">About our team</a></li>
+      </ul>
+
+      <!-- Google AdSense Placeholder -->
+      <div style="margin-top:18px">
+        <ins class="adsbygoogle"
+             style="display:block"
+             data-ad-client="ca-pub-9745567567370540"
+             data-ad-slot="0000000000"
+             data-ad-format="auto"
+             data-full-width-responsive="true"></ins>
+        <script>
+          (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+      </div>
+    </aside>
+  </div>
+
+  <!-- LONG ARTICLES SECTION -->
+  <section style="margin-top:18px" class="card article" aria-labelledby="extras-heading">
+    <h3 id="extras-heading">Guides to improve your daily learning</h3>
+
+    <h4 style="margin-top:10px">How to improve general knowledge in 15 minutes a day</h4>
+    <p>
+      Improving general knowledge works best when practiced in small, regular intervals. Try answering a few quiz questions, reading short explanations, and exploring a quick news summary daily. Over time, these small steps build strong factual awareness and confidence. Rotate topics weekly to maintain interest and expand your knowledge.
     </p>
 
-  </article>
+    <h4 style="margin-top:12px">Using current affairs quizzes responsibly</h4>
+    <p>
+      Current affairs quizzes help you stay updated, but accuracy matters. After seeing a quiz question about major events, check a reliable news summary to understand the full context. SBQuest supplements questions with short notes that help explain the importance of key events, turning information into understanding.
+    </p>
 
-</div>
+    <h4 style="margin-top:12px">Study tips for students</h4>
+    <p>
+      Combine quizzes with spaced repetition. After finishing a quiz, write a one-sentence summary of what you learned — this boosts retention. Use SBQuest daily for quick practice, and set aside a weekly review session to revisit tricky questions.
+    </p>
+    <h4 style="margin-top:14px">Basics of Indian Geography Every Student Should Know</h4>
+    <p>
+      Understanding the basics of Indian geography helps learners connect with current affairs, climate patterns, and national development. 
+      India is divided into physical regions such as the Himalayan mountains, the Northern Plains, the Peninsular Plateau, the Coastal Plains, 
+      and the Islands. Each region has unique climatic conditions and natural resources. Learning about major rivers like the Ganga, Yamuna, 
+      Brahmaputra, Narmada, and Godavari helps build awareness of irrigation, agriculture, and transportation. 
+      A few minutes of daily geography reading or map practice strengthens long-term recall and improves general knowledge for exams.
+    </p>
 
+    <h4 style="margin-top:14px">Science Basics: What Every Beginner Should Understand</h4>
+    <p>
+      Science becomes easier when broken into simple ideas. Start with the three major branches: Physics (study of matter and energy), Chemistry 
+      (study of substances and their reactions), and Biology (study of living organisms). Learning occurs faster when students focus on core 
+      concepts such as force, motion, elements, ecosystems, and human organs. Visualizing examples from daily life — like gravity when a ball 
+      falls or evaporation when water dries — helps link theory to reality. Short quizzes and mini-notes strengthen understanding and prepare 
+      learners for school exams and competitive tests.
+    </p>
 
+    <h4 style="margin-top:14px">History Highlights: Understanding India’s Past in Simple Steps</h4>
+    <p>
+      Indian history is vast, but learning it through short, structured segments makes it easier. Begin with the ancient period (Indus Valley 
+      Civilization), move to the medieval era (Mughal Empire), and then explore the modern period (British rule and freedom struggle). 
+      Focusing on important personalities, major movements, and key dates helps build a strong foundation. Instead of memorizing, learners should 
+      understand why events were important and how they shaped today’s India. Small daily readings or quizzes help make this subject enjoyable and 
+      less overwhelming.
+    </p>
+
+  </section>
+
+</main>
 
 <footer>
-    <div class="footer-links">
-        <a href="/privacy-policy/" style="color:#fff; text-decoration:underline;">Privacy Policy</a> |
-        <a href="/terms-conditions/" style="color:#fff; text-decoration:underline;">Terms & Conditions</a> |
-        <a href="/community-guidelines/" style="color:#fff; text-decoration:underline;">Community Guidelines</a> |
-        <a href="/faq/" style="color:#fff; text-decoration:underline;">FAQ</a> |
-        <a href="/how-it-works/" style="color:#fff; text-decoration:underline;">How It Works</a> |
-        <a href="/contact/" style="color:#fff; text-decoration:underline;">Contact</a>
-    </div>
-    <div class="copyright">
-        &copy; {{ current_year }} SBQuest. All rights reserved.
-    </div>
+  <div class="footer-links" role="navigation" aria-label="Footer links">
+    <a href="/privacy-policy/">Privacy Policy</a> |
+    <a href="/terms-conditions/">Terms &amp; Conditions</a> |
+    <a href="/community-guidelines/">Community Guidelines</a> |
+    <a href="/faq/">FAQ</a> |
+    <a href="/contact/">Contact</a>
+  </div>
+  <div style="margin-top:10px;font-size:14px;color:#ccc">&copy; SBQuest. All rights reserved.</div>
 </footer>
 
 </body>
