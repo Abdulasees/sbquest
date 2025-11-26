@@ -13,4 +13,6 @@ urlpatterns = [
     path('how-it-works/', views.how_it_works_view, name='how_it_works'),
     path('community-guidelines/', views.community_guidelines_view, name='community_guidelines'),
     path('rewards-policy/', views.rewards_policy_view, name='rewards_policy'),
+    path('article/', views.article, name='article'),
+    
 ]

@@ -71,6 +71,9 @@ def public_home_view(request):
 def home(request):
     return render(request, 'home.html')
 
+def article(request):
+    return render(request, 'article.html')
+
 def about_view(request):
     return render(request, 'about.html')
 

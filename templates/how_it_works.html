@@ -1,107 +1,204 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>How SBQuest Works</title>
-    <meta name="description" content="Discover how SBQuest works — participate in daily quizzes across diverse topics, improve knowledge, and engage in meaningful learning challenges. Learn easily, consistently, and effectively every day.">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="canonical" href="https://www.sbquest.in/how-it-works/">
+<title>How SBQuest Works</title>
+<meta name="description" content="Discover how SBQuest works — participate in daily quizzes across diverse topics, improve knowledge, and engage in meaningful learning challenges. Learn easily, consistently, and effectively every day.">
 
-    <style>
-    body {
-        font-family: Arial, sans-serif;
-        background-color: #f4f6f8;
-        margin: 0;
-        padding: 20px;
-        color: #333;
-    }
-    .container {
-        max-width: 800px;
-        margin: auto;
-        background: #fff;
-        padding: 30px;
-        border-radius: 10px;
-        box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    }
-    h1 {
-        color: #2c3e50;
-        margin-bottom: 20px;
-        font-size: 2em;
-        text-align: center;
-    }
-    h2 {
-        color: #2c3e50;
-        margin-top: 25px;
-        margin-bottom: 12px;
-        font-size: 1.5em;
-    }
-    p {
-        font-size: 16px;
-        line-height: 1.6;
-        margin: 10px 0;
-        color: #555;
-    }
-    ul {
-        margin: 20px 0;
-        padding-left: 20px;
-    }
-    li {
-        font-size: 16px;
-        line-height: 1.6;
-        margin-bottom: 10px;
-    }
-    footer {
-        text-align: center;
-        margin-top: 30px;
-        font-size: 14px;
-        color: #777;
-    }
-    footer a {
-        color: #2c3e50;
-        text-decoration: none;
-    }
-    footer a:hover {
-        text-decoration: underline;
-    }
+<style>
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f6f8;
+    margin: 0;
+    padding: 20px;
+    color: #333;
+}
+.container {
+    max-width: 800px;
+    margin: auto;
+    background: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+h1 {
+    color: #2c3e50;
+    margin-bottom: 20px;
+    font-size: 2em;
+    text-align: center;
+}
+h2 {
+    color: #2c3e50;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    font-size: 1.5em;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.step-content {
+    display: none;
+    margin-top: 10px;
+}
+p, li {
+    font-size: 16px;
+    line-height: 1.6;
+    margin: 10px 0;
+    color: #555;
+}
+ul {
+    margin: 10px 0 20px 20px;
+}
+footer {
+    text-align: center;
+    margin-top: 30px;
+    font-size: 14px;
+    color: #777;
+}
+footer a {
+    color: #2c3e50;
+    text-decoration: none;
+}
+footer a:hover {
+    text-decoration: underline;
+}
+.toggle-icon {
+    font-weight: bold;
+    margin-left: 10px;
+}
+@media (max-width: 768px) {
+    .container { padding: 20px; }
+    h1 { font-size: 1.6em; }
+    p, li { font-size: 15px; }
+}
+@media (max-width: 480px) {
+    body { padding: 10px; }
+    .container { padding: 15px; }
+    h1 { font-size: 1.4em; }
+    p, li { font-size: 14px; line-height: 1.5; }
+}
+</style>
 
-    /* Responsive */
-    @media (max-width: 768px) {
-        .container { padding: 20px; }
-        h1 { font-size: 1.6em; }
-        p, li { font-size: 15px; }
+<!-- JSON-LD How-To Structured Data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "How SBQuest Works",
+  "description": "Step-by-step guide to using SBQuest for daily quizzes and learning.",
+  "totalTime": "PT5M",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "Create an Account",
+      "text": "Sign up on the SBQuest platform using your basic details to access daily quizzes easily."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Browse Daily Quizzes",
+      "text": "Explore fresh quizzes across subjects like science, history, and general knowledge."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Take the Quiz",
+      "text": "Select a quiz on the SBQuest platform and begin answering questions one by one."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Submit Your Answers",
+      "text": "Once completed, submit answers easily with a single click for quick results."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Use Any Device",
+      "text": "SBQuest works on mobiles, tablets, and desktops with an optimized responsive layout."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Continue Daily Learning",
+      "text": "Return daily for fresh quizzes to build general knowledge consistently."
     }
-    @media (max-width: 480px) {
-        body { padding: 10px; }
-        .container { padding: 15px; }
-        h1 { font-size: 1.4em; }
-        p, li { font-size: 14px; line-height: 1.5; }
-    }
-    </style>
+  ]
+}
+</script>
+
 </head>
 <body>
-    <div class="container">
-        <h1><span aria-hidden="true">⚙️</span> How SBQuest Works</h1>
+<div class="container">
+<nav style="margin-bottom:15px;font-size:14px;">
+  <a href="/" style="color:#2c3e50;text-decoration:none;">Home</a> › How SBQuest Works
+</nav>
 
-        <p><strong>SBQuest</strong> is built to make learning a simple, engaging, and meaningful daily habit. The platform provides carefully designed quizzes and learning challenges that help users expand their knowledge across multiple subjects in just a few minutes each day.</p>
+<h1><span aria-hidden="true">⚙️</span> How SBQuest Works</h1>
 
-        <h2>Step 1: Access the Platform</h2>
-        <p>To use SBQuest, you need to create a free account and log in. Signing up is simple, requiring minimal information to keep the process quick and user-friendly. Once logged in, you can access all quizzes and learning challenges available on the platform. This ensures a secure and personalized learning experience.</p>
+<p><strong>SBQuest</strong> is a platform offering short daily quizzes to make learning simple, consistent, and enjoyable. Each quiz takes only a few minutes and introduces practical knowledge in a clear, easy-to-understand way. The SBQuest platform is ideal for learners seeking meaningful practice without long chapters or complicated explanations.</p>
 
-        <h2>Step 2: Explore Daily Quizzes</h2>
-        <p>Every day, SBQuest publishes new quizzes covering a wide range of topics, including general knowledge, current affairs, science, history, and more. Each quiz is designed to be short, interactive, and thought-provoking. Users are informed that repeated questions from previous days do appear, <strong>which helps strengthen retention, reinforce understanding, and build confidence in knowledge</strong> while continuing to engage with new content each day.</p>
+<p>Simply open the platform, choose a quiz, and answer focused questions. The short format keeps learning light, and the variety of topics keeps the experience engaging across different subjects. SBQuest works on all devices, making it easy to participate anywhere.</p>
 
-        <h2>Step 3: Participate Regularly</h2>
-        <p>Users are encouraged to participate in daily quizzes consistently. Even a few minutes spent on each quiz contributes to learning, enhances awareness, and strengthens focus. Repeated questions serve as valuable practice, helping learners solidify key concepts while also enjoying new challenges every day.</p>
+<h2 onclick="toggleStep('step1')">Step 1: Create an Account <span class="toggle-icon">➕</span></h2>
+<div class="step-content" id="step1">
+<p>Sign up on the SBQuest platform using your basic details. Registration is fast and gives immediate access to daily quizzes. Once logged in, you can navigate the platform effortlessly.</p>
+</div>
 
-        <h2>Step 4: Learn and Reflect</h2>
-        <p>Each quiz question is carefully crafted to not only test knowledge but also promote understanding and reflection. <strong>Repeated questions provide learners with additional opportunities to review and solidify key concepts, enhancing comprehension, memory retention, and overall confidence</strong> in the subject matter.</p>
-        <h2>Step 5: Navigate Effortlessly</h2>
-        <p>The platform is designed to be simple, intuitive, and accessible on mobile phones, tablets, or desktops. Users can easily browse quizzes, select topics, and complete challenges without technical barriers. SBQuest focuses on providing a seamless, distraction-free learning experience.</p>
+<h2 onclick="toggleStep('step2')">Step 2: Browse Daily Quizzes <span class="toggle-icon">➕</span></h2>
+<div class="step-content" id="step2">
+<p>Fresh quizzes are added regularly on topics such as science, history, and general knowledge. Each quiz provides a short, useful burst of learning that fits easily into your day.</p>
+</div>
 
-        <p>By following these steps, SBQuest transforms short, daily learning exercises into a rewarding routine. Its approach emphasizes transparency, engagement, and knowledge reinforcement — making learning enjoyable, achievable, and consistent for every user.</p>
+<h2 onclick="toggleStep('step3')">Step 3: Take the Quiz <span class="toggle-icon">➕</span></h2>
+<div class="step-content" id="step3">
+<p>Select a quiz on the SBQuest platform and begin answering questions one by one. Explanations are concise, and the quiz is designed to be completed in a few minutes, reducing stress and keeping the process simple.</p>
+</div>
 
-        <footer>
-            <p>Have questions or need help? <a href="/contact/">Reach out to our support team</a>.</p>
-        </footer>
-    </div>
+<h2 onclick="toggleStep('step4')">Step 4: Submit Your Answers <span class="toggle-icon">➕</span></h2>
+<div class="step-content" id="step4">
+<p>After completing the questions, submit your answers with one click. The platform ensures a smooth, distraction-free process from start to finish.</p>
+</div>
+
+<h2 onclick="toggleStep('step5')">Step 5: Use Any Device <span class="toggle-icon">➕</span></h2>
+<div class="step-content" id="step5">
+<p>SBQuest works perfectly on mobiles, tablets, and desktops. The responsive layout adjusts automatically to your device, ensuring a comfortable experience anywhere.</p>
+</div>
+
+<h2 onclick="toggleStep('step6')">Step 6: Continue Daily Learning <span class="toggle-icon">➕</span></h2>
+<div class="step-content" id="step6">
+<p>Return daily for new quizzes covering different topics. This brief, consistent approach helps you build general knowledge gradually while keeping learning light and enjoyable.</p>
+</div>
+
+<div style="border:1px solid #dcdcdc;padding:15px;margin:25px 0;border-radius:8px;background:#f9f9f9;">
+<p style="margin:0;font-size:16px;color:#444;">
+Learn more about our platform on the 
+<a href="/about/" style="color:#2c3e50;text-decoration:none;font-weight:bold;">
+    About Page
+</a>.
+</p>
+</div>
+
+<footer>
+<div style="background-color:#eaf4ff; border:1px solid #007bff; padding:15px 20px; border-radius:8px; text-align:center; max-width:500px; margin:30px auto; font-size:15px; color:#333;">
+<p>Need help? <a href="/contact/" style="color:#007bff; text-decoration:none;">Contact our support team</a>.</p>
+<p>Read our <a href="/privacy-policy/" style="color:#007bff; text-decoration:none;">Privacy Policy</a> and <a href="/terms/" style="color:#007bff; text-decoration:none;">Terms & Conditions</a>.</p>
+</div>
+</footer>
+
+</div>
+
+<script>
+function toggleStep(id) {
+    var content = document.getElementById(id);
+    var icon = content.previousElementSibling.querySelector('.toggle-icon');
+    if(content.style.display === "block") {
+        content.style.display = "none";
+        icon.textContent = "➕";
+    } else {
+        content.style.display = "block";
+        icon.textContent = "➖";
+    }
+}
+</script>
+
 </body>
 </html>
