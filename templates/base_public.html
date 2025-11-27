@@ -9,160 +9,178 @@
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://www.sbquest.in/" />
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9745567567370540" crossorigin="anonymous"></script>
-<style>
+
+<style> 
 :root {
-  --bg: #f6f8fa;
-  --card: #ffffff;
-  --accent: #0069d9;
-  --muted: #333;
-  --header: #1f2937;
+      --bg: #f6f8fa;
+      --card: #ffffff;
+      --accent: #0069d9;
+      --muted: #333;
+      --header: #1f2937;
+    }
+
+    body {
+      font-family: Inter, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--muted);
+      margin: 0;
+      padding: 0;
+      line-height: 1.68;
+    }
+
+    header {
+      background: var(--header);
+      color: #fff;
+      padding: 20px 18px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 1.25rem;
+    }
+
+    header nav a {
+      color: #fff;
+      text-decoration: none;
+      margin-left: 14px;
+      font-weight: 600;
+    }
+
+    /* MAIN CONTAINER */
+    main {
+      max-width: 1200px;
+      margin: 24px auto;
+      padding: 0 18px;
+    }
+
+    /* SECTION STYLING */
+    section {
+      background: var(--card);
+      padding: 28px 20px;
+      border-radius: 10px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.04);
+      margin-bottom: 20px;
+    }
+
+    /* HERO SECTION */
+    .hero {
+      box-shadow: 0 6px 30px rgba(0,0,0,0.06);
+    }
+
+    /* GRID SYSTEM */
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 360px;
+      gap: 20px;
+      margin-top: 20px;
+    }
+
+    /* CARDS */
+    .card {
+      background: var(--card);
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.04);
+    }
+
+    /* HEADINGS */
+    h1, h2, h3, h4 {
+      color: #0b2540;
+      margin-top: 0;
+    }
+
+    /* PARAGRAPHS */
+    article p,
+    section p {
+      margin-bottom: 14px;
+      color: var(--muted);
+    }
+
+    /* CTA BUTTON */
+    .cta {
+      display: inline-block;
+      background: var(--accent);
+      color: #fff;
+      padding: 10px 14px;
+      border-radius: 8px;
+      text-decoration: none;
+      margin-top: 12px;
+    }
+
+    /* CTA SECTION */
+    .cta-section {
+      background: var(--card);
+      padding: 30px 25px;
+      border-radius: 10px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.04);
+      margin-top: 24px;
+    }
+
+    /* FOOTER */
+    footer {
+      background: var(--header);
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+      margin-top: 28px;
+    }
+
+    /* RESPONSIVE */
+    @media(max-width:980px) {
+      .grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* ARTICLE NAVIGATION BUTTON */
+    .article-nav {
+      background: #fff;
+      padding: 15px 20px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+      border-radius: 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    .article-nav a {
+      font-weight: 600;
+      color: #333;
+      text-decoration: none;
+    }
+
+    .article-nav .add-btn {
+      background: var(--accent);
+      color: #fff;
+      padding: 8px 14px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .read-more-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #4CAF50; /* green color */
+    color: #fff;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: bold;
+    transition: background-color 0.3s, transform 0.2s;
 }
 
-body {
-  font-family: Inter, Arial, sans-serif;
-  background: var(--bg);
-  color: var(--muted);
-  margin: 0;
-  padding: 0;
-  line-height: 1.68;
+.read-more-btn:hover {
+    background-color: #45a049; /* slightly darker green */
+    transform: translateY(-2px);
 }
 
-header {
-  background: var(--header);
-  color: #fff;
-  padding: 20px 18px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-}
-
-header h1 {
-  margin: 0;
-  font-size: 1.25rem;
-}
-
-header nav a {
-  color: #fff;
-  text-decoration: none;
-  margin-left: 14px;
-  font-weight: 600;
-}
-
-/* MAIN CONTAINER */
-main {
-  max-width: 1200px;
-  margin: 24px auto;
-  padding: 0 18px;
-}
-
-/* SECTION STYLING */
-section {
-  background: var(--card);
-  padding: 28px 20px;
-  border-radius: 10px;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.04);
-  margin-bottom: 20px;
-}
-
-/* HERO SECTION */
-.hero {
-  box-shadow: 0 6px 30px rgba(0,0,0,0.06);
-}
-
-/* GRID SYSTEM */
-.grid {
-  display: grid;
-  grid-template-columns: 1fr 360px;
-  gap: 20px;
-  margin-top: 20px;
-}
-
-/* CARDS */
-.card {
-  background: var(--card);
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.04);
-}
-
-/* HEADINGS */
-h1, h2, h3, h4 {
-  color: #0b2540;
-  margin-top: 0;
-}
-
-/* PARAGRAPHS */
-article p,
-section p {
-  margin-bottom: 14px;
-  color: var(--muted);
-}
-
-/* CTA BUTTON */
-.cta {
-  display: inline-block;
-  background: var(--accent);
-  color: #fff;
-  padding: 10px 14px;
-  border-radius: 8px;
-  text-decoration: none;
-  margin-top: 12px;
-}
-
-/* CTA SECTION */
-.cta-section {
-  background: var(--card);
-  padding: 30px 25px;
-  border-radius: 10px;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.04);
-  margin-top: 24px;
-}
-
-/* FOOTER */
-footer {
-  background: var(--header);
-  color: #fff;
-  padding: 20px;
-  text-align: center;
-  margin-top: 28px;
-}
-
-/* RESPONSIVE */
-@media(max-width:980px) {
-  .grid {
-    grid-template-columns: 1fr;
-  }
-}
-
-/* ARTICLE NAVIGATION BUTTON */
-.article-nav {
-  background: #fff;
-  padding: 15px 20px;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-  border-radius: 10px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 20px;
-}
-
-.article-nav a {
-  font-weight: 600;
-  color: #333;
-  text-decoration: none;
-}
-
-.article-nav .add-btn {
-  background: var(--accent);
-  color: #fff;
-  padding: 8px 14px;
-  border-radius: 6px;
-  text-decoration: none;
-  font-size: 14px;
-  font-weight: 600;
-}
-</style>
+  </style>
 
 
 
@@ -295,6 +313,19 @@ footer {
   </article>
 </section>
 
+<section style="max-width:900px;margin:30px auto;background:#fff;padding:22px;border-radius:10px;box-shadow:0 6px 20px rgba(0,0,0,0.04);">
+  <h2 style="color:#2c3e50;margin-bottom:12px;">Quick Guide: 3 Steps to Make Daily Practice Work</h2>
+  <p style="color:#555;line-height:1.6;">
+    Short daily practice beats rare, long sessions. Try this 3-step routine: (1) Pick one focused micro-topic (2–5 minutes), (2) actively recall what you learned without notes, and (3) write a one-sentence summary. Repeat the next day and review the short summaries weekly to turn scattered facts into lasting knowledge.
+  </p>
+  <ul style="color:#444;margin-left:20px;line-height:1.7;">
+    <li>Choose one small goal per session (clear focus).</li>
+    <li>Use active recall and quick reflection (no re-reading).</li>
+    <li>Track progress with very short notes: review weekly.</li>
+  </ul>
+</section>
+
+
 
   <!-- DAILY PRACTICE SECTION -->
 <section class="why-strategy" aria-labelledby="why-title">
@@ -339,7 +370,8 @@ footer {
 
   <p>These concise exercises promote active engagement, reflection, and gradual mastery, supporting steady improvement over time.</p>
 
-  <p><a href="/article/" class="read-more">Read More →</a></p>
+  <p><a href="/article/" class="read-more-btn">Read More →</a></p>
+
 </section>
 
 
