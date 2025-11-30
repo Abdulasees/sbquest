@@ -70,6 +70,24 @@ def public_home_view(request):
 @login_required
 def home(request):
     return render(request, 'home.html')
+def science(request):
+    return render(request, "science.html")
+
+def history(request):
+    return render(request, "history.html")
+
+def geography(request):
+    return render(request, "geography.html")
+
+def language(request):
+    return render(request, "language.html")
+
+def gk(request):
+    return render(request, "gk.html")
+def mathematics(request):
+    return render(request, "mathematics.html")
+
+
 
 def article(request):
     return render(request, 'article.html')

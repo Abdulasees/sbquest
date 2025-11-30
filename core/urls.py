@@ -14,5 +14,12 @@ urlpatterns = [
     path('community-guidelines/', views.community_guidelines_view, name='community_guidelines'),
     path('rewards-policy/', views.rewards_policy_view, name='rewards_policy'),
     path('article/', views.article, name='article'),
+    path('science/', views.science, name='science'),
+    path('history/', views.history, name='history'),
+    path('geography/', views.geography, name='geography'),
+    path('language/', views.language, name='language'),
+    path('gk/', views.gk, name='gk'),
+    path('mathematics/', views.mathematics, name='mathematics'),
+
     
 ]
