@@ -180,6 +180,63 @@
     transform: translateY(-2px);
 }
 
+/* Header Left Area */
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.menu-icon {
+  font-size: 28px;
+  cursor: pointer;
+  color: #1a73e8;
+  padding: 5px 10px;
+  border-radius: 6px;
+}
+
+.menu-icon:hover {
+  background: rgba(26,115,232,0.1);
+}
+
+/* Sidebar Menu */
+.sidebar-menu {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1000;
+  top: 0;
+  left: 0;
+  background-color: #ffffff;
+  overflow-x: hidden;
+  transition: 0.3s;
+  padding-top: 60px;
+  box-shadow: 3px 0 10px rgba(0,0,0,0.1);
+}
+
+.sidebar-menu a {
+  padding: 10px 20px;
+  text-decoration: none;
+  display: block;
+  font-size: 18px;
+  color: #0b2540;
+  transition: 0.2s;
+}
+
+.sidebar-menu a:hover {
+  background: #f2f6ff;
+}
+
+.sidebar-menu .close-btn {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  font-size: 32px;
+  color: #0b2540;
+  cursor: pointer;
+}
+
+
   </style>
 
 
@@ -187,7 +244,13 @@
 </head>
 <body>
   <header>
+
     <h1>SBQuest</h1>
+    <div class="header-left">
+    <div class="menu-icon" onclick="toggleSidebar()">&#9776;</div>
+    <a href="/" class="logo">SBQuest</a>
+  </div>
+
     <nav aria-label="Main navigation">
       <a href="/">Home</a>
       <a href="/about/">About</a>
@@ -196,6 +259,21 @@
       <a href="/users/signup/">Register</a>
     </nav>
   </header>
+
+  <div id="sidebar" class="sidebar-menu">
+  <a href="javascript:void(0)" class="close-btn" onclick="toggleSidebar()">×</a>
+
+  <a href="/">Home</a>
+  <a href="/science/">Science</a>
+  <a href="/maths/">Mathematics</a>
+  <a href="/history/">History</a>
+  <a href="/geography/">Geography</a>
+  <a href="/gk/">General Knowledge</a>
+  <a href="/language/">Languages</a>
+  <a href="/users/login/">Login</a>
+  <a href="/users/register/">Register</a>
+</div>
+
 
 
   <main>
@@ -501,6 +579,14 @@
     "description":"SBQuest provides short quizzes with immediate explanations to help learners build daily study habits across general knowledge, science, history and current affairs."
   }
   </script>
+
+  <script>
+  function toggleSidebar() {
+    const sidebar = document.getElementById("sidebar");
+    sidebar.style.width = (sidebar.style.width === "250px") ? "0" : "250px";
+  }
+  </script>
+
  
 </body>
 </html>
