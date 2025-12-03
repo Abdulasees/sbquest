@@ -79,13 +79,13 @@ def history(request):
 def geography(request):
     return render(request, "geography.html")
 
-def language(request):
-    return render(request, "language.html")
+# def language(request):
+#     return render(request, "language.html")
 
 def gk(request):
     return render(request, "gk.html")
-def mathematics(request):
-    return render(request, "mathematics.html")
+# def mathematics(request):
+#     return render(request, "mathematics.html")
 
 
 

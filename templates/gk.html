@@ -14,6 +14,34 @@
         h1 { color: #004080; }
         h2 { color: #0073e6; }
         ul { margin-left: 20px; }
+        .history-container { max-width:900px; margin:28px auto; padding:0 18px; font-family: Inter, Arial, sans-serif; }
+        .page-title { color:#0b2540; font-size:28px; margin-bottom:12px; }
+        .lead { color:#555; line-height:1.6; margin-bottom:20px; }
+
+        .topic {
+        background:#fff;
+        border-radius:10px;
+        padding:18px 20px;
+        box-shadow:0 6px 18px rgba(0,0,0,0.04);
+        margin-bottom:14px;
+        }
+
+        .topic h3 { margin:0 0 8px 0; color:#234; font-size:18px; }
+        .topic .intro { color:#444; line-height:1.6; margin-bottom:10px; }
+        .topic .more { display:none; color:#333; line-height:1.6; margin-top:8px; }
+        .read-toggle {
+        display:inline-block;
+        margin-top:8px;
+        padding:8px 12px;
+        background:#0069d9;
+        color:#fff;
+        border-radius:8px;
+        text-decoration:none;
+        cursor:pointer;
+        font-weight:600;
+        border:0;
+        }
+        .read-toggle:focus { outline:3px solid rgba(0,105,217,0.18); }
     </style>
 </head>
 <body>
@@ -23,27 +51,364 @@
     <nav>
         <a href="/">Home</a>
         <a href="/science/">Science</a>
-        <a href="/mathematics/">Mathematics</a>
         <a href="/history/">History</a>
         <a href="/geography/">Geography</a>
-        <a href="/gk/">General Knowledge</a>
-        <a href="/language/">Languages</a>
+
     </nav>
     <main>
         <h2>Introduction to General Knowledge</h2>
-        <p>General Knowledge (GK) is awareness of facts, events, and concepts across different subjects. It includes topics from history, science, sports, culture, and current affairs. GK helps improve intelligence, decision-making, and problem-solving skills.</p>
+        <p>General Knowledge (GK) is awareness of facts, events, and concepts across different fields. It includes information from history, science, geography, sports, culture, technology, and current affairs. GK helps improve understanding of the world and sharpens thinking skills for everyday life.</p>
+
+        
+
+        <h2>Popular GK Topics</h2>
+        <section class="topic" id="world-capitals">
+        <h3>World Capitals and Major Global Regions</h3>
+
+        <div class="intro">
+            Understanding world capitals and major global regions equips learners with knowledge of political geography, international connectivity, and cultural diversity. It provides insights into the location, significance, and role of countries, helping students interpret global events, economic trends, and social interactions with clarity.
+        </div>
+
+        <div class="more" id="more-world-capitals">
+            World capitals serve as administrative, political, and cultural epicenters of their nations. Studying capitals such as London, Tokyo, Canberra, Ottawa, Brasília, and Cairo helps learners identify where governments operate, policies are formed, and economic decisions are implemented. Capitals often host parliaments, courts, embassies, universities, museums, and monuments, reflecting a nation’s historical heritage and contemporary growth. They also act as transportation and trade hubs, linking local communities to national and international networks, and facilitating the movement of people, goods, and ideas.
+
+            <br><br>
+            Major global regions, including the Middle East, Southeast Asia, Sub-Saharan Africa, Central America, and the Arctic, provide insight into geographical diversity, environmental patterns, and cultural practices. Each region is shaped by factors such as climate, topography, natural resources, and human history. Understanding these regions allows students to explore population distribution, urbanization trends, economic development, and social structures. Regional knowledge also helps analyze global challenges such as resource scarcity, migration, climate change, and political disputes, while highlighting opportunities for international collaboration and sustainable growth.
+
+            <br><br>
+            Recognizing the spatial relationships among countries, capitals, and regions aids comprehension of trade routes, diplomatic alliances, and migration patterns. For example, Singapore’s location along major shipping lanes underscores its role in global trade, while the Andes Mountains influence South American climate, agriculture, and tourism. Awareness of regional unions such as the European Union, ASEAN, or the African Union demonstrates how countries coordinate on economic, political, and environmental initiatives, fostering interconnectedness in global governance.
+
+            <br><br>
+            Knowledge of world capitals and regions enhances the interpretation of international news, scientific discoveries, and cultural developments. By locating events geographically, learners can understand the causes and consequences of conflicts, natural disasters, policy changes, and global summits. This geographical awareness strengthens analytical thinking, global perspective, and informed decision-making in both academic and practical scenarios.
+
+            <br><br>
+            Studying capitals and regions also develops essential skills such as map reading, spatial reasoning, and geographical visualization. Students learn to identify countries, borders, and population centers, and understand the distribution of natural resources and cultural landmarks. This fosters curiosity about languages, traditions, and social systems, encouraging respect for diversity and promoting cross-cultural understanding.
+
+            <br><br>
+            Mastering world capitals and major regions equips learners with comprehensive knowledge of political, economic, and cultural systems. It enhances the ability to analyze global events, engage in informed discussions, and succeed in competitive exams, interviews, and general communication. This knowledge ultimately cultivates a well-rounded worldview, empowering students to connect local experiences with global developments and participate thoughtfully in an increasingly interconnected world.
+        </div>
+
+        <button class="read-toggle" aria-expanded="false" aria-controls="more-world-capitals">Read More</button>
+        </section>
+
+        <section class="topic" id="famous-inventions">
+        <h3>Famous Inventions and Their Inventors</h3>
+
+        <div class="intro">
+            Learning about famous inventions and the people behind them helps students understand the role of creativity, experimentation, and problem-solving in shaping human progress. It highlights how innovations in science, technology, medicine, and everyday life have transformed society and improved quality of life across the globe.
+        </div>
+
+        <div class="more" id="more-famous-inventions">
+            Throughout history, inventors from around the world have developed tools, devices, and processes that revolutionized life. For example, Thomas Edison created the practical electric light bulb, while Alexander Graham Bell invented the telephone, and the Wright brothers achieved powered flight. James Watt’s improvements to the steam engine powered the Industrial Revolution, transforming industry and transport.
+
+            <br><br>
+            In medicine, Edward Jenner pioneered the smallpox vaccine, Alexander Fleming discovered penicillin, Marie Curie advanced medical imaging, and Louis Pasteur’s germ theory transformed hygiene practices. Muslim scholars like Ibn Sina (Avicenna) wrote the *Canon of Medicine*, a reference for centuries, while Al-Razi (Rhazes) made significant advances in chemistry and medicine, discovering alcohol and sulfuric acid. These contributions saved countless lives and laid foundations for modern healthcare.
+
+            <br><br>
+            Everyday inventions also reshaped life: Johannes Gutenberg’s printing press revolutionized information sharing, Eli Whitney’s cotton gin boosted agriculture, Nikola Tesla developed alternating current electricity systems, and Samuel Morse invented the telegraph. Al-Jazari, a 12th-century Muslim engineer, designed water clocks, mechanical devices, and early automation systems, demonstrating ingenuity centuries ahead of his time.
+
+            <br><br>
+            In computing and technology, Charles Babbage’s analytical engine laid the groundwork for modern computers, Ada Lovelace contributed the first algorithm, Alan Turing developed theoretical models, and Grace Hopper designed early programming languages. Tim Berners-Lee invented the World Wide Web, while modern pioneers like Steve Jobs and Steve Wozniak popularized personal computing.
+
+            <br><br>
+            Other notable inventions include:  
+            <ul>
+            <li>Ibn al-Haytham (Alhazen) – Optics, camera obscura, and vision studies</li>
+            <li>Omar Khayyam – Calendar reform, algebra, and astronomy</li>
+            <li>Taqi al-Din – Mechanical clocks, astronomical instruments, and observatories</li>
+            <li>Al-Jazari – Automata, water clocks, and mechanical devices</li>
+            <li>Al-Razi (Rhazes) – Chemistry and medical innovations</li>
+            <li>Ibn Sina (Avicenna) – Canon of Medicine and medical encyclopedias</li>
+            <li>Al-Khwarizmi – Algebra, algorithms, and mathematics</li>
+            <li>Al-Farabi – Scientific philosophy, logic, and music theory</li>
+            <li>Nasir al-Din al-Tusi – Astronomy, trigonometry, and observatories</li>
+            <li>Alexander Fleming – Antibiotics (penicillin)</li>
+            <li>Thomas Edison – Electric light bulb and phonograph</li>
+            <li>Guglielmo Marconi – Radio communication</li>
+            <li>James Watt – Steam engine improvements</li>
+            <li>Henry Ford – Assembly line and automobile production</li>
+            </ul>
+
+
+            <br>
+            Studying famous inventions and their inventors provides insight into historical, cultural, and technological contexts. Learners explore the challenges inventors faced, the methods used to refine ideas, and the impact of their work on society and global development. This knowledge encourages creativity, critical thinking, and problem-solving skills, inspiring students to innovate.
+
+            <br><br>
+            Understanding these stories promotes interdisciplinary learning, showing how physics, chemistry, biology, engineering, and mathematics combine to produce transformative outcomes. Recognizing contributions from diverse cultures fosters curiosity, perseverance, and respect for human ingenuity across time and regions.
+
+            <br><br>
+            By exploring inventions and their creators, learners gain awareness of how innovation drives societal progress. This knowledge enhances academic performance, prepares students for competitions, and encourages active participation in discussions about science, technology, and global advancement. It demonstrates that curiosity, experimentation, and determination can leave a lasting impact on the world.
+        </div>
+
+        <button class="read-toggle" aria-expanded="false" aria-controls="more-famous-inventions">Read More</button>
+        </section>
+
+        <section class="topic" id="important-organizations">
+        <h3>Important National and International Organizations</h3>
+
+        <div class="intro">
+            Understanding key national and international organizations helps learners comprehend how governments, institutions, and global entities collaborate to maintain order, provide services, and address worldwide challenges. Knowledge of these organizations supports awareness of policies, humanitarian efforts, and international cooperation.
+        </div>
+
+        <div class="more" id="more-important-organizations">
+            National organizations include government agencies, public institutions, and non-governmental organizations (NGOs) that manage resources, implement policies, and provide essential services. Examples include the Federal Bureau of Investigation (FBI) in the United States, the Indian Space Research Organisation (ISRO), and the National Health Service (NHS) in the United Kingdom. These institutions oversee law enforcement, healthcare, research, and public welfare, ensuring that national systems function efficiently and respond to citizens’ needs.
+
+            <br><br>
+            International organizations operate across countries to promote peace, security, development, and cooperation. The United Nations (UN) facilitates diplomacy, human rights initiatives, and disaster relief. The World Health Organization (WHO) addresses global health challenges, monitors epidemics, and promotes medical research. The International Monetary Fund (IMF) and World Bank provide financial support and guidance to promote economic stability and development in member nations. Similarly, organizations like UNESCO protect cultural heritage, advance education, and encourage scientific collaboration globally.
+
+            <br><br>
+            Other significant organizations include environmental and humanitarian entities. The Red Cross and Red Crescent provide emergency relief during natural disasters, conflicts, and pandemics. Greenpeace and the World Wide Fund for Nature (WWF) focus on conservation, climate change, and protecting endangered species. International Labour Organization (ILO) promotes fair labor practices and workers’ rights worldwide. These organizations illustrate how cooperation and shared goals extend beyond borders to address critical challenges affecting humanity and the environment.
+
+            <br><br>
+            Learning about national and international organizations develops civic awareness, analytical skills, and global perspective. Students understand how policies, treaties, and agreements are formulated, implemented, and monitored. It also highlights the role of diplomacy, leadership, and collaboration in solving complex issues such as poverty, climate change, global health crises, and technological development.
+
+            <br><br>
+            By studying these organizations, learners can identify opportunities for engagement, volunteering, and careers in public service, diplomacy, or international development. It also helps them interpret news, evaluate global initiatives, and understand how different entities work together to improve societal well-being, promote peace, and foster sustainable development worldwide.
+        </div>
+
+        <button class="read-toggle" aria-expanded="false" aria-controls="more-important-organizations">Read More</button>
+        </section>
+
+        <section class="topic" id="famous-personalities">
+        <h3>Famous Personalities in Science, Politics, and Literature</h3>
+
+        <div class="intro">
+            Learning about famous personalities in science, politics, and literature provides insight into the individuals who have shaped human thought, governance, and creativity. Their achievements inspire innovation, leadership, and cultural expression across generations.
+        </div>
+
+        <div class="more" id="more-famous-personalities">
+            In science, notable figures include Ibn al-Haytham (Alhazen), whose work on optics laid the foundation for modern physics, and Taqi al-Din, an Ottoman astronomer and engineer who advanced mechanical instruments and observational astronomy. Marie Curie pioneered research in radioactivity, while Alexander Fleming discovered penicillin, revolutionizing medicine. Albert Einstein’s theories of relativity transformed physics, and Nikola Tesla’s inventions in electricity and magnetism shaped modern technology.  
+
+            <br><br>
+            Political leaders have influenced societies and governance worldwide. Muhammad Ali Jinnah played a pivotal role in the creation of Pakistan, advocating for political rights and self-determination. Mahatma Gandhi led India’s independence movement through non-violent civil disobedience, inspiring global movements for justice. Nelson Mandela fought apartheid in South Africa, becoming a symbol of resilience and equality. Angela Merkel’s tenure as Germany’s Chancellor shaped modern European politics and demonstrated strong leadership in contemporary governance.
+
+            <br><br>
+            Literary figures have contributed to culture, thought, and education. Rumi, the 13th-century Persian poet, influenced literature, spirituality, and philosophy worldwide. William Shakespeare’s plays and sonnets continue to inspire dramatic arts and language studies. Jane Austen’s novels explored society, relationships, and gender roles, while Chimamanda Ngozi Adichie addresses contemporary issues of identity and equality. Muhammad Iqbal, a philosopher and poet, shaped ideas on selfhood, spirituality, and nationhood in South Asia.  
+
+            <br><br>
+            Studying these personalities highlights the diversity of human achievement. Science pioneers demonstrate creativity and analytical thinking; political leaders reveal strategies for governance, diplomacy, and social change; literary icons show the power of expression, storytelling, and cultural reflection. Together, they illustrate how individual vision can impact societies, ideas, and global development.  
+
+            <br><br>
+            Understanding the contributions of these figures nurtures critical thinking, motivation, and curiosity. Students learn about historical contexts, the challenges faced, and the perseverance required to achieve excellence. Recognizing diverse backgrounds and accomplishments encourages respect for cultural and intellectual heritage, inspiring learners to innovate, lead, and express themselves meaningfully.  
+
+            <br><br>
+            By exploring famous personalities in science, politics, and literature, learners gain a multidimensional perspective of human achievement. This knowledge enriches education, supports competitive exams, enhances general knowledge, and fosters awareness of how individual efforts continue to influence global progress.
+        </div>
+
+        <button class="read-toggle" aria-expanded="false" aria-controls="more-famous-personalities">Read More</button>
+        </section>
+
+        <section class="topic" id="landmarks-heritage">
+        <h3>Landmarks, Natural Wonders, and World Heritage Sites</h3>
+
+        <div class="intro">
+            Learning about famous landmarks, natural wonders, and UNESCO World Heritage Sites provides insight into history, culture, and geography. These places showcase architectural brilliance, natural beauty, and human creativity, highlighting the diversity and achievements of societies across the globe.
+        </div>
+
+        <div class="more" id="more-landmarks-heritage">
+            Landmarks are iconic structures or monuments that hold historical, cultural, or political significance. Examples include the Great Wall of China, the Pyramids of Giza, the Taj Mahal, the Eiffel Tower, and Machu Picchu. These sites represent human ingenuity, artistic skill, and cultural heritage, attracting millions of visitors and preserving memories of past civilizations. Landmarks often serve as symbols of national pride, storytelling, and tourism, linking communities to their shared identity and history.
+
+            <br><br>
+            Natural wonders reflect the beauty and power of the Earth’s landscapes. Sites such as the Grand Canyon, Mount Everest, the Great Barrier Reef, Victoria Falls, and the Sahara Desert illustrate geological, ecological, and climatic diversity. Studying these natural marvels helps learners understand the processes that shape the planet, including erosion, tectonics, volcanic activity, and biodiversity. Natural wonders inspire awe, encourage environmental conservation, and promote ecotourism.
+
+            <br><br>
+            UNESCO World Heritage Sites are designated for their outstanding universal value, protecting cultural, historical, and natural treasures. Examples include Petra in Jordan, Stonehenge in England, Angkor Wat in Cambodia, the Serengeti National Park in Tanzania, and the historic center of Istanbul in Turkey. These sites preserve human achievements, traditions, and ecosystems while educating people about global heritage and fostering international collaboration for conservation and sustainable tourism.
+
+            <br><br>
+            Visiting landmarks, natural wonders, and heritage sites provides experiential learning, allowing students to connect knowledge with real-world environments. Understanding the history, geology, ecology, and cultural significance of these places develops spatial awareness, appreciation for diversity, and environmental responsibility. It also nurtures curiosity, research skills, and storytelling abilities by exploring the stories behind each site.
+
+            <br><br>
+            Overall, studying landmarks, natural wonders, and world heritage sites enriches knowledge of human history, natural phenomena, and cultural achievements. It encourages preservation, promotes tourism, and fosters global awareness. Learners gain a deeper understanding of the Earth’s wonders, the significance of cultural heritage, and the importance of protecting both human-made and natural treasures for future generations.
+        </div>
+
+        <button class="read-toggle" aria-expanded="false" aria-controls="more-landmarks-heritage">Read More</button>
+        </section>
+
+        <section class="topic" id="currencies-flags-languages">
+        <h3>Basic Knowledge of Currencies, Flags, and Languages</h3>
+
+        <div class="intro">
+            Understanding world currencies, national flags, and languages helps learners connect with global cultures, trade, and communication. This knowledge provides practical awareness of international exchange, national identities, and linguistic diversity, fostering global literacy and cultural appreciation.
+        </div>
+
+        <div class="more" id="more-currencies-flags-languages">
+            Currencies represent the economic identity of countries and are essential for trade, travel, and finance. For example, the US Dollar (USD), Euro (EUR), Japanese Yen (JPY), British Pound (GBP), and Indian Rupee (INR) are widely recognized currencies. Learning about currencies, their symbols, and exchange rates helps students understand international trade, economic stability, and the value of money in different regions. It also introduces concepts of inflation, banking, and global markets.
+
+            <br><br>
+            National flags are symbols of a country’s identity, history, and values. They reflect colors, emblems, and patterns that signify culture, religion, independence, and political ideals. Examples include the crescent and star on Pakistan’s flag, the maple leaf on Canada’s flag, and the tricolor of India and France. Studying flags fosters recognition of countries, awareness of historical struggles, and respect for national symbolism in international relations and global events.
+
+            <br><br>
+            Languages are a core aspect of communication and cultural expression. Learning about official languages, major world languages, and linguistic families enables learners to understand how societies interact and preserve traditions. For example, Arabic is widely spoken in the Middle East, Mandarin in China, Spanish across Latin America, and Swahili in East Africa. Awareness of languages encourages appreciation of literature, history, and cultural diversity, as well as practical communication skills for travel, business, and international collaboration.
+
+            <br><br>
+            Combining knowledge of currencies, flags, and languages equips learners with essential global awareness. It aids in recognizing countries, participating in international discussions, and understanding the cultural and economic context behind global events. It also develops analytical skills by connecting visual symbols, monetary systems, and linguistic patterns to broader geopolitical and social dynamics.
+
+            <br><br>
+            Learning these basics supports practical activities such as identifying countries on a map, understanding international news, managing currency exchange, and communicating across cultures. It enhances global literacy, critical thinking, and problem-solving skills, providing a foundation for more advanced studies in geography, economics, history, and cultural studies.
+
+            <br><br>
+            Overall, basic knowledge of currencies, flags, and languages allows students to navigate the world with confidence, understand international relationships, and appreciate cultural diversity. It encourages curiosity, respect for differences, and active engagement with global issues, laying the groundwork for lifelong learning and informed participation in an interconnected world.
+        </div>
+
+        <button class="read-toggle" aria-expanded="false" aria-controls="more-currencies-flags-languages">Read More</button>
+        </section>
+
+        <section class="topic" id="current-events">
+        <h3>Current Events, News Updates, and Global Developments</h3>
+
+        <div class="intro">
+            Staying informed about current events, news updates, and global developments helps learners understand the world around them. It provides context for political, economic, social, technological, and environmental changes, fostering awareness, analytical thinking, and responsible global citizenship.
+        </div>
+
+        <div class="more" id="more-current-events">
+            Current events include political decisions, international treaties, scientific discoveries, technological innovations, and cultural happenings. Following elections, climate summits, trade agreements, space missions, or major sports events enables learners to understand how societies operate, how policies are formed, and how countries collaborate to address common challenges.
+
+            <br><br>
+            News updates provide timely information about natural disasters, health emergencies, social movements, economic trends, and technological breakthroughs. Reading or watching reliable sources allows students to connect occurrences with historical background, geography, and global patterns. This helps learners develop discernment between verified facts, opinions, and misleading information, enhancing critical thinking and reasoning skills.
+
+            <br><br>
+            Global developments include long-term trends in science, health, economy, and environmental management. For instance, the global push for renewable energy, breakthroughs in artificial intelligence, the launch of international health initiatives, and emerging economic alliances demonstrate how nations respond to shared challenges. Understanding these trends equips learners to anticipate global shifts and adapt to changes responsibly.
+
+            <br><br>
+            Following current events also fosters social and cultural awareness. Students learn how different communities respond to issues such as migration, climate change, technological adoption, or pandemics. Observing cultural festivals, international collaborations, and humanitarian efforts highlights the diversity of human experience and encourages empathy, tolerance, and respect for global communities.
+
+            <br><br>
+            Engaging with current news and developments enhances analytical abilities. Learners can evaluate the consequences of decisions, predict economic or political outcomes, and assess international relations. It also strengthens problem-solving skills, as students consider multiple perspectives and solutions for complex global issues, such as environmental sustainability or international trade disputes.
+
+            <br><br>
+            Awareness of contemporary events improves academic and professional performance. Students gain practical knowledge for competitive exams, debates, quizzes, interviews, and classroom discussions. They can provide relevant examples, contextualize theories, and relate local happenings to global trends, enhancing credibility and confidence in communication.
+
+            <br><br>
+            Media literacy is another key benefit. By analyzing news sources, understanding bias, and verifying facts, learners develop responsible information consumption habits. They can distinguish propaganda, misinformation, and sensationalism from credible reporting, which promotes informed decision-making in personal, professional, and civic contexts.
+
+            <br><br>
+            Current events also highlight innovation and scientific advancement. From discoveries in medicine, space exploration, and renewable energy, to developments in education, digital communication, and artificial intelligence, learners observe real-world applications of knowledge and technology. These examples inspire curiosity, creativity, and active participation in learning and problem-solving.
+
+            <br><br>
+            Keeping up with current events, news updates, and global developments nurtures a comprehensive worldview. It encourages students to think critically, act responsibly, engage in cross-cultural dialogue, and understand the interconnectedness of nations, societies, and ecosystems. This knowledge prepares learners to face emerging global challenges, recognize opportunities, and contribute meaningfully to the world.
+        </div>
+
+        <button class="read-toggle" aria-expanded="false" aria-controls="more-current-events">Read More</button>
+        </section>
+
+
+
+
+
+
+
 
         <h2>Why GK is Important</h2>
-        <ul>
-            <li>Enhances awareness about the world.</li>
-            <li>Boosts confidence in discussions and exams.</li>
-            <li>Develops critical thinking and analytical skills.</li>
-            <li>Prepares for competitive tests and interviews.</li>
-        </ul>
 
-        <h2>Fun GK Facts</h2>
-        <p>The Great Barrier Reef is the largest coral reef system on Earth. Mercury is the closest planet to the Sun. Knowledge is power, and staying curious opens doors to endless learning.</p>
+        <section class="topic" id="gk-awareness">
+        <h3>Enhances Awareness About Global and Local Events</h3>
+
+        <div class="intro">
+            General Knowledge helps individuals stay informed about events happening locally, nationally, and globally. Awareness of current affairs, political developments, scientific breakthroughs, and cultural activities allows people to understand the world around them, make informed decisions, and actively participate in society.
+        </div>
+
+        <div class="more" id="more-gk-awareness">
+            Staying updated with global events provides insight into international relations, economic trends, and environmental challenges. It enables learners to track the impact of policies, conflicts, treaties, and trade agreements on nations and communities. Knowledge of global events also fosters empathy, tolerance, and understanding of diverse cultures, social issues, and global cooperation efforts. 
+
+            <br><br>
+            Awareness of local events is equally important, as it connects individuals to their communities. Local news, cultural festivals, political decisions, infrastructure projects, and social initiatives shape everyday life and influence community development. Understanding these events encourages active citizenship, participation in local governance, and informed decision-making in social and civic responsibilities.
+
+            <br><br>
+            General Knowledge also bridges the past and present by linking historical events to current situations. Understanding historical contexts, revolutions, movements, and policy changes provides perspective on why societies function as they do today. This helps individuals critically evaluate present events, anticipate possible outcomes, and engage thoughtfully in discussions and debates.
+
+            <br><br>
+            Exposure to both global and local news enhances analytical thinking, problem-solving, and awareness of cause-and-effect relationships. Students and professionals can recognize patterns in economics, politics, health, and climate, enabling informed predictions and decisions. Being well-informed also aids in education, competitive exams, career opportunities, and personal development.
+
+            <br><br>
+            Ultimately, enhancing awareness about events cultivates an informed mindset, encourages active participation in society, and strengthens understanding of human interactions and global interconnections. It empowers learners to respond effectively to challenges, contribute positively to communities, and appreciate the complexity of local and global affairs.
+        </div>
+
+        <button class="read-toggle" aria-expanded="false" aria-controls="more-gk-awareness">Read More</button>
+        </section>
+
+        <section class="topic" id="gk-confidence">
+        <h3>Boosts Confidence in Conversations, Quizzes, and Exams</h3>
+
+        <div class="intro">
+            General Knowledge equips learners with a wide range of information across subjects such as history, science, geography, and current affairs. This knowledge not only enhances understanding but also increases self-assurance when participating in discussions, quizzes, and examinations.
+        </div>
+
+        <div class="more" id="more-gk-confidence">
+            Being well-informed allows individuals to speak confidently on diverse topics, whether in academic settings, social conversations, or professional discussions. Knowledge of facts, events, and concepts enables clear communication, thoughtful arguments, and informed opinions, which help create a positive impression in personal and professional interactions.
+
+            <br><br>
+            In competitive exams and quizzes, General Knowledge provides an edge by improving accuracy, speed, and the ability to recall relevant information quickly. Familiarity with a wide range of topics reduces hesitation, boosts performance, and enhances critical thinking skills. This preparation strengthens not only academic performance but also decision-making abilities in real-life scenarios.
+
+            <br><br>
+            Confidence gained through General Knowledge also supports participation in group discussions, debates, and public speaking. It encourages learners to engage actively, share insights, and express ideas clearly without fear of being uninformed. Over time, this confidence fosters leadership skills, social awareness, and the ability to influence others constructively.
+
+            <br><br>
+            Moreover, consistent learning and updating knowledge create a habit of curiosity and lifelong learning. Students become more adaptive to new information, better at analyzing situations, and capable of responding intelligently in unfamiliar contexts. This self-assurance extends beyond examinations into daily life, enabling effective problem-solving, decision-making, and informed judgment.
+
+            <br><br>
+            Overall, boosting confidence through General Knowledge empowers learners to participate meaningfully in society, enhances academic and professional performance, and nurtures a sense of preparedness and self-reliance. It demonstrates how knowledge translates into competence, credibility, and a stronger sense of personal and intellectual confidence.
+        </div>
+
+        <button class="read-toggle" aria-expanded="false" aria-controls="more-gk-confidence">Read More</button>
+        </section>
+
+        <section class="topic" id="critical-thinking">
+        <h3>Strengthens Critical Thinking and Decision-Making Skills</h3>
+
+        <div class="intro">
+            General Knowledge plays a key role in developing critical thinking and decision-making abilities. By exposing learners to diverse information, facts, and perspectives, it encourages analytical reasoning and helps in evaluating situations carefully before forming judgments or making choices.
+        </div>
+
+        <div class="more" id="more-critical-thinking">
+            Exposure to a wide range of topics—such as history, science, geography, and current events—trains the mind to analyze information logically, identify patterns, and understand cause-and-effect relationships. Learners develop the ability to compare viewpoints, assess evidence, and draw informed conclusions rather than relying on assumptions or incomplete knowledge.
+
+            <br><br>
+            Critical thinking enables individuals to approach problems systematically. For example, understanding environmental issues or global events allows learners to weigh options, anticipate consequences, and propose effective solutions. Similarly, evaluating historical events or scientific phenomena fosters reasoning skills that can be applied to academic challenges, professional tasks, and everyday decision-making.
+
+            <br><br>
+            Decision-making skills improve as learners practice applying knowledge in practical contexts. By considering different factors, evaluating pros and cons, and predicting outcomes, they develop a structured approach to solving problems. This ability extends to time management, prioritizing tasks, and making choices that have social, economic, or personal impact.
+
+            <br><br>
+            Engaging with General Knowledge also encourages curiosity and open-mindedness, which are essential for independent thinking. Learners become more confident in questioning assumptions, exploring alternative perspectives, and making decisions based on logic and evidence rather than influence or opinion alone.
+
+            <br><br>
+            Strengthened critical thinking and decision-making skills not only enhance academic performance but also prepare students for real-world challenges. They foster responsible citizenship, ethical reasoning, and the capacity to navigate complex situations in personal, professional, and social contexts.
+
+            <br><br>
+            Ultimately, General Knowledge equips learners with the tools to think clearly, analyze effectively, and make informed choices. These cognitive abilities contribute to intellectual growth, practical problem-solving, and the confidence to act decisively in diverse circumstances.
+        </div>
+
+        <button class="read-toggle" aria-expanded="false" aria-controls="more-critical-thinking">Read More</button>
+        </section>
+
+        <section class="topic" id="competitive-exams">
+        <h3>Useful for Competitive Exams, Interviews, and General Communication</h3>
+
+        <div class="intro">
+            General Knowledge provides a strong foundation for succeeding in competitive exams, interviews, and day-to-day communication. Awareness of facts, current events, and basic concepts across multiple subjects equips learners to answer questions confidently and engage meaningfully in discussions.
+        </div>
+
+        <div class="more" id="more-competitive-exams">
+            In competitive exams, a solid grasp of General Knowledge helps candidates tackle questions related to history, geography, science, politics, sports, and current affairs. It allows test-takers to recall accurate information quickly and approach problem-solving tasks with clarity, improving overall performance and confidence under pressure.
+
+            <br><br>
+            During interviews, knowledge of world events, social trends, and general topics demonstrates awareness, curiosity, and preparedness. Candidates can provide insightful answers, contribute to discussions, and display critical thinking. This not only leaves a positive impression on interviewers but also reflects adaptability and intellectual engagement.
+
+            <br><br>
+            General Knowledge also enhances daily communication by enabling meaningful conversations with peers, colleagues, and acquaintances. Being informed about global and local issues, technological advancements, and cultural developments allows individuals to express opinions, exchange ideas, and participate in discussions intelligently and respectfully.
+
+            <br><br>
+            Additionally, staying updated with current affairs and general knowledge helps learners connect diverse subjects, recognize interrelationships, and apply insights practically. For instance, understanding environmental issues, economic policies, or scientific innovations allows individuals to discuss topics with authority, suggest solutions, or make informed personal and professional decisions.
+
+            <br><br>
+            Overall, integrating General Knowledge into preparation routines builds confidence, sharpens reasoning skills, and improves social and professional competence. It equips learners to perform effectively in exams, articulate thoughts clearly in interviews, and maintain informed conversations in various contexts, creating a lasting advantage in both personal and professional life.
+        </div>
+
+        <button class="read-toggle" aria-expanded="false" aria-controls="more-competitive-exams">Read More</button>
+        </section>
+
     </main>
+
     <footer>
         <p>&copy; 2025 SBQuest. All rights reserved.</p>
     </footer>
