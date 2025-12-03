@@ -498,12 +498,35 @@
     <button class="read-toggle" aria-expanded="false" aria-controls="more-innovation-everyday-life">Read More</button>
     </section>
 
+      <script>
+    // Add toggle behavior for all read-toggle buttons
+    document.querySelectorAll('.read-toggle').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        var targetId = btn.getAttribute('aria-controls');
+        var target = document.getElementById(targetId);
+        var expanded = btn.getAttribute('aria-expanded') === 'true';
+
+        if (!target) return;
+
+        if (expanded) {
+          target.style.display = 'none';
+          btn.textContent = 'Read More';
+          btn.setAttribute('aria-expanded', 'false');
+        } else {
+          target.style.display = 'block';
+          btn.textContent = 'Read Less';
+          btn.setAttribute('aria-expanded', 'true');
+        }
+      });
+    });
+  </script>
 
 
 
 
 
-    <h2>Interesting Facts</h2>
+
+    <!-- <h2>Interesting Facts</h2>
     <p>
         The human body contains around 37 trillion cells working together.  
         The speed of light is 299,792 kilometers per second — the fastest thing in the universe.  
@@ -517,7 +540,7 @@
         <li>Jupiter has 95 known moons.</li>
         <li>Some stars are so bright that one can replace millions of Suns.</li>
         <li>Black holes have gravity so strong that even light cannot escape.</li>
-    </ul>
+    </ul> -->
 </main>
 
     <footer>

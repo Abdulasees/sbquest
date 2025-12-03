@@ -434,6 +434,29 @@
         It teaches how nature shapes human life and how people change the environment.
         Knowledge of geography improves general awareness, travel understanding, and decision-making about the planet.
     </p>
+
+      <script>
+    // Add toggle behavior for all read-toggle buttons
+    document.querySelectorAll('.read-toggle').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        var targetId = btn.getAttribute('aria-controls');
+        var target = document.getElementById(targetId);
+        var expanded = btn.getAttribute('aria-expanded') === 'true';
+
+        if (!target) return;
+
+        if (expanded) {
+          target.style.display = 'none';
+          btn.textContent = 'Read More';
+          btn.setAttribute('aria-expanded', 'false');
+        } else {
+          target.style.display = 'block';
+          btn.textContent = 'Read Less';
+          btn.setAttribute('aria-expanded', 'true');
+        }
+      });
+    });
+  </script>
 </main>
 
     <footer>
