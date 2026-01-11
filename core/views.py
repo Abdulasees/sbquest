@@ -73,17 +73,113 @@ def home(request):
 def science(request):
     return render(request, "science.html")
 
+def biology(request):
+    return render(request,"biology-basics.html")
+
+def chemistry(request):
+    return render(request,"chemistry-basics.html")
+
+def physics(request):
+    return render(request,"physics-basics.html")
+
+def space(request):
+    return render(request,"space-and-astronomy.html")
+
+def famous_scientists(request):
+    return render(request,"famous-scientists.html")
+
+def earth_and_environment(request):
+    return render(request,"earth-and-environment.html")
+
+
+
+
+
 def history(request):
     return render(request, "history.html")
 
+def world_war_1(request):
+    return render(request, "world_war_1.html")
+
+def world_war_2(request):
+    return render(request, "world_war_2.html")
+
+def Indian_Freedom(request):
+    return render(request, "Indian_Freedom_Movement.html")
+
+def How_Governments_Were_Formed(request):
+    return render(request, "How_Governments_Were_Formed.html")
+
+def How_Early_Societies_Lived(request):
+    return render(request, "How_Early_Societies_Lived.html")
+
+def Growth_of_Empires_and_Old_Kingdoms(request):
+    return render(request, "Growth_of_Empires_and_Old_Kingdoms.html")
+
+def Explorers_and_Their_Journeys(request):
+    return render(request, "Explorers_and_Their_Journeys.html")
+
+def Trade_Routes(request):
+    return render(request, "Trade_Routes_and_Exchange_of_Ideas.html")
+
+
+
+
+
+
+
+
+
+
 def geography(request):
     return render(request, "geography.html")
+
+def Maps(request):
+    return render(request, "Maps.html")
+
+def World_Climate(request):
+    return render(request, "World_Climate.html")
+
+def Continents(request):
+    return render(request, "Continents.html")
+
+def Environmental_Geography(request):
+    return render(request, "Environmental_Geography.html")
+
+def Human_Geography(request):
+    return render(request, "Human_Geography.html")
+
+def Physical_Geography(request):
+    return render(request, "Physical_Geography.html")
+
+
 
 # def language(request):
 #     return render(request, "language.html")
 
 def gk(request):
     return render(request, "gk.html")
+
+def World_Capitals(request):
+    return render(request, "World_Capitals.html")
+    
+def Population_Facts(request):
+    return render(request, "Population_Facts.html")
+
+def Major_Languages(request):
+    return render(request, "Major_Languages.html")
+
+def Time_Zones(request):
+    return render(request, "Time_Zones.html")
+
+def Global_Records(request):
+    return render(request, "Global_Records.html")
+
+def World_Currencies(request):
+    return render(request, "World_Currencies.html")
+
+def Famous_International_Organizations(request):
+    return render(request, "Famous_International_Organizations.html")    
 # def mathematics(request):
 #     return render(request, "mathematics.html")
 
