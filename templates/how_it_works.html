@@ -40,9 +40,10 @@ h2 {
     justify-content: space-between;
 }
 .step-content {
-    display: none;
+    display: block;
     margin-top: 10px;
 }
+
 p, li {
     font-size: 16px;
     line-height: 1.6;
@@ -65,10 +66,8 @@ footer a {
 footer a:hover {
     text-decoration: underline;
 }
-.toggle-icon {
-    font-weight: bold;
-    margin-left: 10px;
-}
+
+
 @media (max-width: 768px) {
     .container { padding: 20px; }
     h1 { font-size: 1.6em; }
@@ -151,42 +150,46 @@ footer a:hover {
 
   <p>Simply open the platform, choose a quiz, and answer focused questions. The short format keeps learning light, and the variety of topics keeps the experience engaging across different subjects. SBQuest works on all devices, making it easy to participate anywhere.</p>
 
-  <h2 onclick="toggleStep('step1')">Step 1: Create an Account <span class="toggle-icon">➕</span></h2>
-  <div class="step-content" id="step1">
+  <h2>Step 1: Create an Account</h2>
+<div class="step-content">
+
     <p>Sign up on the SBQuest platform using your basic details. Registration is fast and gives immediate access to daily quizzes. Once logged in, you can navigate the platform effortlessly. Creating an account also allows you to track your progress, maintain streaks, and view your performance on a personalized dashboard.</p>
   </div>
 
-  <h2 onclick="toggleStep('step2')">Step 2: Browse Daily Quizzes <span class="toggle-icon">➕</span></h2>
-  <div class="step-content" id="step2">
+  <h2 >Step 2: Browse Daily Quizzes </h2>
+  <div class="step-content">
     <p>Fresh quizzes are added regularly on topics such as science, history, and general knowledge. Each quiz provides a short, useful burst of learning that fits easily into your day. You can explore quizzes by category, difficulty level, or special daily challenges to match your learning goals.</p>
   </div>
 
-  <h2 onclick="toggleStep('step3')">Step 3: Take the Quiz <span class="toggle-icon">➕</span></h2>
-  <div class="step-content" id="step3">
+  <h2 >Step 3: Take the Quiz </h2>
+  <div class="step-content">
     <p>Select a quiz and begin answering questions one by one. Explanations are concise, and the quiz is designed to be completed in a few minutes, reducing stress and keeping the process simple. Instant feedback and hints help reinforce learning as you go.</p>
   </div>
 
-  <h2 onclick="toggleStep('step4')">Step 4: Submit Your Answers <span class="toggle-icon">➕</span></h2>
-  <div class="step-content" id="step4">
+  <h2 >Step 4: Submit Your Answers </h2>
+  <div class="step-content">
     <p>After completing the questions, submit your answers with one click. Scores are tracked so you can monitor your improvement over time. The platform ensures a smooth, distraction-free process from start to finish.</p>
   </div>
 
-  <h2 onclick="toggleStep('step5')">Step 5: Use Any Device <span class="toggle-icon">➕</span></h2>
-  <div class="step-content" id="step5">
+  <h2 >Step 5: Use Any Device </h2>
+  <div class="step-content">
     <p>SBQuest works perfectly on mobiles, tablets, and desktops. The responsive layout adjusts automatically to your device, ensuring a comfortable experience anywhere. Notifications and reminders can help you stay consistent with daily quizzes.</p>
   </div>
 
-  <h2 onclick="toggleStep('step6')">Step 6: Continue Daily Learning <span class="toggle-icon">➕</span></h2>
-  <div class="step-content" id="step6">
+  <h2>Step 6: Continue Daily Learning </h2>
+  <div class="step-content">
     <p>Return daily for new quizzes covering different topics. This brief, consistent approach helps you build general knowledge gradually while keeping learning light and enjoyable. Habit-building and variety help strengthen cognitive skills over time.</p>
   </div>
 
-  <h2>Frequently Asked Questions (FAQ)</h2>
-  <ul>
-    <li><strong>Do I need an account?</strong> While some quizzes are accessible without an account, signing up allows you to track progress and earn achievements.</li>
-    <li><strong>Can I skip a day and continue later?</strong> Yes! Your progress is saved, so you can resume whenever convenient.</li>
-    <li><strong>Are quizzes timed?</strong> Most quizzes are untimed to encourage stress-free learning, though some challenge quizzes may have limits.</li>
-  </ul>
+ <h2>Need More Help?</h2>
+<p>
+If you have questions about using SBQuest, quiz rules, or your account, please visit our
+<a href="/faq/"  style="font-weight:bold; color:#2c3e50; text-decoration:none;">
+Frequently Asked Questions page
+</a>
+for detailed answers.
+</p>
+
 
   <div style="border:1px solid #dcdcdc;padding:15px;margin:25px 0;border-radius:8px;background:#f9f9f9;">
     <p style="margin:0;font-size:16px;color:#444;">
@@ -211,19 +214,7 @@ footer a:hover {
 </div>
 
 
-<script>
-function toggleStep(id) {
-    var content = document.getElementById(id);
-    var icon = content.previousElementSibling.querySelector('.toggle-icon');
-    if(content.style.display === "block") {
-        content.style.display = "none";
-        icon.textContent = "➕";
-    } else {
-        content.style.display = "block";
-        icon.textContent = "➖";
-    }
-}
-</script>
+
 
 </body>
 </html>
